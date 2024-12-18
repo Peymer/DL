@@ -183,11 +183,9 @@ console.log(user.fullName); // Остап Бендер
 let user = {
   name: "Паниковский",
   surname: "Михаил",
-
   get fullName() {
     return `${this.name} ${this.surname}`;
   },
-
   set fullName(value) {
     [this.name, this.surname] = value.split(" ");
   }
