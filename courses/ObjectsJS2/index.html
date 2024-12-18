@@ -75,18 +75,56 @@ user.sayHi();	// Привет!
 
 user = {
   sayHi: function() {
-    alert("Привет");
+    console.log("Привет");
   }
 };
 
 // сокращённая запись выглядит лучше, не так ли?
 user = {
   sayHi() { // то же самое, что и "sayHi: function(){...}"
-    alert("Привет");
+    console.log("Привет");
   }
 };
 					</code></pre>
 					<p>Эти две записи не полностью эквивалентны. Есть тонкие различия.</p>
+				</section>
+				<section>
+					<h4>Ключевое слово «this» в методах</h4>
+					<p><b>this</b> - означает "текущий объект"</p>
+					<pre><code>
+let user = {
+  name: "Иннокентий",
+  age: 30,
+
+  sayHi() {
+    console.log(this.name);
+  }
+};
+
+user.sayHi(); // Иннокентий					
+					</code></pre>
+				</section>
+				<section>
+					<h4>«this» не является фиксированным</h4>
+					<pre><code>
+let user = { name: "Пётр" };
+let admin = { name: "Admin" };
+
+function sayHi() {
+  console.log( this.name );
+}
+
+// используем одну и ту же функцию в двух объектах
+user.f = sayHi;
+admin.f = sayHi;
+
+// эти вызовы имеют  разное значение this
+// "this" внутри функции - это объект "перед точкой"
+user.f(); // Пётр  (this == user)
+admin.f(); // Admin  (this == admin)
+
+admin['f'](); // Admin					
+					</code></pre>
 				</section>
 			</div>
 		</div>
