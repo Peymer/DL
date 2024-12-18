@@ -33,7 +33,7 @@ let user = {
 				</section>
 				<section>
 				<h4>Пример метода</h4>
-				<pre><code>
+					<pre><code>
 let user = {
   name: "John",
   age: 30,
@@ -41,16 +41,16 @@ let user = {
 			consile.log("Привет!");
 		}
 };
-				</code></pre>
-				<p>Вызов метода:</p>
-				<pre><code>
+					</code></pre>
+					<p>Вызов метода:</p>
+					<pre><code>
 user.sayHi();	// Привет!			
-				</code></pre>
-				</section>
-				<section>
-					<h4>Другой вариант</h4>
-					<p>Свойству с именем sayHi пирсваивается заранее созданная функция</p>
-				<pre><code>
+					</code></pre>
+					</section>
+					<section>
+						<h4>Другой вариант</h4>
+						<p>Свойству с именем sayHi пирсваивается заранее созданная функция</p>
+					<pre><code>
 // Объект пользователя
 let user = {
   name: "John",
@@ -62,11 +62,30 @@ function sayHi() {
 }
 // добавляем в качестве метода
 user.sayHi = sayHi;					
-				</code></pre>
-				<p>Вызов метода:</p>
-				<pre><code>
+					</code></pre>
+					<p>Вызов метода:</p>
+					<pre><code>
 user.sayHi();	// Привет!			
-				</code></pre>
+					</code></pre>
+				</section>
+				<section>
+					<h4>Сокращённая запись метода</h4>
+					<pre><code>
+// эти объекты делают одно и то же
+
+user = {
+  sayHi: function() {
+    alert("Привет");
+  }
+};
+
+// сокращённая запись выглядит лучше, не так ли?
+user = {
+  sayHi() { // то же самое, что и "sayHi: function(){...}"
+    alert("Привет");
+  }
+};
+					</code></pre>
 				</section>
 			</div>
 		</div>
