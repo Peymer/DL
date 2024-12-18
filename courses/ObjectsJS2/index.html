@@ -225,7 +225,9 @@ function User(name, birthday) {
   this.birthday = birthday;
  }
  
- let u = new User("Райкер", 33);
+ let u = new User("Райкер", new Date(1966, 10, 03));
+ console.log(u.birthday); // 03.10.1966
+ console.log(u.name); // Райкер
 					</code></pre>
 				</section>
 
