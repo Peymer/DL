@@ -134,6 +134,103 @@ user.sayHi(); // Привет!
 				</code></pre>
 				<p>Стрелочные функции <b>не имеют</b> «собственного» this</p>
 				</section>
+				<section>
+					<h4>Возвращаемые значения</h4>
+					<pre><code data-trim>
+let calc = {
+	x: 0
+	y: 0
+	sum: function (a,b){
+		return a+b;
+	}
+};
+
+console.log(calc.sum(33, 66)); // 99
+					</code></pre>
+				</section>
+				<section>
+					<p>У объекта может быть два типа свойств</p>
+					<ul>
+						<li>Свойства-данные</li>
+						<li>Свойства-аксессоры - это функции, которые используются для присвоения и получения значения</li>
+					</ul>
+					<pre><code data-trim>
+let obj = {
+  get propName() {
+    // геттер, срабатывает при чтении obj.propName
+  },
+  set propName(value) {
+    // сеттер, срабатывает при записи obj.propName = value
+  }
+};						
+					</code></pre>
+				</section>
+				<section>
+					<pre><code data-trim>
+let user = {
+  name: "Остап",
+  surname: "Бендер",
+
+  get fullName() {
+    return `${this.name} ${this.surname}`;
+  }
+};
+console.log(user.fullName); // Остап Бендер					
+					</code></pre>
+				</section>
+				<section>
+				<pre><code data-trim>
+let user = {
+  name: "Паниковский",
+  surname: "Михаил",
+
+  get fullName() {
+    return `${this.name} ${this.surname}`;
+  },
+
+  set fullName(value) {
+    [this.name, this.surname] = value.split(" ");
+  }
+};
+user.fullName = "Балаганов Шура";
+
+console.log(user.name); // Балаганов
+console.log(user.surname); // Шура
+				</code></pre>
+				</section>
+				<section>
+					<h4>Важно</h4>
+					<p>Cвойство объекта может быть либо свойством-аксессором (с методами get/set), либо свойством-данным</p>
+				</section>
+				<section>
+					<pre><code data-trim>
+let user = {
+  name: "Александр",
+  surname: "Корейко"
+};
+Object.defineProperty(user, 'fullName', {
+  get() {
+    return `${this.name} ${this.surname}`;
+  },
+  set(value) {
+    [this.name, this.surname] = value.split(" ");
+  }
+});
+console.log(user.fullName); // Александр Корейко 
+for(let key in user) console.log(key); // name, surname						
+					</code></pre>
+				</section>
+				<section>
+					<pre><code data-trim>
+function User(name, birthday) {
+  this.name = name;
+  this.birthday = birthday;
+ }
+ 
+ let u = new User("Райкер", 33);
+					</code></pre>
+				</section>
+
 			</div>
 		</div>
 		
