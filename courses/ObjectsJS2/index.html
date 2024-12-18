@@ -115,7 +115,6 @@ function sayHi() {
 user.f = sayHi;
 admin.f = sayHi;
 
-// эти вызовы имеют  разное значение this - внутри функции - это объект "перед точкой"
 user.f(); // Пётр  (this == user)
 admin.f(); // Admin  (this == admin)
 admin['f'](); // Admin					
