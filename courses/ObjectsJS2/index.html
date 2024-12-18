@@ -121,6 +121,20 @@ admin.f(); // Admin  (this == admin)
 admin['f'](); // Admin					
 					</code></pre>
 				</section>
+				<section>
+				<h4>Стрелочные функции</h4>
+				<pre><code data-trim>
+let user = {
+  name: "Василий",
+  age: 30,
+  sayHi: () => {
+    console.log("Привет!");
+  }
+};
+user.sayHi(); // Привет!					
+				</code></pre>
+				<p>Стрелочные функции <b>не имеют</b> «собственного» this</p>
+				</section>
 			</div>
 		</div>
 		
