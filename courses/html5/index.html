@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../black.css">
 
         <!-- Theme used for syntax highlighted code -->
-        <link rel="stylesheet" href="monokai.css">
+        <link rel="stylesheet" href="../monokai.css">
     </head>
     <body>
         <div class="reveal">
@@ -19,30 +19,217 @@
 					<p align="right">&copy; <a href="mailto:ipigp@yandex.ru">IGP</a>, январь 2025 г.</p>
                 </section>
 				<section>
-					&lt;div&gt;Текст &lt;br /&gt; элемента div&lt;/div&gt;<br/><br/>
-                    &lt;div&gt; - Тег<br/>
+                    <pre><code>
+<div>Текст<br/>элемента div</div>
+                    </code></pre>
+					&lt;div&gt; - Тег<br/>
                     &lt;/div&gt; - Закрытие тега <br/>
                     &lt;br/&gt; - Тег без тела (самозакрывающий)<br/><br/>
-                    &lt;div style="color:red;"&gt;Кнопка&lt;/div&gt;<br/>
+                    <pre><code>
+<div style="color:red;">Кнопка</div>
+                    </code></pre>
 				</section>
                 <section>
+                    <h4>Глобальные атрибуты</h4>
                     <ul>
-                        <li><b>accesskey: </b>определяет клавишу для быстрого доступа к элементу</li><br/>
-<li><b>class: </b>задает класс CSS, который будет применяться к элементу</li><br/>
-<li><b>contenteditable: определяет, можно ли редактировать содержимое элемента</li><br/>
-<li>contextmenu: определяет контекстное меню для элемента, которое отображается при нажатии на элемент правой кнопкой мыши
-<li>dir: устанавливает направление текста в элементе
-<li>draggable: определяет, можно ли перетаскивать элемент
-<li>dropzone: определяет, можно ли копировать переносимые данные при переносе на элемент
-<li>hidden: скрывает элемент
-<li>id: уникальный идентификатор элемента. На веб-странице элементы не должны иметь повторяющихся идентификаторов
-    <li>lang: определяет язык элемента
-        <li>spellcheck: указывает, будет ли для данного элемента использоваться проверка правописания
-            <li>style: задает стиль элемента
-                <li>tabindex: определяет порядок, в котором по элементам можно переключаться с помощью клавиши TAB
-                    <li>title: устанавливает дополнительное описание для элемента
-                        <li>translate: определяет, должно ли переводиться содержимое элемента
+                        <li><b>accesskey:</b> определяет клавишу для быстрого доступа к элементу</li>
+                        <li><b>class:</b> задает класс CSS, который будет применяться к элементу</li>
+                        <li><b>contenteditable:</b> определяет, можно ли редактировать содержимое элемента</li>
+                        <li><b>contextmenu:</b> определяет контекстное меню для элемента, которое отображается при нажатии на элемент правой кнопкой мыши</li>
                     </ul>
+                </section>
+                <section>
+                    <ul>
+                        <li><b>dir:</b> устанавливает направление текста в элементе</li>
+                        <li><b>draggable:</b> определяет, можно ли перетаскивать элемент</li>   
+                        <li><b>dropzone:</b> определяет, можно ли копировать переносимые данные при переносе на элемент</li> 
+                        <li><b>hidden:</b> скрывает элемент</li>    
+                        <li><b>id:</b> уникальный идентификатор элемента. На веб-странице элементы не должны иметь повторяющихся идентификаторов</li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <li><b>lang:</b> определяет язык элемента</li>
+                        <li><b>spellcheck:</b> указывает, будет ли для данного элемента использоваться проверка правописания</li>   
+                        <li><b>style:</b> задает стиль элемента</li>    
+                        <li><b>tabindex:</b> определяет порядок, в котором по элементам можно переключаться с помощью клавиши TAB</li>  
+                        <li><b>title:</b> устанавливает дополнительное описание для элемента</li>   
+                        <li><b>translate:</b> определяет, должно ли переводиться содержимое элемента</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Часто используемые атрибуты</h4>
+                    <ul>
+                        <li><b>class</b>: задает класс CSS, который будет применяться к элементу</li>
+                        <li><b>id</b>: уникальный идентификатор элемента. На веб-странице элементы не должны иметь повторяющихся идентификаторов</li>
+                        <li><b>style</b>: задает стиль элемента</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Атрибуты определяемые пользователем</h4>
+                    <p>Разработчик или создатель веб-страницы сам может определить любой атрибут, предваряя его префиксом <b>data-</b>.</p>
+                    <pre><code><input type="button" value="Нажать" data-color="red" ></code></pre>
+                </section>
+                <section>
+                    <h4>Одинарные или двойные кавычки</h4>
+                    <p>При определении значений атрибутов применяются как одинарные, так и двойные кавычки.</p>
+                    <pre>
+                        <code>
+<input type='button' value='Нажать'/>
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+<input type="button" value="Нажать"/>
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+<input type="button" value='Кнопка "Привет мир"'>
+                        </code>
+                    </pre>
+                </section>
+                <section>
+                    <h4>Шаблон документа</h4>
+                    <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"/&gt;
+        &lt;title&gt;Документ HTML5&lt;/title&gt;
+    </head>
+    &lt;body&gt;
+        &lt;div&gt;Содержание документа HTML5&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Элементы в HTML5</h4>
+                    <ul>
+                        <li>head</li>
+                        <li>title - заголовок</li>
+                        <li>base - базовый адрес веб-страницы</li>
+                        <li>meta - метаданные документа. 
+                            <pre><code><meta charset="utf-8"/></code></pre></li>
+                    </ul>
+                </section>
+                <section>
+                            <p>По умолчанию определены:</p>
+                            <ul>
+                                <li><b>application name:</b> название веб-приложения, частью которого является данный документ</li>
+                                <li><b>author:</b> автор документа</li>
+                                <li><b>description:</b> краткое описание документа. Его поисковые системы используют в качестве аннотации</li>
+                                <li><b>generator:</b> название программы, которая сгенерировала данный документ</li>
+                                <li><b>keywords: </b>ключевые слова документа</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Записать в тетради что означает каждая строка</h4>
+                    <pre><code data-trim data-line-numbers>
+                        &lt;!DOCTYPE html&gt;
+                        &lt;html&gt;
+                            &lt;head&gt;
+                                &lt;meta charset="utf-8"/&gt;
+                                &lt;base href="content/"/&gt;
+                                &lt;title&gt;Элемент title&lt;/title&gt;
+                                &lt;meta name="description" content="Первый документ"/&gt;
+                                &lt;meta name="author" content="Bill Gates"/&gt;
+                            &lt;/head&gt;
+                            &lt;body&gt;
+                                &lt;a href="newpage.html"&gt;Содержание документа&lt;/a&gt;
+                            &lt;/body&gt;
+                        &lt;/html&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Элементы группировки. DIV</h4>
+                    <p>Div создает блок, который по умолчанию растягивается по всей ширине браузера, а следующий после div элемент переносится на новую строку. </p>
+                    <p style="color:red;">Создать страницу с 2 элементами DIV, содержащими произвольный текст (более 1 строки)</p>
+                </section>
+                <section>
+                    <h4>Элементы группировки. Параграфы (&lt;p&gt;)</h4>
+                    <p>Каждый новый параграф располагается на новой строке.</p>
+                    <p style="color: red;">На странице создать 2 параграфа, содержащих произвольный текст (более 1 строки). Сравнить с DIV</p>
+                </section>
+                <section>
+                    <h4>Элементы группировки. Предварительно отформатированный текст (&lt;pre&gt;)</h4>
+                    <p style="color: red;">Страницу дополнить строфой 1 стиха М.Ю. Лермонтова "Утес" (Ночевала тучка золотая
+                        На груди утеса-великана;...)</p>
+                </section>
+                <section>
+                    <h4>Элементы группировки. Невидимая группировка (&lt;span&gt;)</h4>
+                    <p style="color: red;">Добавить на страницу текст (2-3 строки) красного цвета, используя span и атрибут style="color: red;"</p>
+                </section>
+                <section>
+                    <h4>Заголовки</h4>
+                    <pre><code data-trim>
+                        &lt;!DOCTYPE html&gt;
+                        &lt;html&gt;
+                            &lt;head&gt;
+                                &lt;meta charset="utf-8"&gt;
+                                &lt;title&gt;Заголовки в HTML5&lt;/title&gt;
+                            &lt;/head&gt;
+                            &lt;body&gt;
+                                &lt;h1&gt;Заголовок первого уровня&lt;/h1&gt;
+                                &lt;h2&gt;Заголовок второго уровня&lt;/h2&gt;
+                                &lt;h3&gt;Заголовок третьего уровня&lt;/h3&gt;
+                                &lt;h4&gt;Заголовок четвертого уровня&lt;/h4&gt;
+                                &lt;h5&gt;Заголовок пятого уровня&lt;/h5&gt;
+                                &lt;h6&gt;Заголовок шестого уровня&lt;/h6&gt;
+                            &lt;/body&gt;
+                        &lt;/html&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Форматирование текста</h4>
+                    <p style="color: red;">Записать в тетради что делает каждый тег форматирования</p>
+                    <pre><code data-trim data-line-numbers>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"/&gt;
+        &lt;title&gt;Форматирование текста в HTML5&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p&gt;Форматирование в &lt;mark&gt;HTML5&lt;/mark&gt;&lt;/p&gt;
+        &lt;p&gt;Это &lt;b&gt;выделенный&lt;/b&gt; текст&lt;/p&gt;
+        &lt;p&gt;Это &lt;strong&gt;важный&lt;/strong&gt; текст&lt;/p&gt;
+        &lt;p&gt;Это &lt;del&gt;зачеркнутый&lt;/del&gt; текст&lt;/p&gt;
+        &lt;p&gt;Это &lt;s&gt;недействительный&lt;/s&gt; текст&lt;/p&gt;
+        &lt;p&gt;Это &lt;em&gt;важный&lt;/em&gt; текст&lt;/p&gt;
+        &lt;p&gt;Это текст &lt;i&gt;курсивом&lt;/i&gt; &lt;/p&gt;
+        &lt;p&gt;Это &lt;ins&gt;добавленный&lt;/ins&gt; текст&lt;/p&gt;
+        &lt;p&gt;Это &lt;u&gt;подчеркнутый&lt;/u&gt; текст&lt;/p&gt;
+        &lt;p&gt;X&lt;sub&gt;i&lt;/sub&gt; = Y&lt;sup&gt;&lt;small&gt;2&lt;/small&gt;&lt;/sup&gt; + Z&lt;sup&gt;&lt;small&gt;2&lt;/small&gt;&lt;/sup&gt;&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Работа с изображениями (&lt;img&gt;)</h4>
+                    <ul>
+                        <li><b>src</b> адрес файла картинки</li>
+                        <li><b>alt</b> текстовое описание изображения. Если картинка не может быть загружена, отображается этот текст</li>
+                    </ul>
+                    <pre><code data-trim>
+                        &lt;img src="dubi.png" alt="Зимняя равнина" /&gt;                        
+                    </code></pre>
+                    <img src="./1.png"/>
+                </section>
+                <section>
+                    <h4>Работа с изображениями (&lt;img&gt;)</h4>
+                    <pre><code data-trim>
+                        &lt;div&gt;
+                            &lt;img src="dubi.png" alt="Зимняя равнина" style="float:left; margin-right:10px;" /&gt;
+                            &lt;h1&gt;Lorem Ipsum&lt;/h1&gt;
+                            &lt;b&gt;Lorem Ipsum&lt;/b&gt; is simply dummy text of the printing and typesetting industry. 
+                                Lorem Ipsum has been the industry....
+                        &lt;/div&gt;  
+                    </code></pre>
+                    <img src="./2.png"/>                     
                 </section>
             </div>
         </div>
@@ -56,9 +243,9 @@
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
 			Reveal.initialize({
-				hash: true,
+				hash:true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
+				// Learn about plugins:</b> https://revealjs.com/plugins/
 				plugins: [ RevealHighlight, RevealNotes ]
 			});
 		</script>
