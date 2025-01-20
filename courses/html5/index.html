@@ -138,7 +138,7 @@
                 </section>
                 <section>
                     <h4>Элементы группировки. (&lt;DIV&gt;)</h4>
-                    <p>Div создает блок, который по умолчанию растягивается по всей ширине браузера, а следующий после div элемент переносится на новую строку. </p>
+                    <p>Div создает блок, который по умолчанию растягивается по всей ширине окна, а следующий после div элемент переносится на новую строку. </p>
                     <p style="color:red;">Создать страницу с 2 элементами DIV, содержащими произвольный текст (более 1 строки)</p>
                 </section>
                 <section>
@@ -338,7 +338,77 @@
                     <img src="./4.png"/>
                 </section>
                 <section>
-
+                    <h4>Ссылки</h4>
+                    <p>Задаются тегом <b>&lt;a&gt;</b> - обеспечивают навигацию между отдельными документами и их частями.</p>
+                    <h5>Атрибуты</h5>
+                    <ul>
+                        <li><b>href</b> определяет адрес ссылки</li>
+                        <li><b>hreflang</b> указывает язык документа по ссылке</li> 
+                        <li><b>media</b> устройство, для данной ссылки</li>
+                        <li><b>rel</b> отношение между ресурсами</li>
+                        <li><b>target</b> способ открытия документа</li>                       
+                        <li><b>type</b> mime-тип ресурса по ссылке</li>                      
+                    </ul>
+                </section>
+                <section>
+                    <p>Адрес ссылки задается в абсолютном или относительном формате:</p>
+                    <p>Абсолютная ссылка</p>
+                    <pre><code data-trim>&lt;a href="https://yandex.ru"&gt;Поисковик&lt;/a&gt;</code></pre>
+                    <p>Относительная ссылка</p>
+                    <pre><code data-trim>&lt;a href="file.html"&gt;Другой документ&lt;/a&gt;</code></pre>
+                </section>
+                <section>
+                    <h4>Навигация внутри документа</h4>
+                    <p>Можно задать внутренние ссылки, которые будут переходить к определенным блокам внутри страницы.</p>
+                    <pre><code data-trim>
+                        &lt;a href="#paragraph1"&gt;Параграф 1&lt;/a&gt; 
+                        | &lt;a href="#paragraph2"&gt;Параграф 2&lt;/a&gt; 
+                        | &lt;a href="#paragraph3"&gt;Параграф 3&lt;/a&gt;
+                        &lt;h2 id="paragraph1"&gt;Параграф 1&lt;/h2&gt;
+                        &lt;p&gt;Содержание параграфа 1&lt;/p&gt;
+                        &lt;h2 id="paragraph2"&gt;Параграф 2&lt;/h2&gt;
+                        &lt;p&gt;Содержание параграфа 2&lt;/p&gt;
+                        &lt;h2 id="paragraph3"&gt;Параграф 3&lt;/h2&gt;
+                        &lt;p&gt;Содержание параграфа 3&lt;/p&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Атрибут target</h4>
+                    <p>Ресурсы, открываются в том же окне. С помощью атрибута target можно переопределить это действие. </p>
+                    <ul>
+                        <li><b>_blank</b> открытие в новом окне или вкладке</li>
+                        <li><b>_self</b> открытие в том же фрейме (или окне)</li>
+                        <li><b>_parent</b> открытие в родительском фрейме</li>
+                        <li><b>_top</b> открытие на все окно обозревателя</li>
+                        <li><b>framename</b> открытие во фрейме framename</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Ссылка-картинка</h4>
+                    <pre><code data-trim>
+                        &lt;a href="file.html"&gt;
+                            &lt;img src="cover.jpg" alt="Гостиничный замок"&gt;
+                        &lt;/a&gt;
+                    </code></pre> 
+                    <a href="file.html">
+                        <img src="cover.jpg" height="200" alt="Гостиничный замок">
+                    </a>
+                </section>
+                <section>
+                    <h4>Фреймы</h4>
+                    <p>Фреймы позволяют встраивать на веб-страницу какую-нибудь другую веб-страницу.</p>
+                    <pre><code data-trim>
+                        &lt;iframe src="http://wikipedia.com" width="400" height="200"&gt;
+                        &lt;/iframe&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h4 style="color:red;">Задание</h4>
+                    <ol>
+                        <li style="color:brown;">Создайте страницу на которой будет таблица оценок за прошедшую сессию.</li>
+                        <li style="color:darkred;">Добавьте ссылки на страницы wikipedia, соответствующие названиям предметов в таблице</li>
+                        <li style="color:crimson;">Сделайте так, чтобы ссылки открывались в фрейме под таблицей</li>
+                    </ol>
                 </section>
             </div>
         </div>
