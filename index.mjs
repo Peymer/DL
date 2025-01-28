@@ -10,12 +10,8 @@ let srv=F({ logger: true });
 
 srv.register(fs,{
     root: path.join(__dirname,'courses'),
-    // prefix: '/courses/',
     prefix: '/',
-          // html or json response? html requires a render method.
-        //   format: 'html',
-          // A list of filenames that trigger a directory list response.
-          names: ['index', 'index.html', 'index.htm', '/'],
+    names: ['index', 'index.html', 'index.htm', '/'],
 });
 
 // srv.register(fs,{
@@ -39,7 +35,7 @@ srv.setNotFoundHandler(async (q,a)=>{
 
 const start=async ()=>{  
 try {
-     await srv.listen({port:3000, host: '0.0.0.0'}, async (err, addr)=>{
+      srv.listen({port:3000, host: '0.0.0.0'}, async (err, addr)=>{
         if (err)
             console.log(err);
         else
