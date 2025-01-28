@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="../reveal.css">
+        <link rel="stylesheet" href="../black.css">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="../monokai.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Canvas</h1>
+					<p align="right">&copy; <a href="mailto:ipigp@yandex.ru">IGP</a>, январь 2025 г.</p>
+                </section>
+                <section>
+                    <p>HTML элемент &lt;canvas&gt; или растровый холст используется для рисования
+                         графических объектов на лету при помощи скриптов.</p>
+                    <p>Элемент &lt;canvas&gt; - это всего лишь контейнер для графики. Чтобы нарисовать какой-нибудь
+                         графический объект в действительности необходимо использовать специальный скрипт. Для этого у canvas есть несколько методов,
+                         которые позволяют нарисовать контуры, прямоугольники, окружности, вывести текст и добавить изображения.</p>
+                </section>
+                <section>
+                    <p>В элементе &lt;canvas&gt; можно вывести текст, анимированный или нет.</p>
+                    <p>Элемент &lt;canvas&gt; обладает богатыми возможностями для графического представления данных при помощи диаграмм, графиков и схем.</p>
+                    <p>Объекты элемента &lt;canvas&gt; могут двигаться. Возможно все: от прыгающих мячей до сложной анимации.</p>
+                </section>
+                <section>
+                    <p>Элемент &lt;canvas&gt; может быть интерактивным и реагировать на события JavaScript. Элемент &lt;canvas&gt; может отвечать
+                         на любое действие пользователя: нажатие на клавишу, на кнопку мыши, на элемент кнопки на веб-страницы, на движение пальца и т.д.</p>
+                    <p>Элемент &lt;canvas&gt; может использоваться для создания игр. Методы элемента &lt;canvas&gt; для анимирования
+                         графических объектов предоставляют богатые возможности для создания игровых HTML приложений.</p>
+                </section>
+                <section>
+                    <pre><code data-trim>
+                        &lt;canvas id="myCanvas" width="200" height="100"&gt;&lt;/canvas&gt;
+                    </code></pre>
+                    <p>У элемента &lt;canvas&gt; должен быть определен атрибут <b>id</b>, 
+                        чтобы можно было получить к нему доступ в скрипте JavaScript.</p>
+                    <p>Атрибуты <b>width</b> и <b>height</b> необходимы для определения размеров (ширины и высоты) элемента.</p>
+                    <p>На HTML странице можно определять любое количество элементов &lt;canvas&gt;.</p>
+                </section>
+                <section>
+                    <p>Чтобы добавить рамку используется атрибут style:</p>
+                    <pre><code data-trim>
+                        &lt;canvas id="myCanvas" width="200" height="100" 
+                        style="border:1px solid #000000; background:white;"&gt;&lt;/canvas&gt;
+                    </code></pre>
+                    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000; background:white;">
+                    </canvas>
+                </section>
+                <section>
+                    <h3>Заполненый прямоугольник</h3>
+                    <pre><code data-trim>
+                        &lt;canvas id="myCanvas1" width="200" height="100" 
+                        style="border:1px solid #000000; background:white;"&gt;&lt;/canvas&gt;
+                        &lt;script&gt;
+                            var canvas = document.getElementById("myCanvas1");
+                            var ctx = canvas.getContext("2d");
+                            ctx.fillStyle = "#FF0000";
+                            ctx.fillRect(10,10,150,75);
+                          &lt;/script&gt;
+                    </code></pre>
+                    <canvas id="myCanvas1" width="200" height="100" style="border:1px solid #000000; background:white;">
+                    </canvas>
+                    <script>
+                        var canvas = document.getElementById("myCanvas1");
+                        var ctx = canvas.getContext("2d");
+                        ctx.fillStyle = "#FF0000";
+                        ctx.fillRect(10,10,150,75);
+                    </script>
+                </section>
+                <section>
+<h3>Координаты в canvas</h3>
+<p>Пространство canvas или растрового холста представляет собой двухмерную сетку.</p>
+<p>Верхний левый угол холста имеет координаты <b>(0,0)</b>.</p>
+<p>Ось Х направлена слева направо.</p>
+<p>Ось Y направлена сверху вниз.</p>
+                </section>
+                <section>
+                    <h4>Линия</h4>
+                    <ul>
+                        <li>moveTo(x,y) — определяет начальную точку</li>
+                        <li>lineTo(x,y) — определяет конечную точку</li>
+                    </ul>
+                    <p>Чтобы действительно нарисовать линию, нужно воспользоваться "рисовальным" методом <b>stroke()</b>.</p>
+                    <pre><code data-trim>
+                        &lt;canvas id="myCanvas2" width="200" height="100" 
+                        style="border:1px solid #000000; background:white;"&gt;&lt;/canvas&gt;
+                        &lt;script&gt;
+                            var canvas = document.getElementById("myCanvas2");
+                            var ctx = canvas.getContext("2d");
+                            ctx.moveTo(0,0);
+                            ctx.lineTo(200,100);
+                            ctx.stroke();
+                        &lt;script&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Круг</h4>
+                    <ul>
+                        <li>beginPath() — начинает контур</li>
+                        <li>arc(x,y,r,startangle,endangle) — создает дугу/кривую.</li>
+                    </ul>
+                    <pre><code data-trim>
+                        var canvas = document.getElementById("myCanvas");
+                        var ctx = canvas.getContext("2d");
+                        ctx.beginPath();
+                        ctx.arc(95,50,40,0,2*Math.PI);
+                        ctx.stroke();
+                    </code></pre>
+                    <p style="color:red;">Нарисуйте "световор": три круга красного, желтого и зеленого цвета. 
+                        Одинакового радиуса, один под другим</p>
+                </section>
+                <section>
+                    <h4>Градиенты</h4>
+                    <ul>
+                        <li>createLinearGradient(x,y,x1,y1) — создает линейный градиент</li>
+                        <li>createRadialGradient(x,y,r,x1,y1,r1) — создает радиальный градиент</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Линейный градиент</h4>
+                    <pre><code data-trim>
+                        var c=document.getElementById("myCanvas");
+                        var ctx=c.getContext("2d");
+
+                        // Создаем градиент
+                        var grd=ctx.createLinearGradient(0,0,200,0);
+                        grd.addColorStop(0,"red");
+                        grd.addColorStop(1,"white");
+
+                        // Заполняем градиентом фигуру
+                        ctx.fillStyle=grd;
+                        ctx.fillRect(10,10,150,80);
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Радиальный градиент</h4>
+                    <pre><code data-trim>
+                        var c=document.getElementById("myCanvas");
+                        var ctx=c.getContext("2d");
+
+                        // Создаем градиент
+                        var grd=ctx.createLinearGradient(0,0,200,0);
+                        grd.addColorStop(0,"red");
+                        grd.addColorStop(1,"white");
+
+                        // Заполняем градиентом фигуру
+                        ctx.fillStyle=grd;
+                        ctx.fillRect(10,10,150,80);
+                    </code></pre>
+                </section>
+                <section>
+                    <p style="color:red;">Нарисуйте на холсте разные геометрические фигуры, заполеные линейным градиентом.</p>
+                    <p style="color:red;">Нарисуйте на холсте разные геометрические фигуры, заполеные радиальным градиентом.</p>
+                </section>
+            </div>
+        </div>                
+        <script src="../reveal.js"></script>
+        <script src="../notes.js"></script>
+        <!-- <script src="markdown.js"></script> -->
+        <script src="../highlight.js"></script>
+        <script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash:true,
+                showSlideNumber: 'all',
+                slideNumber: "true",
+				// Learn about plugins:</b> https://revealjs.com/plugins/
+				plugins: [ RevealHighlight, RevealNotes ]
+			});
+		</script>
+    </body>
+</html>
