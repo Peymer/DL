@@ -10,40 +10,42 @@
 
         <!-- Theme used for syntax highlighted code -->
         <link rel="stylesheet" href="../monokai.css">
+ <!-- https://msiter.ru/tutorials/html5-canvas/gradients  -->
+
     </head>
     <body>
         <div class="reveal">
             <div class="slides">
                 <section>
-                    <h1>Canvas</h1>
+                    <h1>Введениие в графический вывод информации.<br/>Canvas</h1>
 					<p align="right">&copy; <a href="mailto:ipigp@yandex.ru">IGP</a>, январь 2025 г.</p>
                 </section>
                 <section>
-                    <p>HTML элемент &lt;canvas&gt; или растровый холст используется для рисования
+                    <p>HTML элемент <b>&lt;canvas&gt;</b> или растровый холст используется для рисования
                          графических объектов на лету при помощи скриптов.</p>
-                    <p>Элемент &lt;canvas&gt; - это всего лишь контейнер для графики. Чтобы нарисовать какой-нибудь
+                    <p>Элемент <b>&lt;canvas&gt;</b> - это всего лишь контейнер для графики. Чтобы нарисовать какой-нибудь
                          графический объект в действительности необходимо использовать специальный скрипт. Для этого у canvas есть несколько методов,
                          которые позволяют нарисовать контуры, прямоугольники, окружности, вывести текст и добавить изображения.</p>
                 </section>
                 <section>
-                    <p>В элементе &lt;canvas&gt; можно вывести текст, анимированный или нет.</p>
-                    <p>Элемент &lt;canvas&gt; обладает богатыми возможностями для графического представления данных при помощи диаграмм, графиков и схем.</p>
-                    <p>Объекты элемента &lt;canvas&gt; могут двигаться. Возможно все: от прыгающих мячей до сложной анимации.</p>
+                    <p>В элементе <b>&lt;canvas&gt;</b> можно вывести текст, анимированный или нет.</p>
+                    <p>Элемент <b>&lt;canvas&gt;</b> обладает богатыми возможностями для графического представления данных при помощи диаграмм, графиков и схем.</p>
+                    <p>Объекты элемента <b>&lt;canvas&gt;</b> могут двигаться. Возможно все: от прыгающих мячей до сложной анимации.</p>
                 </section>
                 <section>
-                    <p>Элемент &lt;canvas&gt; может быть интерактивным и реагировать на события JavaScript. Элемент &lt;canvas&gt; может отвечать
+                    <p>Элемент <b>&lt;canvas&gt;</b> может быть интерактивным и реагировать на события JavaScript. Элемент <b>&lt;canvas&gt;</b> может отвечать
                          на любое действие пользователя: нажатие на клавишу, на кнопку мыши, на элемент кнопки на веб-страницы, на движение пальца и т.д.</p>
-                    <p>Элемент &lt;canvas&gt; может использоваться для создания игр. Методы элемента &lt;canvas&gt; для анимирования
+                    <p>Элемент <b>&lt;canvas&gt;</b> может использоваться для создания игр. Методы элемента <b>&lt;canvas&gt;</b> для анимирования
                          графических объектов предоставляют богатые возможности для создания игровых HTML приложений.</p>
                 </section>
                 <section>
                     <pre><code data-trim>
                         &lt;canvas id="myCanvas" width="200" height="100"&gt;&lt;/canvas&gt;
                     </code></pre>
-                    <p>У элемента &lt;canvas&gt; должен быть определен атрибут <b>id</b>, 
+                    <p>У элемента <b>&lt;canvas&gt;</b> должен быть определен атрибут <b>id</b>, 
                         чтобы можно было получить к нему доступ в скрипте JavaScript.</p>
                     <p>Атрибуты <b>width</b> и <b>height</b> необходимы для определения размеров (ширины и высоты) элемента.</p>
-                    <p>На HTML странице можно определять любое количество элементов &lt;canvas&gt;.</p>
+                    <p>На HTML странице можно определять любое количество элементов <b>&lt;canvas&gt;</b>.</p>
                 </section>
                 <section>
                     <p>Чтобы добавить рамку используется атрибут style:</p>
@@ -76,11 +78,11 @@
                     </script>
                 </section>
                 <section>
-<h3>Координаты в canvas</h3>
-<p>Пространство canvas или растрового холста представляет собой двухмерную сетку.</p>
-<p>Верхний левый угол холста имеет координаты <b>(0,0)</b>.</p>
-<p>Ось Х направлена слева направо.</p>
-<p>Ось Y направлена сверху вниз.</p>
+                    <h3>Координаты в canvas</h3>
+                    <p>Пространство canvas или растрового холста представляет собой двухмерную сетку.</p>
+                    <p>Верхний левый угол холста имеет координаты <b>(0,0)</b>.</p>
+                    <p>Ось Х направлена слева направо.</p>
+                    <p>Ось Y направлена сверху вниз.</p>
                 </section>
                 <section>
                     <h4>Линия</h4>
@@ -160,7 +162,164 @@
                     <p style="color:red;">Нарисуйте на холсте разные геометрические фигуры, заполеные линейным градиентом.</p>
                     <p style="color:red;">Нарисуйте на холсте разные геометрические фигуры, заполеные радиальным градиентом.</p>
                 </section>
-                <!-- https://msiter.ru/tutorials/html5-canvas/gradients -->
+                <section>
+                    <h4>Вывод текста</h4>
+                    <ul>
+                        <li>font — определяет шрифт текста</li>
+                        <li>fillStyle — цвет заливки</li>
+                        <li>textAlign — центрирование текста</li>
+                        <li>fillText(text,x,y) — рисует "залитый" текст</li>
+                        <li>strokeText(text,x,y) — рисует текст без заливки</li>
+                        <li>measureText(text) —	объект, содержащий ширину заданного текста</li>
+                    </ul>
+                    <pre><code data-trim>
+                        var canvas = document.getElementById("myCanvas");
+                        var ctx = canvas.getContext("2d");
+                        ctx.font = "30px Comic Sans MS";
+                        ctx.fillStyle = "red";
+                        ctx.textAlign = "center";
+                        ctx.fillText("Hello World", canvas.width/2, canvas.height/2);
+                    </code></pre>
+                </section>
+                <section>
+                    <p style="color:red;">Нарисуйте на холсте две координатные оси (с началом координат в центре холста), 
+                        установите шаг координатной сетики равным 20 и выведите подписи.</p>
+                </section>
+                <section>
+                    <h4>Cвойства и методы</h4>
+                    <ul>
+                        <li>lineCap — Устанавливает/возвращает стиль концов нарисованной линии</li>
+                        <li>lineJoin — Устанавливает/возвращает тип угла, созданного пересечением двух линий</li>
+                        <li>lineWidth — Устанавливает/возвращает ширину текущей линии</li>
+                        <li>miterLimit — Устанавливает/возвращает максимальную длину среза</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Контуры</h4>
+                    <ul>
+                        <li>arc() — Создает дугу/кривую (используется для создания окружностей или их части)</li>
+                        <li>arcTo() — Создает дугу/кривую между двумя касательными</li>
+                        <li>beginPath() — Начинает контур или сбрасывает текущий контур</li>
+                        <li>bezierCurveTo() — Создает кубическую кривую Безье</li>
+                        <li>clip() — Обрезает область любой формы и размера, находящуюся вне указанного контура</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Контуры</h4>
+                    <ul>
+                        <li>closePath() — Замыкает контур соединяя последнюю точку с первой</li>
+                        <li>fill() — Делает заливку текущей фигуры (контура)</li>
+                        <li>isPointInPath() — Возвращает значение true, если заданная точка находится внутри текущего контура, в обратном случае возвращается значение false</li>
+                        <li>lineTo() — Добавляет новую точку контура и создает линию к этой точке от последней заданной точки</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Контуры</h4>
+                    <ul>
+                        <li>moveTo() — Передвигает точку контура в заданные координаты не рисуя линию</li>
+                        <li>quadraticCurveTo() — Создает квадратичную кривую Безье</li>
+                        <li>stroke() — В действительности рисует определенный вами контур</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4><u>Домашнее задание</u></h4>
+                    <p style="color: yellowgreen">Изучить понятие и математические основы кривых Безье</p>
+                </section>
+                <section>
+                    <h4>Прямоугольники</h4>
+                    <ul>
+                        <li>clearRect() — Очищает заданную область пикселей внутри данного прямоугольника</li>
+                        <li>fillRect() — Рисует "залитый" прямоугольник</li>
+                        <li>rect() — Создает прямоугольник</li>
+                        <li>strokeRect() — Рисует прямоугольник (без заливки)</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Трансформации</h4>
+                    <ul>
+                        <li>rotate() — Поворачивает текущий графический объект</li>
+                        <li>scale() — Изменяет масштаб текущего графического объекта</li>
+                        <li>setTransform() — Сбрасывает текущую матрицу трансформации в начальное состояние, 
+                            а затем вызывает метод transform() с теми же параметрами</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Трансформации</h4>
+                    <ul>
+                        <li>transform() — Применяет заданную матрицу трансформации</li>
+                        <li>translate() — Ретранслирует позицию (0,0) в новое место</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4 style="color: red;">Задание</h4>
+                    <p style="color: red;">Нарисовать кубик со стороной 20 в аксонометрической проекции.</p>
+                </section>
+                <section>
+                    <h4 style="color: red;">Задание повышенной сложности</h4>
+                    <p style="color:red;">Нарисовать кубик состороной 1. Вращать кубик на экране средствами JavaScript. Объяснить математическую модель.</p>
+                    <div align="center">
+                        <canvas id="cubeCanvas" width="100" height="100" style="background: white;"></canvas>
+                    </div>
+                    <script type="text/javascript">
+                        (function () {
+                            var canvas = document.getElementById("cubeCanvas");
+                            var size = Math.min (canvas.width,canvas.height);
+                            var g = canvas.getContext("2d");
+                            var nodes = //Вершины
+                            [[-1, -1, -1], [-1, -1, 1], [-1, 1, -1], [-1, 1, 1],
+                            [1, -1, -1], [1, -1, 1], [1, 1, -1], [1, 1, 1]];
+                            var edges = //грани
+                            [[0, 1], [1, 3], [3, 2], [2, 0], [4, 5], [5, 7], [7, 6],
+                            [6, 4], [0, 4], [1, 5], [2, 6], [3, 7]];
+                                
+                            function scale (factor0, factor1, factor2) { 
+                                nodes.forEach(function (node) {
+                                node[0] *= factor0; node[1] *= factor1; node[2] *= factor2;
+                                });
+                            }
+                        
+                        function rotateCuboid (angleX, angleY) { 
+                            var sinX = Math.sin(angleX);
+                            var cosX = Math.cos(angleX);
+                            var sinY = Math.sin(angleY);
+                            var cosY = Math.cos(angleY);
+                            nodes.forEach(function (node) {
+                                var x = node[0]; var y = node[1]; var z = node[2];
+                                node[0] = x * cosX - z * sinX;
+                                node[2] = z * cosX + x * sinX;
+                                z = node[2];
+                                node[1] = y * cosY - z * sinY;
+                                node[2] = z * cosY + y * sinY;
+                            });
+                        }
+                        
+                        function drawCuboid () {
+                            g.save();
+                            g.clearRect(0, 0, canvas.width, canvas.height); 
+                            g.translate(canvas.width / 2, canvas.height / 2); 
+                            g.strokeStyle = "#000000"; 
+                            g.beginPath();
+                            edges.forEach(function (edge) {
+                                var p1 = nodes[edge[0]];
+                                var p2 = nodes[edge[1]];
+                                g.moveTo(p1[0], p1[1]);
+                                g.lineTo(p2[0], p2[1]);
+                            });
+                            g.closePath();
+                            g.stroke();
+                            g.restore();
+                        }
+                        
+                            scale (size/4, size/4, size/4); 
+                            rotateCuboid (Math.PI / 3, Math.atan(Math.sqrt(3))); 
+                            setInterval( function() {
+                            rotateCuboid (Math.PI / 180, Math.PI / 180); 
+                            drawCuboid ();
+                            }, 10);
+                        })(); 
+                    </script>
+                    <noscript><div>Извините, требуется включённый Javascript</div></noscript>
+                </section>
             </div>
         </div>                
         <script src="../reveal.js"></script>
