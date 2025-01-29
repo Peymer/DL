@@ -196,60 +196,369 @@
                     </ul>
                 </section>
                 <section>
-                    <h4>Контуры</h4>
-                    <ul>
-                        <li>arc() — Создает дугу/кривую (используется для создания окружностей или их части)</li>
-                        <li>arcTo() — Создает дугу/кривую между двумя касательными</li>
-                        <li>beginPath() — Начинает контур или сбрасывает текущий контур</li>
-                        <li>bezierCurveTo() — Создает кубическую кривую Безье</li>
-                        <li>clip() — Обрезает область любой формы и размера, находящуюся вне указанного контура</li>
-                    </ul>
+                    <section>
+                        <h4>Контуры</h4>
+                        <ul>
+                            <li>arc() — Создает дугу/кривую (используется для создания окружностей или их части)</li>
+                            <li>arcTo() — Создает дугу/кривую между двумя касательными</li>
+                            <li>beginPath() — Начинает контур или сбрасывает текущий контур</li>
+                            <li>bezierCurveTo() — Создает кубическую кривую Безье</li>
+                            <li>clip() — Обрезает область любой формы и размера, находящуюся вне указанного контура</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4>arc()</h4>
+                        <pre>
+x	Координата X центра круга
+y	Координата Y центра круга
+r	Радиус круга
+sAngle	Начальный угол в радианах (0 — позиция на 3 часа)
+eAngle	Конечный угол в радианах
+counterclockwise	Необязательный параметр. Определяет, как рисовать окружность, по часовой стрелке или против часовой стрелки. 
+                        </pre>
+                    </section>
+                    <section>
+                        <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.beginPath();
+                            ctx.arc(100,75,50,0,2*Math.PI);
+                            ctx.stroke();
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>arcTo()</h4>
+                        <p>Метод arcTo() создает дугу/кривую между двумя касательными в элементе <canvas>.</p>
+                        <p>Чтобы действительно нарисовать дугу в элементе &lt;canvas&gt;, используется метод stroke().</p>
+                        <pre>
+x1	Координата X первой касательной
+y1	Координата Y первой касательной
+x2	Координата X второй касательной
+y2	Координата Y второй касательной
+r	Радиус дуги
+                        </pre>
+                    </section>
+                    <section>
+                        <h4>Пример</h4>
+                        <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.beginPath();
+                            // Создаем начальную точку
+                            ctx.moveTo(20,20);
+                            // Создаем горизонтальную линию
+                            ctx.lineTo(100,20);
+                            // Создаем дугу
+                            ctx.arcTo(150,20,150,70,50);
+                            // Продолжаем линию по вертикали
+                            ctx.lineTo(150,120);
+                            // Рисуем все
+                            ctx.stroke();
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>beginPath()</h4>
+                        <p>Метод beginPath() начинает контур или сбрасывает текущий контур.</p>
+                        <p>Для создания контуров используйте методы moveTo(), lineTo(), quadraticCurveTo(), bezierCurveTo(), arcTo(), и arc().
+                             Чтобы действительно нарисовать контур в элементе &lt;canvas&gt;, используется метод stroke().</p>
+                    </section>
+                    <section>
+                        <h4>Пример</h4>
+                            <pre><code data-trim>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+// Зеленый контур
+ctx.beginPath(); 
+ctx.lineWidth="5";
+ctx.strokeStyle="green";
+ctx.moveTo(0,75);
+ctx.lineTo(250,75);
+ctx.stroke(); // Нарисуем его
+// Пурпурный контур
+ctx.beginPath();
+ctx.strokeStyle="purple";
+ctx.moveTo(50,0);
+ctx.lineTo(150,130); 
+ctx.stroke(); // Нарисуем его
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>stroke()</h4>
+                        <pre><code data-trim>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.beginPath();
+ctx.moveTo(20,20);
+ctx.lineTo(20,100);
+ctx.lineTo(70,100);
+ctx.strokeStyle="red";
+ctx.stroke();
+                        </code></pre>
+                    </section>
                 </section>
-                <section>
-                    <h4>Контуры</h4>
-                    <ul>
-                        <li>closePath() — Замыкает контур соединяя последнюю точку с первой</li>
-                        <li>fill() — Делает заливку текущей фигуры (контура)</li>
-                        <li>isPointInPath() — Возвращает значение true, если заданная точка находится внутри текущего контура, в обратном случае возвращается значение false</li>
-                        <li>lineTo() — Добавляет новую точку контура и создает линию к этой точке от последней заданной точки</li>
-                    </ul>
-                </section>
-                <section>
-                    <h4>Контуры</h4>
-                    <ul>
-                        <li>moveTo() — Передвигает точку контура в заданные координаты не рисуя линию</li>
-                        <li>quadraticCurveTo() — Создает квадратичную кривую Безье</li>
-                        <li>stroke() — В действительности рисует определенный вами контур</li>
-                    </ul>
-                </section>
+
+                    <section>
+                        <h4>Контуры</h4>
+                        <ul>
+                            <li>closePath() — Замыкает контур соединяя последнюю точку с первой</li>
+                            <li>fill() — Делает заливку текущей фигуры (контура)</li>
+                            <li>isPointInPath() — Возвращает значение true, если заданная точка находится внутри текущего контура, в обратном случае возвращается значение false</li>
+                            <li>lineTo() — Добавляет новую точку контура и создает линию к этой точке от последней заданной точки</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4>Контуры</h4>
+                        <ul>
+                            <li>moveTo() — Передвигает точку контура в заданные координаты не рисуя линию</li>
+                            <li>quadraticCurveTo() — Создает квадратичную кривую Безье</li>
+                            <li>stroke() — В действительности рисует определенный вами контур</li>
+                        </ul>
+                    </section>
                 <section>
                     <h4><u>Домашнее задание</u></h4>
                     <p style="color: yellowgreen">Изучить понятие и математические основы кривых Безье</p>
                 </section>
                 <section>
-                    <h4>Прямоугольники</h4>
-                    <ul>
-                        <li>clearRect() — Очищает заданную область пикселей внутри данного прямоугольника</li>
-                        <li>fillRect() — Рисует "залитый" прямоугольник</li>
-                        <li>rect() — Создает прямоугольник</li>
-                        <li>strokeRect() — Рисует прямоугольник (без заливки)</li>
-                    </ul>
+                    <section>
+                        <h4>Прямоугольники</h4>
+                        <ul>
+                            <li>clearRect() — Очищает заданную область пикселей внутри данного прямоугольника</li>
+                            <li>fillRect() — Рисует "залитый" прямоугольник</li>
+                            <li>rect() — Создает прямоугольник</li>
+                            <li>strokeRect() — Рисует прямоугольник (без заливки)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4>clearRect()</h4>
+                        <p>Метод clearRect() очищает заданную область пикселей внутри данного прямоугольника.</p>
+                        <pre>
+x	Координата X верхнего левого угла очищаемой области
+y	Координата Y верхнего левого угла очищаемой области
+width	Ширина очищаемой области в пикселях
+height	Высота очищаемой области в пикселях                            
+                        </pre>
+                    </section>
+                    <section>
+                        <h4>Пример</h4>
+                        <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.fillStyle="red";
+                            ctx.fillRect(0,0,300,150);
+                            ctx.clearRect(20,20,100,50);
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>fillRect()</h4>
+                        <p>Метод fillRect() рисует "залитый" прямоугольник. Цвет заливки, по умолчанию, черный.</p>
+                        <p>Чтобы установить другой цвет/градиент заливки, используется свойство fillStyle.</p>
+                        <h5>Параметры</h5>
+                        <pre>
+x	Координата X верхнего левого угла прямоугольника
+y	Координата Y верхнего левого угла прямоугольника
+width	Ширина прямоугольника в пикселях
+height	Высота прямоугольника в пикселях                            
+                        </pre>
+                    </section>
+                    <section>
+                        <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.fillRect(20,20,150,100);
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>rect()</h4>
+                        <p>Метод rect() создает прямоугольник.</p>
+                        <p>Чтобы действительно нарисовать прямоугольник, используйте метод stroke() или fill().</p>
+                        <h5>Параметры</h5>
+                        <pre>
+x	Координата X верхнего левого угла прямоугольника                            var ctx=c.getContext("2d");
+ctx.strokeRect(20,20,150,100);
+height	Высота прямоугольника в пикселях
+                        </pre>
+                        <pre><code data-trim>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.rect(20,20,150,100);
+ctx.stroke();
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>Пример</h4>
+                        <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            // Красный прямоугольник
+                            ctx.beginPath();
+                            ctx.lineWidth="6";
+                            ctx.strokeStyle="red";
+                            ctx.rect(5,5,290,140); 
+                            ctx.stroke();
+                            // Зеленый прямоугольник
+                            ctx.beginPath();
+                            ctx.lineWidth="4";
+                            ctx.strokeStyle="green";
+                            ctx.rect(30,30,50,50);
+                            ctx.stroke();
+                            // Синий прямоугольник
+                            ctx.beginPath();
+                            ctx.lineWidth="10";
+                            ctx.strokeStyle="blue";
+                            ctx.rect(50,50,150,80);
+                            ctx.stroke();
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>strokeRect()</h4>
+                        <p>Метод strokeRect() рисует прямоугольник (без заливки). По умолчанию прямоугольник рисуется черным цветом.</p>
+                        <p>Чтобы задать цвет, градиент или паттерн, которым будет нарисован прямоугольник используется свойство strokeStyle.</p>
+                        <h5>Параметры</h5>
+                        <pre>
+x	Координата X верхнего левого угла прямоугольника
+y	Координата Y верхнего левого угла прямоугольника
+width	Ширина прямоугольника в пикселях
+height	Высота прямоугольника в пикселях
+                        </pre>
+                    </section>
+                    <section>
+                        <h4>Пример</h4>
+                        <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.strokeRect(20,20,150,100);
+                        </code></pre>
+                    </section>
                 </section>
                 <section>
-                    <h4>Трансформации</h4>
-                    <ul>
-                        <li>rotate() — Поворачивает текущий графический объект</li>
-                        <li>scale() — Изменяет масштаб текущего графического объекта</li>
-                        <li>setTransform() — Сбрасывает текущую матрицу трансформации в начальное состояние, 
-                            а затем вызывает метод transform() с теми же параметрами</li>
-                    </ul>
+                    <section>
+                        <h4>Трансформации</h4>
+                        <ul>
+                            <li>rotate() — Поворачивает текущий графический объект</li>
+                            <li>scale() — Изменяет масштаб текущего графического объекта</li>
+                        </ul>
+                    </section>
+                    
+                    <section>
+                        <h4>rotate()</h4>
+                        <p>Метод позволяет поворачивать текущий графический объект.
+                        <p>Чтобы графический объект был повернут, метод <b>rotate()</b> необходимо применить до того, как объект будет нарисован.</p>
+                        <h5>Параметр</h5>
+                        <pre>
+    угол	Угол поворота в радианах. 
+                        </pre>
+                        <p>Чтобы пересчитать градусы в радианы: градусы*Math.PI/180.</p>
+                    </section>
+                    <section>
+                        <h4>Пример</h4>
+                        <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.rotate(20*Math.PI/180);
+                            ctx.fillRect(50,20,100,50);
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>scale()</h4>
+                        <p>Метод scale() изменяет масштаб текущего графического объекта, делает его больше или меньше.</p>
+                        <p>Если изменяется масштаб графического объекта, то будущие графические объекты также изменят масштаб. 
+                            Позиционирование также будет масштабироваться.</p>
+                        <h5>Параметры</h5>
+                        <pre>
+    scalewidth	Масштабирует ширину текущего графического объекта (1=100%, 0.5=50%)
+    scaleheight	Масштабирует высоту текущего графического объекта (1=100%, 0.5=50%)                            
+                        </pre>
+                    </section>
+                    <section>
+                        <h4>Примеры</h4>
+                        <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.strokeRect(5,5,25,15);
+                            ctx.scale(2,2);
+                            ctx.strokeRect(5,5,25,15);
+                        </code></pre>
+                        <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.strokeRect(5,5,25,15);
+                            ctx.scale(2,2);
+                            ctx.strokeRect(5,5,25,15);
+                            ctx.scale(2,2);
+                            ctx.strokeRect(5,5,25,15);
+                            ctx.scale(2,2);
+                            ctx.strokeRect(5,5,25,15);
+                        </code></pre>
+                    </section>
                 </section>
-                <section>
-                    <h4>Трансформации</h4>
-                    <ul>
-                        <li>transform() — Применяет заданную матрицу трансформации</li>
-                        <li>translate() — Ретранслирует позицию (0,0) в новое место</li>
-                    </ul>
+                    <section>
+                        <h4>Трансформации</h4>
+                        <ul>
+                            <li>transform() — Применяет заданную матрицу трансформации</li>
+                            <li>translate() — Ретранслирует позицию (0,0) в новое место</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4>transform()</h4>
+                        <p>У каждого объекта на растровом холсте есть текущая матрица трансформации.</p>
+                        <p>Метод transform() комбинирует путем умножения текущую матрицу трансформации с матрицей, описываемой как:</p>
+                        <pre>
+                            a c e
+                            b d f
+                            0 0 1
+                        </pre>
+                        <p>Метод transform() позволяет масштабировать, поворачивать, двигать и скручивать текущий контекст.</p>
+                    </section>
+                    <section>
+                        <h4>Параметры матрицы</h4>
+                        <pre>
+a	Горизонтальный масштаб
+b	Горизонтальное скручивание
+c	Вертикальное скручивание
+d	Вертикальный масштаб
+e	Горизонтальный сдвиг
+f	Вертикальный сдвиг
+                        </pre>
+                    </section>
+                    <section>
+                        <h4>Пример</h4>
+                        <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.fillStyle="yellow";
+                            ctx.fillRect(0,0,250,100)
+                            ctx.transform(1,0.5,-0.5,1,30,10);
+                            ctx.fillStyle="red";
+                            ctx.fillRect(0,0,250,100);
+                            ctx.transform(1,0.5,-0.5,1,30,10);
+                            ctx.fillStyle="blue";
+                            ctx.fillRect(0,0,250,100);
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>translate()</h4>
+                        <p>Метод translate() ретранслирует позицию (0,0) в новое место растрового холста.</p>
+                        <p>Если после метода translate() вызывается, например, такой метод как fillRect(),
+                            то его значение добавляется к значениям x- и y-координат.</p>
+                        <img src="./6.png" />
+                    </section>
+                    <section>                   
+                        <h4>Значения параметров</h4>
+                        <pre>
+x	Значение, добавляемое к горизонтальным (x) координатам
+y	Значение, добавляемое к вертикальным (y) координатам 
+                        </pre>   
+                    </section>
+                    <section>
+                        <h4>Пример</h4>
+                        <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.fillRect(10,10,100,50);
+                            ctx.translate(70,70);
+                            ctx.fillRect(10,10,100,50);
+                        </code></pre>
+                    </section>
                 </section>
                 <section>
                     <section>
