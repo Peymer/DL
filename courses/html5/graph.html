@@ -1,11 +1,16 @@
 <!doctype html>
 <html lang="ru">
-
-<canvas id=canvas width=500 height=500></canvas><br /><br />
-<input id=txt type=text placeholder=" введите функцию " />
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Построитель графиков</title>
+	</head>
+<body>
+	<canvas id="canvas" width="500" height="500"></canvas><br><br>
+<!-- <input id=txt type=text placeholder=" введите функцию " />
 <button onclick="draw();"> нарисовать график </button><br/>
-<button onclick="save();">Save</button><br/>
-<img id="display" src="../Downloads/test.png"/>
+<button onclick="save();">Save</button><br/> -->
+<!-- <img id="display" src="../Downloads/test.png"/> -->
 <script>
 var cw = canvas.width, ch = canvas.height;
 var ctx = document.getElementById("canvas").getContext("2d");
@@ -17,15 +22,15 @@ function draw(){
     }
 }
 
-async function save(){
-  let data=canvas.toDataURL("image/png");
+// async function save(){
+//   let data=canvas.toDataURL("image/png");
 
-	let link = document.createElement('a');
-	link.download = "../Downloads/test.png";
-	link.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");;
-	link.click();
-	let disp=document.getElementById("display");
-	disp.src="../Downloads/test.png";
-}
+// 	let link = document.createElement('a');
+// 	link.download = "../Downloads/test.png";
+// 	link.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");;
+// 	link.click();
+// 	let disp=document.getElementById("display");
+// 	disp.src="../Downloads/test.png";
+// }
 </script>
-</html>
+</body></html>
