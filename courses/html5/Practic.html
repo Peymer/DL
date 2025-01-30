@@ -152,7 +152,7 @@
                         <h4>Работа 25.4</h4>
                         <p style="color: yellowgreen;">Разработать программу построения графиков функций.</p>
                         <!-- <p><b>Совет</b>: для задания функции используйте <i>function</i> JavaScript или <i>eval()</i>.</p> -->
-                        <img src="./13.png" heigh="200" style="background: white;"/>
+                        <img src="./13.png" heigh="400" width="400" style="background: white;"/>
                     </section>
                     <section>
                         <h4>eval()</h4>
@@ -176,11 +176,25 @@
                         </code></pre>
                         <p>Использование функции:</p>
                         <pre><code data-trim>
-                            function f(){
+                            function f(x){
                                 return x**2;
                             }
-                            y=f();
+                            y=f(x);
                         </code></pre>
+                    </section>
+                    <section>
+                        <h4>Ввод данных</h4>
+                        <p>Для ввода удобно использовать элементы форм, такие как <i>&lt;input&gt;</i>,<i>&lt;button&gt;</i></p>
+                        <pre><code data-trim>
+                            &lt;input id="txt" type="text" placeholder="введите функцию"/&gt;
+                            &lt;br/&gt;
+                            &lt;button onclick="draw();"&gt;нарисовать график&lt;/button&gt;
+                        </code></pre>
+                        <p>Для получения значений, введённых пользователем:</p>
+                        <pre><code data-trim>
+                            eval(document.getElementById("txt").value);
+                        </code></pre>
+                        <p><i>onclick="draw();"</i> &mdash;вызов функции при обработке события нажатия на кнопку.</p>
                     </section>
                 </section>
                 <section>
