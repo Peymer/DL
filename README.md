@@ -7,3 +7,4 @@
 <https://peymer.github.io/DL/courses/ObjectsJS2>
 <https://peymer.github.io/DL/courses/html5>
 <https://peymer.github.io/DL/courses/html5/canvas.html>
+<https://peymer.github.io/DL/courses/html5/events.html>
