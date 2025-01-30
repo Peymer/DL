@@ -6,3 +6,4 @@
 <https://peymer.github.io/DL/courses/objectsJS>  
 <https://peymer.github.io/DL/courses/ObjectsJS2>
 <https://peymer.github.io/DL/courses/html5>
+<https://peymer.github.io/DL/courses/html5/canvas.html>
