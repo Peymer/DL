@@ -12,25 +12,25 @@
 <button onclick="save();">Save</button><br/> -->
 <!-- <img id="display" src="../Downloads/test.png"/> -->
 <script>
-var cw = canvas.width, ch = canvas.height;
-var ctx = document.getElementById("canvas").getContext("2d");
-var m = 100; // масштаб отображения, в данном случае 1 = 10 px
-function draw(){
-    for(x = -cw / 2 / m; x < cw / 2 / m; x += 1 / m){
-        eval(document.getElementById("txt").value);
-        ctx.fillRect(x * m + cw / 2, ch - (y * m + ch / 2), 1, 1);
-    }
-}
+	var cw = canvas.width, ch = canvas.height;
+	var ctx = document.getElementById("canvas").getContext("2d");
+	var m = 100; // масштаб отображения, в данном случае 1 = 10 px
+	function draw(){
+		for(x = -cw / 2 / m; x < cw / 2 / m; x += 1 / m){
+			eval(document.getElementById("txt").value);
+			ctx.fillRect(x * m + cw / 2, ch - (y * m + ch / 2), 1, 1);
+		}
+	}
+	draw();
+	// async function save(){
+	//   let data=canvas.toDataURL("image/png");
 
-// async function save(){
-//   let data=canvas.toDataURL("image/png");
-
-// 	let link = document.createElement('a');
-// 	link.download = "../Downloads/test.png";
-// 	link.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");;
-// 	link.click();
-// 	let disp=document.getElementById("display");
-// 	disp.src="../Downloads/test.png";
-// }
+	// 	let link = document.createElement('a');
+	// 	link.download = "../Downloads/test.png";
+	// 	link.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");;
+	// 	link.click();
+	// 	let disp=document.getElementById("display");
+	// 	disp.src="../Downloads/test.png";
+	// }
 </script>
 </body></html>
