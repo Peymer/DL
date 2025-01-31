@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../reveal.css">
+    <link rel="stylesheet" href="../black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="../monokai.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Основы JavaScript</h1>
+                <p align="right">&copy; <a href="mailto:ipigp@yandex.ru">IGP</a>, январь 2025 г.</p>
+            </section>
+            <section>
+                <p>Возможно два варианта выполнения программ написанных на JavaScript:</p>
+                <ul>
+                    <li>Серверный (backend) &mdash; выполнение в среде Node.js</li>
+                    <li>Клиентский (frontend) &mdash; выполнение в среде web-обозревателя</li>
+                </ul>
+            </section>
+            <section>
+                <h4>Клиентский вариант</h4>
+                <p>Программный модуль встраивается в HTML страницу. У программы имеется доступ к интерактивным
+                    возможностям обезревателя.</p>
+                <pre><code data-trim>
+                    &lt;html&gt;
+                        &lt;script&gt;
+                            document.write("Hello world!");
+                        &lt;/script&gt;
+                    &lt;/html&gt;</code></pre>
+            </section>
+            <section>
+                <h4>Клиентский вариант</h4>
+                <img src="./1.png" />
+            </section>
+            <section>
+                <h4>Клиентский вариант</h4>
+                <p>Когда обозреватель получает веб-страницу с кодом html и javascript, то он ее интерпретирует.
+                    Результат
+                    интерпретации в виде различных элементов &mdash; кнопок, полей ввода, текстовых блоков и т.д., мы
+                    видим
+                    перед собой в обозревателе. Интерпретация веб-страницы происходит последовательно сверху вниз.</p>
+            </section>
+            <section>
+                <h4>Основы синтаксиса</h4>
+                <p>Код javascript состоит из инструкций. Каждая инструкция представляет некоторое действие. И для
+                    отделения инструкций друг от друга в javascript после инструкции ставится <u>точка с запятой</u>.
+                </p>
+                <p>Современные браузеры вполне могут различать отдельные инструкции, если они просто располагаются на
+                    отдельных строках без точки запятой.</p>
+            </section>
+            <section>
+                <h4>Блоки кода</h4>
+                <p>Отдельные инструкции можно можно объединять в блоки кода, которые представляют некоторый код,
+                    заключенные между фигурными скобками { блок кода }. </p>
+            </section>
+            <section>
+                <section>
+                    <h4>Комментарии</h4>
+                    <p>В коде javascript могут использоваться комментарии. Комментарии не обрабатываются интерпретатором
+                        javascript и никак не учитываются в работе программы.</p>
+                    <p>Комментарии предназначены для ориентации по коду,
+                        чтобы указать, что делает тот или иной код.</p>
+                </section>
+                <section>
+                    <p>Однострочный комментарий</p>
+                    <pre><code data-trim>
+                    // Это комментарий на одной строке
+                    E = m * c**2; // очень важная формули физики
+                    </code></pre>
+                    <p>Многострочный комментарий</p>
+                    <pre><code data-trim>
+                        /*
+                            Основа релятивистской физики
+                            Формула раскрывает взаимозависимость энергии и массы пространства-материи-времени.
+                        */
+                        E = m * c**2;
+                    </code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Подключение внешнего файла JavaScript</h4>
+                    <p>Хорошим тоном является разделение HTML страницы и программы на JavaScript по различным файлам.
+                    </p>
+                    <p>HTML. Файл index.html</p>
+                    <pre><code data-trim>
+                    &lt;html&gt;
+                        &lt;script src="index.js"&gt;&lt;/script&gt;
+                    &lt;/html&gt;
+                </code></pre>
+                    <p>JavaScript. Файл index.js</p>
+                    <pre><code data-trim>
+                    document.write("Привет мир!!!");
+                </code></pre>
+                </section>
+                <section>
+                    <h4>Асинхронная загрузка и отложенное выполнение</h4>
+                    <p>Нередко веб-страницы имеют сложную структуру, какие-то блоки на html-странице, где подключаются
+                        файлы javascript, формируются динамически, что может усложнять управление файлами javascript. И
+                        для управления загрузкой файла с кодом JavaScript браузер предоставляет два атрибута:
+                        <b>async</b> и
+                        <b>defer</b>.
+                    </p>
+                    <img src="./2.png" />
+                </section>
+                <section>
+                    <p><b>async</b> &mdash; обработка HTML-кода не будет приостановлена, когда браузер встретит элемент
+                        &lt;script&gt;.
+                        Файл JavaScript загружается асинхронно.</p>
+                    <img src="./3.png" />
+                    <pre><code data-trim>&lt;script async src="index.js"&gt;&lt;/script&gt;</code></pre>
+                </section>
+                <section>
+                    <p><b>defer</b> &mdash; гарантирует, что обработка HTML-кода не будет приостановлена.
+                        Исходный код JavaScript выполняется <u>только после полной обработки HTML-кода</u>.</p>
+                    <img src="./4.png" />
+                    <pre><code data-trim>&lt;script defer src="index.js"&gt;&lt;/script&gt;</code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Переменные и константы</h4>
+                    <p>Для хранения данных в программе используются переменные и константы.</p>
+                    <p><b>Переменные</b> предназначены для
+                        хранения каких-нибудь временных данных или таких данных, которые в процессе работы могут менять
+                        свое
+                        значение.</p>
+                    <p><b>Константы</b> предназначены для хранения неизменных данных, значение которых должно
+                        оставаться постоянным в течение всей программы.</p>
+                </section>
+                <section>
+                    <h4>Объявление переменных</h4>
+                    <pre><code data-trim>
+                    const rights=15;
+                    var $name;
+                    let user1="Иванопуло";
+                </code></pre>
+                    <ol>
+                        <li style="color:red;">Создайте программу в которой будет объявлены константа a и перенная b c
+                            начальными значениями 5 и 10.<br />
+                            Выведите их сумму.</li>
+                    </ol>
+                </section>
+                <section>
+                    <h4>Типы переменных</h4>
+                    <p>В JavaScript имеется восемь типов данных:</p>
+                    <ul>
+                        <li>Примитивные типы:
+                            <pre>
+String: представляет строку
+Number: представляет числовое значение
+BigInt: предназначен для представления очень больших целых чисел
+Boolean: представляет логическое значение true или false
+Symbol: представляет уникальное значение, которое часто применяется для 
+        обращения к свойствам сложных объектов
+Undefined: представляет одно специальное значение - undefined и указывает,
+            что значение не установлено
+Null: представляет одно специальное значение - null и указывает на 
+        отсутствие значения
+                            </pre>
+                        </li>
+                        <li>Сложный тип
+                            <pre>
+Object: представляет комплексный объект
+                            </pre>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Арифметические операции</h4>
+                    <ul>
+                        <li>сложение</li>
+                        <li>вычитание</li>
+                        <li>умножение</li>
+                        <li>деление</li>
+                        <li>остаток от деления</li>
+                        <li>возведение в степень</li>
+                        <li>инкремент</li>
+                        <li>декремент</li>
+                    </ul>
+                </section>
+            </section>
+        </div>
+    </div>
+    <script src="../reveal.js"></script>
+    <script src="../notes.js"></script>
+    <!-- <script src="markdown.js"></script> -->
+    <script src="../highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            showSlideNumber: 'all',
+            slideNumber: "true",
+            // Learn about plugins:</b> https://revealjs.com/plugins/
+            plugins: [RevealHighlight, RevealNotes]
+        });
+    </script>
+</body>
+
+</html>
