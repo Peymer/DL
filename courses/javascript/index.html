@@ -392,7 +392,8 @@ Object: представляет комплексный объект
                 <section>
                     <h4>Операторы continue и break</h4>
                     <p>Иногда бывает необходимо выйти из цикла до его завершения. В этом случае используется оператор
-                        <b>break</b>.</p>
+                        <b>break</b>.
+                    </p>
                     <p>Если необходимо, по каким-то причинам, пропустить выполнение <b>действия</b>, используется
                         оператор <b>continue</b>.</p>
                     <pre><code data-trim>
@@ -442,16 +443,107 @@ Object: представляет комплексный объект
                 </section>
             </section>
             <section>
-                <h4>Обработка ошибок</h4>
-                <p>Отладка представляет процесс поиска ошибок в программе. Для выполнения отладки применяется
-                    специальный инструмент &mdash; отладчик. </p>
-                 <p>Вопросам отладки приложений посвящен отдельный<a href="../js-debug/index.html"> курс</a></p>
+                <section>
+                    <h4>Обработка ошибок</h4>
+                    <p>В процессе работы прогаммы могут возникать ошибки, которые нарушают привычный ход
+                        программы или заставляют прервать выполнение. </p>
+                    <p>Язык JavaScript используется конструкция <b>try..catch..finally</b> для обаботки таких ситуаций.
+                    </p>
+                </section>
+
+                <section>
+                    <h4>try..catch..finally</h4>
+                    <pre><code data-trim>
+                    try {                
+                        инструкции блока try
+                      }
+                      catch (error) {
+                        инструкции блока catch
+                      }
+                      finally {
+                        инструкции блока finally
+                      }
+                    </code></pre>
+                    <p>Если в <b>инструкции блока try</b> возникает ошибка, то выполняются <b>инструкции блока
+                            catch</b>, а
+                        <b>инструкции блока finally</b> выполняются в любом случае.
+                    </p>
+                </section>
+                <section>
+                    <p>Только блок <b>try</b> является обязательным. А один из остальных блоков &mdash; <b>catch</b> или
+                        <b>finally</b> можно опустить.
+                    </p>
+                </section>
+                <section>
+                    <h4>Оператор принудительной генерации ошибки throw</h4>
+                    <pre><code data-trim>
+                        throw информация_об_ошибке;
+                    </code></pre>
+                </section>
+                <section>
+                    <p>Все ошибки, которые генерируются интерретатором JavaScript, предоставляют объект типа
+                        <b>Error</b>, который имеет ряд свойств:</p>
+                    <pre>
+<b>message</b>: сообщение об ошибке
+<b>name</b>: тип ошибки
+<b>fileName</b>: название файла с кодом JavaScript, где произошла ошибка
+<b>lineNumber</b>: строка в файле, где произошла ошибка
+<b>columnNumber</b>: столбец в строке, где произошла ошибка
+<b>stack</b>: стек ошибки
+                    </pre>
+                </section>
+                <section>
+                    <h4>Типы ошибок</h4>
+                    <pre>
+<b>EvalError</b>: представляет ошибку, которая генерируется при выполнении
+             глобальной функции eval()
+<b>RangeError</b>: ошибка генерируется, если параметр или переменная, 
+            представляют число, которое находится вне некотоого 
+            допустимого диапазона
+<b>ReferenceError</b>: ошибка генерируется при обращении к несуществующей 
+            ссылке
+<b>SyntaxError</b>: представляет ошибку синтаксиса
+<b>TypeError</b>: ошибка генерируется, если значение переменной или 
+            параметра представляют некорректный тип или пр попытке 
+            изменить значение, которое нельзя изменять
+<b>URIError</b>: ошибка генерируется при передаче функциям encodeURI() 
+            и decodeURI() некорректных значений
+<b>AggregateError</b>: предоставляет ошибку, которая объединяет несколько
+            возникших ошибок
+                    </pre>
+                </section>
             </section>
-            <section>
+            <section data-visibility="hidden">
                 <h4>Модули</h4>
             </section>
             <section>
-                <h4>Функции</h4>
+                <section>
+                    <h4>Функции (function)</h4>
+                    <p>Функции представляют собой набор инструкций, которые можно повторно вызывать в различных частях
+                        программы по имени функции. </p>
+                    <p>Синтаксис определения функции:</p>
+                    <pre><code data-trim>
+                        function имя_функции(параметры){
+                             // Инструкции
+                        }
+                    </code></pre>
+                    <p>Использование функции:</p>
+                    <pre><code data-trim>
+                        function f(x){
+                            return x**2;
+                        }
+                        y=f(x);
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Стрелочные функции</h4>
+                    <p>Стрелочные функции позоляют сократить определение обычных функций. Стрелочные функции
+                        определяются с помощью оператора =>, перед которым в скобках идут параметры функции, а после &mdash;
+                        собственно тело функции.</p>
+                    <pre><code data-trim>
+                        (параметры) => действия_функции
+                    </code></pre>
+                </section>
             </section>
             <section>
                 <h4>Встроенные объекты</h4>
@@ -459,11 +551,17 @@ Object: представляет комплексный объект
             <section>
                 <h4>Коллекции и итераторы</h4>
             </section>
+            <section data-visibility="hidden">
+                \[\begin{aligned} \dot{x} &amp; = \sigma(y-x) \\ \dot{y} &amp; = \rho x - y -
+                xz \\ \dot{z} &amp; = -\beta z + xy \\ E_0 &= mc^2 \\
+                E &= \frac{mc^2}{\sqrt{1-\frac{v^2}{c^2}}} \end{aligned} \]
+            </section>
         </div>
     </div>
     <script src="../reveal.js"></script>
     <script src="../notes.js"></script>
     <!-- <script src="markdown.js"></script> -->
+    <script src="../math/math.js"></script>
     <script src="../highlight.js"></script>
     <script>
         // More info about initialization & config:
@@ -474,7 +572,7 @@ Object: представляет комплексный объект
             showSlideNumber: 'all',
             slideNumber: "true",
             // Learn about plugins:</b> https://revealjs.com/plugins/
-            plugins: [RevealHighlight, RevealNotes]
+            plugins: [RevealHighlight, RevealNotes, RevealMath.KaTeX]
         });
     </script>
 </body>
