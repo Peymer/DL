@@ -551,20 +551,91 @@ Object: представляет комплексный объект
                 <section>
                     <h4>Встроенные объекты</h4>
                     <ul>
-                        <li>Дата и время &mdash; DateTime</li>
+                        <li>Дата и время &mdash; Date</li>
                         <li>Математические функции  &mdash; Math</li>
-                        <li>Числа &mdash; Number</li>
-                        <li>Символы &mdash; Symbol</li>
                     </ul>
                 </section>
-            </section>
-            <section>
-                <h4>Коллекции и итераторы</h4>
-            </section>
-            <section data-visibility="hidden">
-                \[\begin{aligned} \dot{x} &amp; = \sigma(y-x) \\ \dot{y} &amp; = \rho x - y -
-                xz \\ \dot{z} &amp; = -\beta z + xy \\ E_0 &= mc^2 \\
-                E &= \frac{mc^2}{\sqrt{1-\frac{v^2}{c^2}}} \end{aligned} \]
+                <section>
+                    <h4>Date</h4>
+                    <p>Объект Date позволяет работать с датами и временем в JavaScript.</p>
+                    <pre><code data-trim>
+                        const currentDate = new Date(); // Текущие дата и время
+                    </code></pre>
+                    <pre><code data-trim>
+                        // количеств милисекунд с 1 января 1970 года 00:00:00 GMT (по Гривичу)  
+                        const myDate = new Date(1359270000000); 
+                    </code></pre>
+                    <pre><code data-trim>
+                        // Thu Mar 27 2025 00:00:00 GMT+0300 (Москва, стандартное время)
+                        const date1 = new Date("27 March 2025"); 
+                        const date2 = new Date("3/27/2025");
+                        const date3 = new Date("3 27 2025");
+                    </code></pre>
+                    <pre><code data-trim>
+                        // Tue Dec 25 2025 18:30:20 GMT+0300 (Москва, стандартное время)
+                        const myDate = new Date(2025,11,25,18,30,20,10);
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Получение даты и времени</h4>
+                    <pre>
+<b>getDate()</b> &mdash; возвращает день месяца
+<b>getDay()</b> &mdash; возвращает день недели (отсчет начинается с 0 &mdash; воскресенье, 
+            и последний день 6 &mdash; суббота)
+<b>getMonth()</b> &mdash; возвращает номер месяца (отсчет начинается с нуля,
+            то есть месяц с номер 0 &mdash; январь)
+<b>getFullYear()</b> &mdash; возвращает год
+<b>toDateString()</b> &mdash; возвращает полную дату в виде строки
+<b>getHours()</b> &mdash; возвращает час (от 0 до 23)
+<b>getMinutes()</b> &mdash; возвращает минуты (от 0 до 59)
+<b>getSeconds()</b> &mdash; возвращает секунды (от 0 до 59)
+<b>getMilliseconds()</b> &mdash; возвращает миллисекунды (от 0 до 999)
+<b>toTimeString()</b> &mdash; возвращает полное время в виде строки
+</pre>
+                </section>
+                <section>
+                    <h4>Установка даты и времени</h4>
+                    <pre>
+<b>setDate()</b> &mdash; установка дня в дате
+<b>setMonth()</b> &mdash; уставовка месяца (отсчет начинается с нуля, 0 &mdash; январь)
+<b>setFullYear()</b> &mdash; устанавливает год
+<b>setHours()</b> &mdash; установка часа
+<b>setMinutes()</b> &mdash; установка минут
+<b>setSeconds()</b> &mdash; установка секунд
+<b>setMilliseconds()</b> &mdash; установка миллисекунд
+                    </pre>
+                </section>
+                <section>
+                    <h4>Math. Математические операции</h4>
+                    <pre>
+<b>abs()</b> &mdash; возвращает абсолютное значение числа
+<b>min()</b> &mdash; возвращает минимальное значение из набора чисел
+<b>max()</b> &mdash; возвращает максимальное значение из набора чисел
+<b>call()</b> &mdash; округляет число до следующего наибольшего целого числа
+<b>floor()</b> &mdash; округляет число до следующего наименьшего целого числа
+<b>round()</b> &mdash; округляет число по правилас Математические
+<b>random()</b> &mdash; возвращает случайное число с плавающей точкой их диапазона от 0 до 1
+<b>pow()</b> &mdash; возвращает число в определенной степени
+<b>sqrt()</b> &mdash; возвращает квадратный корень числа
+<b>log()</b> &mdash; возвращает натуральный логарифм числа
+<b>sin()</b> &mdash; вычисляет синус угла
+<b>cos()</b> &mdash; вычисляет косинус угла
+<b>tan()</b> &mdash; вычисляет тангенс угла
+                    </pre>
+                </section>
+                <section>
+                    <h4>Константы</h4>
+                    <pre>
+<b>Math.PI (число PI)</b> &mdash; 3.141592653589793
+<b>Math.SQRT2 (квадратный корень из двух)</b> &mdash; 1.4142135623730951
+<b>Math.SQRT1_2 (половина от квадратного корня из двух)</b> &mdash; 0.7071067811865476
+<b>Math.E (число e или число Эйлера)</b> &mdash; 2.718281828459045
+<b>Math.LN2 (натуральный логарифм числа 2)</b> &mdash; 0.6931471805599453
+<b>Math.LN10 (натуральный логарифм числа 10)</b> &mdash; 2.302585092994046
+<b>Math.LOG2E (двоичный логарифм числа e)</b> &mdash; 1.4426950408889634
+<b>Math.LOG10E (десятичный логарифм числа e)</b> &mdash; 0.4342944819032518                                            
+                    </pre>
+                </section>
             </section>
         </div>
     </div>
@@ -582,7 +653,7 @@ Object: представляет комплексный объект
             showSlideNumber: 'all',
             slideNumber: "true",
             // Learn about plugins:</b> https://revealjs.com/plugins/
-            plugins: [RevealHighlight, RevealNotes, RevealMath.KaTeX]
+            plugins: [RevealHighlight, RevealNotes]
         });
     </script>
 </body>
