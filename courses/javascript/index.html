@@ -705,6 +705,51 @@ Object: представляет комплексный объект
                     </section>
                     <section>
                         <h4>String</h4>
+                        <pre><code data-trim>
+                            const message = "Hello";
+                            // или
+                            const message = new String("Hello"); 
+                        </code></pre>
+                        <p>Длина строки: length</p>
+                        <pre><code data-trim>
+                            message.length
+                        </code></pre>
+                        <p>Повторение строки: repeat()</p>
+                        <pre><code data-trim>
+                            const message = "hello ";
+                            console.log(message.repeat(3)); // hello hello hello
+                        </code></pre>
+                        <p>Поиск в строке: <b>indexOf()/lastIndexOf()</b></p>
+                        <pre><code data-trim>
+                            indexOf(str, index)
+                            lastIndexOf(str, index)
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>includes()</h4>
+                        <pre><code data-trim>
+                            const hello = "привет мир. пока мир";
+ 
+                            console.log(hello.includes("мир", 5));  // true
+                            console.log(hello.includes("привет", 6));   // false
+                        </code></pre>
+                        <h4>Выбор подстроки</h4>
+                        <pre><code data-trim>
+                            substring(startIndex, endIndex)
+                        </code></pre>
+                        <pre><code data-trim>
+                            slice(startIndex, endIndex)
+                        </code></pre>
+                        <pre><code data-trim>
+                            substr(startIndex, count)
+                        </code></pre>
+                        <h4>Управление регистром символов:  toLowerCase()/toUpperCase()</h4>
+                        <pre><code data-trim>
+                            "Привет Мир".toLowerCase() // привет мир
+                            "Привет Мир".toUpperCase() // ПРИВЕТ МИР
+                        </code></pre>
+                    </section>
+                    <section>
                     </section>
                 </section>
             </div>
