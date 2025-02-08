@@ -6,12 +6,10 @@
 		<title>Построитель графиков</title>
 	</head>
 <body>
-	<canvas id=canvas width=500 height=500></canvas><br /><br />
+	<canvas id="canvas" width="500" height="500"></canvas><br /><br />
 
-	<!-- <input id=txt type=text placeholder=" введите функцию " />
-	<button onclick="draw();"> нарисовать график </button><br/>
-	<button onclick="save();">Save</button><br/>
-	<img id="display" src="../Downloads/test.png"/> -->
+	<input id="txt" type="text" placeholder="введите функцию" /><br/>
+	<button type="submit" onclick="draw();return false;" > нарисовать график </button><br/>
 
 	<script>
 		var cw = canvas.width, ch = canvas.height;
@@ -36,25 +34,14 @@
 			}
 			// график
 			for(x = -2.5; x < 2.5; x += 1/m){
-				// eval(document.getElementById("txt").value);
-				y=x**3;
+				eval(document.getElementById("txt").value);
+				// y=x**3;
 				ctx.beginPath();
 				ctx.fillStyle = "red";
 				ctx.arc(x * m + cw / 2, ch - y * m - ch / 2, 1, 0, 2 * Math.PI);
 				ctx.fill();
 			}
 		}
-
-		// async function save(){
-		// let data=canvas.toDataURL("image/png");
-
-		// 	let link = document.createElement('a');
-		// 	link.download = "../Downloads/test.png";
-		// 	link.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");;
-		// 	link.click();
-		// 	let disp=document.getElementById("display");
-		// 	disp.src="../Downloads/test.png";
-		// }
 		draw();
 	</script>
 </body>
