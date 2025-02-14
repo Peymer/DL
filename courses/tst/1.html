@@ -14,7 +14,7 @@
 	<script>
 		var cw = canvas.width, ch = canvas.height;
 		var ctx = document.getElementById("canvas").getContext("2d");
-		var m = 100; // масштаб отображения, в данном случае 1 = 10 px
+		var m = 50; // масштаб отображения, в данном случае 1 = 10 px
 		function draw(){
 			//ось Y
 			ctx.beginPath();
@@ -28,13 +28,15 @@
 			ctx.stroke();
 			ctx.font = "50% Arial";
 			// подписи осей
-			for (x = -2.5; x < 2.5; x += 0.25){
+			// for (x = -2.5; x < 2.5; x += 0.25){
+			for (x = -cw/2/m; x < cw/2/m; x += 0.25){
 				ctx.strokeText(x, x * m + cw / 2, ch - (ch / 2)- 5);
 				ctx.strokeText(x, cw / 2 - 25, ch/m - x * m + ch / 2);
 			}
 			// график
-			for(x = -2.5; x < 2.5; x += 1/m){
-				eval(document.getElementById("txt").value);
+			// for(x = -2.5; x < 2.5; x += 1/m){
+			for (x = -cw/2/m; x < cw/2/m; x += 0.25){
+					eval(document.getElementById("txt").value);
 				// y=x**3;
 				ctx.beginPath();
 				ctx.fillStyle = "red";
