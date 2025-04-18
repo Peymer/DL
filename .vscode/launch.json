@@ -7,8 +7,8 @@
         {
             "type": "msedge",
             "request": "launch",
-            "name": "Open index.html",
-            "file": "c:\\Users\\olga\\Documents\\GitHub\\DL\\courses\\index.html"
+            "name": "Launch",
+           "file": "${workspaceFolder}/index.html"
         }
     ]
 }
