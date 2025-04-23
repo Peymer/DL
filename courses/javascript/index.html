@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../reveal.css">
+    <link rel="stylesheet" href="../black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="../monokai.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Основы JavaScript</h1>
+                <p align="right">&copy; <a href="mailto:ipigp@yandex.ru">IGP</a>, январь 2025
+                    г.</p>
+            </section>
+            <section>
+                <p>Возможно два варианта выполнения программ написанных на
+                    JavaScript:</p>
+                <ul>
+                    <li>Серверный (backend) &mdash; выполнение в среде
+                        Node.js</li>
+                    <li>Клиентский (frontend) &mdash; выполнение в среде
+                        web-обозревателя</li>
+                </ul>
+            </section>
+            <section>
+                <h4>Клиентский вариант</h4>
+                <p>Программный модуль встраивается в HTML страницу. У
+                    программы имеется доступ к интерактивным
+                    возможностям обезревателя.</p>
+                <pre><code data-trim>
+                    &lt;html&gt;
+                        &lt;script&gt;
+                            document.write("Hello world!");
+                        &lt;/script&gt;
+                    &lt;/html&gt;</code></pre>
+            </section>
+            <section>
+                <h4>Клиентский вариант</h4>
+                <img src="./1.png" />
+            </section>
+            <section>
+                <h4>Клиентский вариант</h4>
+                <p>Когда обозреватель получает веб-страницу с кодом html и
+                    javascript, то он ее интерпретирует.
+                    Результат
+                    интерпретации в виде различных элементов &mdash; кнопок,
+                    полей ввода, текстовых блоков и т.д., мы
+                    видим
+                    перед собой в обозревателе. Интерпретация веб-страницы
+                    происходит последовательно сверху вниз.</p>
+                <p>В оборзерателях консоль включается при помощи клавиши
+                    <b>F12</b>
+                </p>
+            </section>
+            <section>
+                <h4>Основы синтаксиса</h4>
+                <p>Код javascript состоит из инструкций. Каждая инструкция
+                    представляет некоторое действие. И для
+                    отделения инструкций друг от друга в javascript после
+                    инструкции ставится <u>точка с запятой</u>.
+                </p>
+                <p>Современные браузеры вполне могут различать отдельные
+                    инструкции, если они просто располагаются на
+                    отдельных строках без точки запятой.</p>
+            </section>
+            <section>
+                <h4>Блоки кода</h4>
+                <p>Отдельные инструкции можно можно объединять в блоки кода,
+                    которые представляют некоторый код,
+                    заключенные между фигурными скобками { блок кода }. </p>
+            </section>
+            <section>
+                <section>
+                    <h4>Комментарии</h4>
+                    <p>В коде javascript могут использоваться комментарии.
+                        Комментарии не обрабатываются интерпретатором
+                        javascript и никак не учитываются в работе
+                        программы.</p>
+                    <p>Комментарии предназначены для ориентации по коду,
+                        чтобы указать, что делает тот или иной код.</p>
+                </section>
+                <section>
+                    <p>Однострочный комментарий</p>
+                    <pre><code data-trim>
+                    // Это комментарий на одной строке
+                    E = m * c**2; // очень важная формули физики
+                    </code></pre>
+                    <p>Многострочный комментарий</p>
+                    <pre><code data-trim>
+                        /*
+                            Основа релятивистской физики
+                            Формула раскрывает взаимозависимость энергии и массы пространства-материи-времени.
+                        */
+                        E = m * c**2;
+                    </code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Подключение внешнего файла JavaScript</h4>
+                    <p>Хорошим тоном является разделение HTML страницы и
+                        программы на JavaScript по различным файлам.
+                    </p>
+                    <p>HTML. Файл index.html</p>
+                    <pre><code data-trim>
+                    &lt;html&gt;
+                        &lt;script src="index.js"&gt;&lt;/script&gt;
+                    &lt;/html&gt;
+                </code></pre>
+                    <p>JavaScript. Файл index.js</p>
+                    <pre><code data-trim>
+                    document.write("Привет мир!!!");
+                </code></pre>
+                </section>
+                <section>
+                    <h4>Асинхронная загрузка и отложенное выполнение</h4>
+                    <p>Нередко веб-страницы имеют сложную структуру,
+                        какие-то блоки на html-странице, где подключаются
+                        файлы javascript, формируются динамически, что может
+                        усложнять управление файлами javascript. И
+                        для управления загрузкой файла с кодом JavaScript
+                        браузер предоставляет два атрибута:
+                        <b>async</b> и
+                        <b>defer</b>.
+                    </p>
+                    <img src="./2.png" />
+                </section>
+                <section>
+                    <p><b>async</b> &mdash; обработка HTML-кода не будет
+                        приостановлена, когда браузер встретит элемент
+                        &lt;script&gt;.
+                        Файл JavaScript загружается асинхронно.</p>
+                    <img src="./3.png" />
+                    <pre><code data-trim>&lt;script async src="index.js"&gt;&lt;/script&gt;</code></pre>
+                </section>
+                <section>
+                    <p><b>defer</b> &mdash; гарантирует, что обработка
+                        HTML-кода не будет приостановлена.
+                        Исходный код JavaScript выполняется <u>только после
+                            полной обработки HTML-кода</u>.</p>
+                    <img src="./4.png" />
+                    <pre><code data-trim>&lt;script defer src="index.js"&gt;&lt;/script&gt;</code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Переменные и константы</h4>
+                    <p>Для хранения данных в программе используются
+                        переменные и константы.</p>
+                    <p><b>Переменные</b> предназначены для
+                        хранения каких-нибудь временных данных или таких
+                        данных, которые в процессе работы могут менять
+                        свое
+                        значение.</p>
+                    <p><b>Константы</b> предназначены для хранения
+                        неизменных данных, значение которых должно
+                        оставаться постоянным в течение всей программы.</p>
+                </section>
+                <section>
+                    <h4>Объявление переменных</h4>
+                    <pre><code data-trim>
+                    const rights=15;
+                    var $name;
+                    let user1="Иванопуло";
+                </code></pre>
+                    <ol>
+                        <li style="color:red;">Создайте программу в которой
+                            будет объявлены константа a и перенная b c
+                            начальными значениями 5 и 10.<br />
+                            Выведите их сумму.</li>
+                    </ol>
+                </section>
+                <section>
+                    <p>Каждая переменная имеет имя. <br/>Имя представляет собой произвольный набор алфавитно-цифровых
+                        символов, знака подчеркивания (_) или знака доллара ($), причем названия не должны начинаться с
+                        цифровых символов.<br/> То есть, можно использовать в названии буквы, цифры, подчеркивание и символ
+                        $. Однако все остальные символы запрещены.</p>
+                </section>
+                <section>
+                    <h4>Присвоение значений переменным</h4>
+                    <p>После определения переменной ей можно присвоить какое-либо значение. Для этого применяется оператор присваивания <b>=</b></p>
+                    <p>Процесс присвоения переменной начального значения называется <b>инициализацией</b>.</p>
+                    <pre><code data-trim>
+                        let username;
+                        username = "Васисуалий";
+                    </code></pre>
+                    <pre><code data-trim>
+                        let username = "Васисуалий";
+                    </code></pre>
+                    <pre><code data-trim>
+                        let name1 = "Васисуалий", name2 = "Остап";
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Типы переменных</h4>
+                    <p>В JavaScript имеется восемь типов данных:</p>
+                    <ul>
+                        <li>Примитивные типы:
+                            <pre>
+String: представляет строку
+Number: представляет числовое значение
+BigInt: предназначен для представления очень больших целых чисел
+Boolean: представляет логическое значение true или false
+Symbol: представляет уникальное значение, которое часто применяется
+        для обращения к свойствам сложных объектов
+Undefined: представляет одно специальное значение &mdash; undefined и 
+        указывает, что значение не установлено
+Null: представляет одно специальное значение &mdash; null и указывает на 
+        отсутствие значения
+                            </pre>
+                        </li>
+                        <li>Сложный тип
+                            <pre>
+Object: представляет комплексный объект
+                            </pre>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+        </section>
+            <section>
+                <section>
+                    <h4>Арифметические операции</h4>
+                    <ul>
+                        <li>сложение &mdash; a + b</li>
+                        <li>вычитание &mdash; a - b</li>
+                        <li>умножение &mdash; a * b</li>
+                        <li>деление &mdash; a / b</li>
+                        <li>остаток от деления &mdash; a % b</li>
+                        <li>возведение в степень &mdash; a ** b</li>
+                        <li>инкремент &mdash; a++</li>
+                        <li>декремент &mdash; a--</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Арифметические операции с присваиваиванием</h4>
+                    <ul>
+                        <li>a += b</li>
+                        <li>a -= b</li>
+                        <li>a *= b</li>
+                        <li>a **= b</li>
+                        <li>a /= b</li>
+                        <li>a %= b</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Условные выражения</h4>
+                    <p>Условные выражения работают с условиями -
+                        выражениями, которые возвращают значение типа
+                        Boolean -
+                        true (условие не верно) или false (условие не
+                        верно). </p>
+                    <p>Есть два типа условных операций: операции
+                        сравнения и логические операции.</p>
+                    </p>
+                </section>
+
+                <section>
+                    <h4>Операции сравнения</h4>
+                    <ul>
+                        <li>== <p>Оператор равенства сравнивает два значения, и
+                                если они равны, возвращает true, иначе
+                                возвращает false</p>
+                        </li>
+                        <li>=== <p>Оператор тождественности также сравнивает два
+                                значения и их тип, и если они равны,
+                                возвращает true, иначе возвращает false</p>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Операции сравнения</h4>
+                    <ul>
+                        <li>!= <p>Сравнивает два значения, и если они не равны,
+                                возвращает true, иначе возвращает false
+                            </p>
+                        </li>
+                        <li>!== <p>Сравнивает два значения и их типы, и если они
+                                не равны, возвращает true, иначе
+                                возвращает false</p>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Операции сравнения</h4>
+                    <ul>
+                        <li>&gt; <p>Сравнивает два значения, и если первое
+                                больше второго, то возвращает true, иначе
+                                возвращает false</p>
+                        </li>
+                        <li>&lt; <p>Сравнивает два значения, и если первое
+                                меньше второго, то возвращает true, иначе
+                                возвращает false</p>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Операции сравнения</h4>
+                    <ul>
+                        <li>&gt;= <p>Сравнивает два значения, и если первое
+                                больше или равно второму, то возвращает
+                                true, иначе возвращает false</p>
+                        </li>
+                        <li>&lt;= <p>Сравнивает два значения, и если первое
+                                меньше или равно второму, то возвращает
+                                true, иначе возвращает false</p>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Логические операции</h4>
+                    <ul>
+                        <li>|| <p>true, если хотя бы один из операндов равен
+                                true, иначе возвращает false</p>
+                        </li>
+                        <li>&& <p>true, если оба операнда равны true, иначе
+                                возвращает false</p>
+                        </li>
+                        <li>! <p>true, если операнд равен false, в противном
+                                случае false</p>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <h4>Условные конструкции</h4>
+                <pre><code data-trim>
+                    age &lt;= 17 && console.log("Вам меньше 18 лет. Доступ запрещен.");
+                    age &gt; 17 && console.log("Вам больше 17 лет. Доступ разрешен.");   
+                </code></pre>
+            </section>
+            <section>
+                <h4>Операции присваивания</h4>
+                <ul>
+                    <li>&&= <p>аналогично а = а && b</p>
+                    </li>
+                    <li>||= <p>аналогично а = а || b</p>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <section>
+                    <h4>Условные операторы ?:, ?? и ??=</h4>
+                    <pre><code data-trim>
+                    [первый_операнд] ? [второй_операнд] : [третий_операнд]
+                </code></pre>
+                    <p>Если первый операнд равен true, то возвращается второй
+                        операнд, в противном случае третий.</p>
+                    <pre><code data-trim>левый_операнд ?? правый_операнд</code></pre>
+                    <p>Возвращает значение левого операнда, если оно НЕ равно
+                        null и undefined, иначе значение правого
+                        операнда.</p>
+                </section>
+                <section>
+                    <h4>Условные операторы ?:, ?? и ??=</h4>
+                    <pre><code data-trim>левый_операнд ??= правый_операнд</code></pre>
+                    <p>Если левый операнд равен null и undefined, то ему
+                        присваивается значение правого операнда, иначе
+                        левый операнд сохраняет значение.</p>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Условные конструкции</h4>
+                    <ul>
+                        <li>Конструкция if..else</li>
+                        <li>Конструкция switch..case</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>if..else</h4>
+                    <pre><code data-trim>
+                        if(условие){
+                            действия, если условие истинно
+                        }
+                        else{
+                            действия, если условие ложно
+                        }
+                    </code></pre>
+                    <p>Или сокращенная форма</p>
+                    <pre><code data-trim>
+                        if(условие){
+                            некоторые действия
+                        }                        
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>switch..case</h4>
+                    <pre><code data-trim>
+                        switch(переменная){
+                            case значение1: 
+                                действие;
+                                break;
+                            case значение1: 
+                                действие;
+                                break;
+                            case значение1: 
+                                действие;
+                                break;
+                            default:
+                                действие;
+                                break;
+                        }
+                    </code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Циклы</h4>
+                    <ul>
+                        <li>for</li>
+                        <li>for..in</li>
+                        <li>for..of
+                        <li>while</li>
+                        <li>do..while</li>
+                    </ul>
+                </section>
+                <section>
+                    <h1>for</h1>
+                    <pre><code data-trim>
+                        for ([инициализация]; [условие]; [изменение]){
+                            действия
+                        }
+                    </code></pre>
+                    <p>Этот оператор выполняет <b>действия</b> до тех пор,
+                        пока <b>условие</b> истинно.</p>
+                    <p>При этом, <b>инициализация</b> выполняется один раз,
+                        перед первым выполнением <b>действие</b>,
+                        а <b>изменение</b> выполняется каждый раз, после
+                        <b>действие</b>
+                    </p>
+                </section>
+                <section>
+                    <h4>while</h4>
+                    <pre><code data-trim>
+                        while(условие){
+                            действия
+                        }
+                    </code></pre>
+                    <p>Пока <b>условие</b> истинно, повторяется
+                        <b>действия</b>.
+                    </p>
+                    <p>Если изначально <b>условие</b> ложно, <b>действия</b>
+                        не будут выполнены ни разу.</p>
+                </section>
+                <section>
+                    <h4>do..while</h4>
+                    <pre><code data-trim>
+                        do{
+                            действия
+                        }
+                        while(условие);
+                    </code></pre>
+                    <p><b>Действия</b> повторяется, пока пока <b>условие</b>
+                        истинно.</p>
+                    <p><b>Действия</b> выполняются, хотя бы один раз.</p>
+                </section>
+                <section>
+                    <h4>Операторы continue и break</h4>
+                    <p>Иногда бывает необходимо выйти из цикла до его
+                        завершения. В этом случае используется оператор
+                        <b>break</b>.
+                    </p>
+                    <p>Если необходимо, по каким-то причинам, пропустить
+                        выполнение <b>действия</b>, используется
+                        оператор <b>continue</b>.</p>
+                    <pre><code data-trim>
+                        for (let i=0; i &lt; 6; i++){
+                            if (i === 2) continue;
+                            if (i%3 === 0) break;
+                            console.log(i);
+                        }
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>for..in</h4>
+                    <pre><code data-trim>
+                        for (свойство in объект) {
+                            действия
+                        }
+                    </code></pre>
+                    <p>Этот цикл перебирает все свойства объекта.</p>
+                    <pre><code data-trim>
+                        const person = {name: "Бендер", age: 31};
+                        for(prop in person){
+                            console.log(prop);
+                        }
+                        // Вывод:
+                        //  Бендер
+                        //  31
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>for...of</h4>
+                    <pre><code data-trim>
+                        for (свойство of объект) {
+                            действия
+                        }
+                    </code></pre>
+                    <p>Предназначен для перебора наборов данных.</p>
+                    <pre><code data-trim>
+                        const people = ["Бендер", "Паниковский", "Балаганов"];
+                        for(const person of people) {
+                            console.log(person);
+                        }
+                        // Вывод:
+                        //  Бендер
+                        //  Паниковский
+                        //  Балаганов
+                    </code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Обработка ошибок</h4>
+                    <p>В процессе работы прогаммы могут возникать ошибки,
+                        которые нарушают привычный ход
+                        программы или заставляют прервать выполнение. </p>
+                    <p>Язык JavaScript используется конструкция
+                        <b>try..catch..finally</b> для обаботки таких
+                        ситуаций.
+                    </p>
+                </section>
+
+                <section>
+                    <h4>try..catch..finally</h4>
+                    <pre><code data-trim>
+                    try {                
+                        инструкции блока try
+                      }
+                      catch (error) {
+                        инструкции блока catch
+                      }
+                      finally {
+                        инструкции блока finally
+                      }
+                    </code></pre>
+                    <p>Если в <b>инструкции блока try</b> возникает ошибка,
+                        то выполняются <b>инструкции блока
+                            catch</b>, а
+                        <b>инструкции блока finally</b> выполняются в любом
+                        случае.
+                    </p>
+                </section>
+                <section>
+                    <p>Только блок <b>try</b> является обязательным. А один
+                        из остальных блоков &mdash; <b>catch</b> или
+                        <b>finally</b> можно опустить.
+                    </p>
+                </section>
+                <section>
+                    <h4>Оператор принудительной генерации ошибки throw</h4>
+                    <pre><code data-trim>
+                        throw информация_об_ошибке;
+                    </code></pre>
+                </section>
+                <section>
+                    <p>Все ошибки, которые генерируются интерретатором
+                        JavaScript, предоставляют объект типа
+                        <b>Error</b>, который имеет ряд свойств:
+                    </p>
+                    <pre>
+<b>message</b>: сообщение об ошибке
+<b>name</b>: тип ошибки
+<b>fileName</b>: название файла с кодом JavaScript, где произошла ошибка
+<b>lineNumber</b>: строка в файле, где произошла ошибка
+<b>columnNumber</b>: столбец в строке, где произошла ошибка
+<b>stack</b>: стек ошибки
+                    </pre>
+                </section>
+                <section>
+                    <h4>Типы ошибок</h4>
+                    <pre>
+<b>EvalError</b>: представляет ошибку, которая генерируется при выполнении
+             глобальной функции eval()
+<b>RangeError</b>: ошибка генерируется, если параметр или переменная, 
+            представляют число, которое находится вне некотоого 
+            допустимого диапазона
+<b>ReferenceError</b>: ошибка генерируется при обращении к несуществующей 
+            ссылке
+<b>SyntaxError</b>: представляет ошибку синтаксиса
+<b>TypeError</b>: ошибка генерируется, если значение переменной или 
+            параметра представляют некорректный тип или пр попытке 
+            изменить значение, которое нельзя изменять
+<b>URIError</b>: ошибка генерируется при передаче функциям encodeURI() 
+            и decodeURI() некорректных значений
+<b>AggregateError</b>: предоставляет ошибку, которая объединяет несколько
+            возникших ошибок
+                    </pre>
+                </section>
+            </section>
+            <section data-visibility="hidden">
+                <h4>Модули</h4>
+            </section>
+            <section>
+                <section>
+                    <h4>Функции (function)</h4>
+                    <p>Функции представляют собой набор инструкций, которые
+                        можно повторно вызывать в различных частях
+                        программы по имени функции. </p>
+                    <p>Синтаксис определения функции:</p>
+                    <pre><code data-trim>
+                        function имя_функции(параметры){
+                             // Инструкции
+                        }
+                    </code></pre>
+                    <p>Использование функции:</p>
+                    <pre><code data-trim>
+                        function f(x){
+                            return x**2;
+                        }
+                        y=f(x);
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Стрелочные функции</h4>
+                    <p>Стрелочные функции позоляют сократить определение
+                        обычных функций. Стрелочные функции
+                        определяются с помощью оператора =>, перед которым в
+                        скобках идут параметры функции, а после
+                        &mdash;
+                        собственно тело функции.</p>
+                    <pre><code data-trim>
+                        (параметры) => действия_функции
+                    </code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Встроенные объекты</h4>
+                    <ul>
+                        <li>Дата и время &mdash; Date</li>
+                        <li>Математические функции &mdash; Math</li>
+                        <li>Строки &mdash; String</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Date</h4>
+                    <p>Объект Date позволяет работать с датами и временем в
+                        JavaScript.</p>
+                    <pre><code data-trim>
+                        const currentDate = new Date(); // Текущие дата и время
+                    </code></pre>
+                    <pre><code data-trim>
+                        // количеств милисекунд с 1 января 1970 года 00:00:00 GMT (по Гривичу)  
+                        const myDate = new Date(1359270000000); 
+                    </code></pre>
+                    <pre><code data-trim>
+                        // Thu Mar 27 2025 00:00:00 GMT+0300 (Москва, стандартное время)
+                        const date1 = new Date("27 March 2025"); 
+                        const date2 = new Date("3/27/2025");
+                        const date3 = new Date("3 27 2025");
+                    </code></pre>
+                    <pre><code data-trim>
+                        // Tue Dec 25 2025 18:30:20 GMT+0300 (Москва, стандартное время)
+                        const myDate = new Date(2025,11,25,18,30,20,10);
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Получение даты и времени</h4>
+                    <pre>
+<b>getDate()</b> &mdash; возвращает день месяца
+<b>getDay()</b> &mdash; возвращает день недели (отсчет начинается с 0 &mdash; воскресенье, 
+            и последний день 6 &mdash; суббота)
+<b>getMonth()</b> &mdash; возвращает номер месяца (отсчет начинается с нуля,
+            то есть месяц с номер 0 &mdash; январь)
+<b>getFullYear()</b> &mdash; возвращает год
+<b>toDateString()</b> &mdash; возвращает полную дату в виде строки
+<b>getHours()</b> &mdash; возвращает час (от 0 до 23)
+<b>getMinutes()</b> &mdash; возвращает минуты (от 0 до 59)
+<b>getSeconds()</b> &mdash; возвращает секунды (от 0 до 59)
+<b>getMilliseconds()</b> &mdash; возвращает миллисекунды (от 0 до 999)
+<b>toTimeString()</b> &mdash; возвращает полное время в виде строки
+</pre>
+                </section>
+                <section>
+                    <h4>Установка даты и времени</h4>
+                    <pre>
+<b>setDate()</b> &mdash; установка дня в дате
+<b>setMonth()</b> &mdash; уставовка месяца (отсчет начинается с нуля, 0 &mdash; январь)
+<b>setFullYear()</b> &mdash; устанавливает год
+<b>setHours()</b> &mdash; установка часа
+<b>setMinutes()</b> &mdash; установка минут
+<b>setSeconds()</b> &mdash; установка секунд
+<b>setMilliseconds()</b> &mdash; установка миллисекунд
+                    </pre>
+                </section>
+                <section>
+                    <h4>Math. Математические операции</h4>
+                    <pre>
+<b>abs()</b> &mdash; возвращает абсолютное значение числа
+<b>min()</b> &mdash; возвращает минимальное значение из набора чисел
+<b>max()</b> &mdash; возвращает максимальное значение из набора чисел
+<b>call()</b> &mdash; округляет число до следующего наибольшего целого числа
+<b>floor()</b> &mdash; округляет число до следующего наименьшего целого числа
+<b>round()</b> &mdash; округляет число по правилас Математические
+<b>random()</b> &mdash; возвращает случайное число с плавающей точкой их диапазона от 0 до 1
+<b>pow()</b> &mdash; возвращает число в определенной степени
+<b>sqrt()</b> &mdash; возвращает квадратный корень числа
+<b>log()</b> &mdash; возвращает натуральный логарифм числа
+<b>sin()</b> &mdash; вычисляет синус угла
+<b>cos()</b> &mdash; вычисляет косинус угла
+<b>tan()</b> &mdash; вычисляет тангенс угла
+                    </pre>
+                </section>
+                <section>
+                    <h4>Константы</h4>
+                    <pre>
+<b>Math.PI (число PI)</b> &mdash; 3.141592653589793
+<b>Math.SQRT2 (квадратный корень из двух)</b> &mdash; 1.4142135623730951
+<b>Math.SQRT1_2 (половина от квадратного корня из двух)</b> &mdash; 0.7071067811865476
+<b>Math.E (число e или число Эйлера)</b> &mdash; 2.718281828459045
+<b>Math.LN2 (натуральный логарифм числа 2)</b> &mdash; 0.6931471805599453
+<b>Math.LN10 (натуральный логарифм числа 10)</b> &mdash; 2.302585092994046
+<b>Math.LOG2E (двоичный логарифм числа e)</b> &mdash; 1.4426950408889634
+<b>Math.LOG10E (десятичный логарифм числа e)</b> &mdash; 0.4342944819032518                                            
+                    </pre>
+                </section>
+                <section>
+                    <h4>String</h4>
+                    <pre><code data-trim>
+                            const message = "Hello";
+                            // или
+                            const message = new String("Hello"); 
+                        </code></pre>
+                    <p>Длина строки: length</p>
+                    <pre><code data-trim>
+                            message.length
+                        </code></pre>
+                    <p>Повторение строки: repeat()</p>
+                    <pre><code data-trim>
+                            const message = "hello ";
+                            console.log(message.repeat(3)); // hello hello hello
+                        </code></pre>
+                    <p>Поиск в строке: <b>indexOf()/lastIndexOf()</b></p>
+                    <pre><code data-trim>
+                            indexOf(str, index)
+                            lastIndexOf(str, index)
+                        </code></pre>
+                </section>
+                <section>
+                    <h4>includes()</h4>
+                    <pre><code data-trim>
+                            const hello = "привет мир. пока мир";
+ 
+                            console.log(hello.includes("мир", 5));  // true
+                            console.log(hello.includes("привет", 6));   // false
+                        </code></pre>
+                    <h4>Выбор подстроки</h4>
+                    <pre><code data-trim>
+                            substring(startIndex, endIndex)
+                        </code></pre>
+                    <pre><code data-trim>
+                            slice(startIndex, endIndex)
+                        </code></pre>
+                    <pre><code data-trim>
+                            substr(startIndex, count)
+                        </code></pre>
+                    <h4>Управление регистром символов: toLowerCase()/toUpperCase()</h4>
+                    <pre><code data-trim>
+                            "Привет Мир".toLowerCase() // привет мир
+                            "Привет Мир".toUpperCase() // ПРИВЕТ МИР
+                        </code></pre>
+                </section>
+                <section>
+                    <h4>Удаление пробелов: trim()</h4>
+                    <pre>
+<b>trim()</b> &mdash; удаляет начальные и концевые пробелы
+<b>trimStart()</b> &mdash;  удаляет пробел с начала строки 
+<b>trimEnd()</b> &mdash;  удаляет пробел с конца строки 
+<b>trimLeft()</b> &mdash;  удаляет пробел с левой части строки
+<b>trimRight()</b> &mdash;  удаляет пробел с правой части строки
+                        </pre>
+                </section>
+                <section>
+                    <h4>Объединение строк: concat()</h4>
+                    <pre><code data-trim>
+                            let hello = "Привет ";
+                            const world = "мир";
+                            hello = hello.concat(world);
+                            console.log(hello); // Привет мир
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Замена подстроки: replace()</h4>
+                    <pre><code data-trim>
+                        let hello = "Добрый день";
+                        hello = hello.replace("день", "вечер");
+                        console.log(hello); // Добрый вечер
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Разделение строки: solit()</h4>
+                    <pre><code data-trim>
+                        const message = "Сегодня была прекрасная погода";
+                        const messageParts = message.split(" ");
+                        console.log(messageParts);  // ["Сегодня", "была", "прекрасная", "погода"]
+                    </code></pre>
+                </section>
+            </section>
+        </div>
+    </div>
+    <script src="../reveal.js"></script>
+    <script src="../notes.js"></script>
+    <!-- <script src="markdown.js"></script> -->
+    <!-- <script src="../math/math.js"></script> -->
+    <script src="../highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            showSlideNumber: 'all',
+            slideNumber: "true",
+            // Learn about plugins:</b> https://revealjs.com/plugins/
+            plugins: [RevealHighlight, RevealNotes]
+            // plugins: [RevealHighlight, RevealNotes, RevealMath.KaTeX]
+        });
+    </script>
+</body>
+
+</html>

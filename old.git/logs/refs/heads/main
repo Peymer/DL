@@ -1,0 +1,120 @@
+0000000000000000000000000000000000000000 e7a1df4e0c58d4d405ddbc61bf61f99d7273a8bb Igor Peymer <ipigp@yandex.ru> 1734262339 +0300	clone: from github.com:Peymer/DL.git
+e7a1df4e0c58d4d405ddbc61bf61f99d7273a8bb dbc3472034743c7a32ffbc4ab1794c0ad453a791 Igor Peymer <ipigp@yandex.ru> 1734266979 +0300	commit: first
+dbc3472034743c7a32ffbc4ab1794c0ad453a791 3ace974b3b3dcb55477b675c7be65ed4ccc30d0a Igor Peymer <ipigp@yandex.ru> 1734267601 +0300	commit: modified: courses/js-debug/index.html
+3ace974b3b3dcb55477b675c7be65ed4ccc30d0a c687bdefda2ee7a89edf4d505a05dd26d813ee69 Igor Peymer <ipigp@yandex.ru> 1734268926 +0300	pull --tags origin main: Fast-forward
+c687bdefda2ee7a89edf4d505a05dd26d813ee69 38a2947e65721eb3582f4208d77ec7295e5e4ce7 Igor Peymer <ipigp@yandex.ru> 1734268996 +0300	commit: modified: courses/js-debug/index.html
+38a2947e65721eb3582f4208d77ec7295e5e4ce7 10423c612442524daf3f8a953ddd22be55196337 Igor Peymer <ipigp@yandex.ru> 1734269121 +0300	commit: modified: courses/js-debug/index.html
+10423c612442524daf3f8a953ddd22be55196337 ddb73b7965ff7d2df2b1fa5129e7da9db7972655 Igor Peymer <ipigp@yandex.ru> 1734516459 +0300	commit: modified: courses/js-debug/index.html
+ddb73b7965ff7d2df2b1fa5129e7da9db7972655 1e7b68ae5babc3b113e63b0f8ae68e79ffdfd9ac Igor Peymer <ipigp@yandex.ru> 1734516627 +0300	pull --tags origin main (finish): refs/heads/main onto 0c676a0e070a54f06d82a836ecc3cd271c7e726b
+1e7b68ae5babc3b113e63b0f8ae68e79ffdfd9ac 0fef0fae04c79818129ddb0434d29cce5d35fc91 Igor Peymer <ipigp@yandex.ru> 1734517111 +0300	commit: modified: courses/ObjectsJS2/index.html
+0fef0fae04c79818129ddb0434d29cce5d35fc91 20c8878f08a82c568788dd82be916484d9fea96a Igor Peymer <ipigp@yandex.ru> 1734591398 +0300	rebase (finish): refs/heads/main onto 20c8878f08a82c568788dd82be916484d9fea96a
+20c8878f08a82c568788dd82be916484d9fea96a 5e98f3fe1a4b7ede2ca1890c19a55f623b1bf50d Igor Peymer <ipigp@yandex.ru> 1734591546 +0300	commit: modified: courses/ObjectsJS2/index.html
+5e98f3fe1a4b7ede2ca1890c19a55f623b1bf50d 5d9e64598ea8e57744e735caa34a0f2c91193513 Igor Peymer <ipigp@yandex.ru> 1735207790 +0300	pull --tags origin main: Fast-forward
+5d9e64598ea8e57744e735caa34a0f2c91193513 6786089d3c76f9a9a6bc7db34cb08f7c3c8b1d7f Igor Peymer <ipigp@yandex.ru> 1737058478 +0300	pull --tags origin main: Fast-forward
+6786089d3c76f9a9a6bc7db34cb08f7c3c8b1d7f 067b3a5ed6b06d636a00d186eaab3aff10a1c119 Igor Peymer <ipigp@yandex.ru> 1737065043 +0300	commit: deleted: .vscode/launch.json
+067b3a5ed6b06d636a00d186eaab3aff10a1c119 227b8563d3717c8e590e30a786de089f5dcff7ac Igor Peymer <ipigp@yandex.ru> 1737090264 +0300	pull --tags origin main: Fast-forward
+227b8563d3717c8e590e30a786de089f5dcff7ac abe78ad13fa2f8ec07f9811b82e091b3d476dbb1 Igor Peymer <ipigp@yandex.ru> 1737103261 +0300	pull --tags origin main: Fast-forward
+abe78ad13fa2f8ec07f9811b82e091b3d476dbb1 f81c6bcabb45c7fc197d677b02f49ed2a314b7e1 Igor Peymer <ipigp@yandex.ru> 1737381044 +0300	commit: new file: courses/html5/3.png
+f81c6bcabb45c7fc197d677b02f49ed2a314b7e1 8e4b9b124cde7660c78543a1a1e7bc328313cab6 Igor Peymer <ipigp@yandex.ru> 1737381284 +0300	commit: modified: courses/html5/index.html
+8e4b9b124cde7660c78543a1a1e7bc328313cab6 11ce88024a34446aab146459225fe3af025f403c Igor Peymer <ipigp@yandex.ru> 1737385507 +0300	commit: new file: courses/html5/cover.jpg
+11ce88024a34446aab146459225fe3af025f403c 5950f8130a0025b15afaa9ef17ab808ea6a2cd26 Igor Peymer <ipigp@yandex.ru> 1737385949 +0300	commit: modified: courses/html5/index.html
+5950f8130a0025b15afaa9ef17ab808ea6a2cd26 6b70bb55f399ca6982117ed5fefafb9e6da601ed Igor Peymer <ipigp@yandex.ru> 1737386102 +0300	commit: modified: courses/html5/index.html
+6b70bb55f399ca6982117ed5fefafb9e6da601ed e2e01f1f3b84c41845abbb9eddea0887e4d0607d Igor Peymer <ipigp@yandex.ru> 1737399313 +0300	commit: modified: courses/html5/index.html
+e2e01f1f3b84c41845abbb9eddea0887e4d0607d 2d4f558275f4ca573ef8e1112bbc37f0f2ec5a8f Igor Peymer <ipigp@yandex.ru> 1737403677 +0300	commit: modified: courses/html5/index.html
+2d4f558275f4ca573ef8e1112bbc37f0f2ec5a8f 59249b574c1fe0d1f221727ce684ed7dcb39de3c Igor Peymer <ipigp@yandex.ru> 1737404965 +0300	commit: modified: courses/html5/index.html
+59249b574c1fe0d1f221727ce684ed7dcb39de3c 28f6eaa17f387b193f570af899e5bdbb69ea372d Igor Peymer <ipigp@yandex.ru> 1737411145 +0300	commit: modified: courses/html5/index.html
+28f6eaa17f387b193f570af899e5bdbb69ea372d d753c29c045a6a98578bfa6230ebd71e2326c82e Igor Peymer <ipigp@yandex.ru> 1737497173 +0300	commit: modified: README.md
+d753c29c045a6a98578bfa6230ebd71e2326c82e ee614d3052a723310c43444c10c90954c8416b9b Igor Peymer <ipigp@yandex.ru> 1737497327 +0300	commit: modified: index.html
+ee614d3052a723310c43444c10c90954c8416b9b 2ae313bc38f360e42a13be1cd6064b8dbfa2413a Igor Peymer <ipigp@yandex.ru> 1737497388 +0300	commit: modified: index.html
+2ae313bc38f360e42a13be1cd6064b8dbfa2413a e44ac9ff71c8259938c3d720fddb3f4ac69ae4f6 Igor Peymer <ipigp@yandex.ru> 1737497426 +0300	commit: modified: index.html
+e44ac9ff71c8259938c3d720fddb3f4ac69ae4f6 848d90593e5aca6ff7fbfc166ac474f509702b50 Igor Peymer <ipigp@yandex.ru> 1738101090 +0300	commit: new file: courses/html5/canvas.html
+848d90593e5aca6ff7fbfc166ac474f509702b50 87161e0a89e1bf49582b654f8f97cb3b09bd2b98 Igor Peymer <ipigp@yandex.ru> 1738101134 +0300	commit: modified: courses/html5/canvas.html
+87161e0a89e1bf49582b654f8f97cb3b09bd2b98 5f70fa87aa2de4196b0355866e024fd80980671d Igor Peymer <ipigp@yandex.ru> 1738139550 +0300	pull --tags origin main: Fast-forward
+5f70fa87aa2de4196b0355866e024fd80980671d e67fab86b9e3982e4dfee0dc61a67a16e680fa40 Igor Peymer <ipigp@yandex.ru> 1738182543 +0300	commit: new file: courses/html5/6.png
+e67fab86b9e3982e4dfee0dc61a67a16e680fa40 db6ad4e001f992c9fcaa8502e9cb92ae48b20c86 Igor Peymer <ipigp@yandex.ru> 1738246695 +0300	pull --tags origin main: Fast-forward
+db6ad4e001f992c9fcaa8502e9cb92ae48b20c86 362e2524bc1dd6906906f646271a6760d43261ed Igor Peymer <ipigp@yandex.ru> 1738247143 +0300	commit: modified: README.md
+362e2524bc1dd6906906f646271a6760d43261ed aeedc1a97ac16688926e153ae7096254b370e754 Igor Peymer <ipigp@yandex.ru> 1738255140 +0300	commit: new file: courses/html5/10.png
+aeedc1a97ac16688926e153ae7096254b370e754 18f01fee5fd36974d2e01d823a3ebc44d462f715 Igor Peymer <ipigp@yandex.ru> 1738255414 +0300	commit: modified: courses/html5/Practic.html
+18f01fee5fd36974d2e01d823a3ebc44d462f715 23d30c512bea6a62569cf1bfa79a2f3955d61d16 Igor Peymer <ipigp@yandex.ru> 1738256733 +0300	commit: new file: courses/html5/13.png
+23d30c512bea6a62569cf1bfa79a2f3955d61d16 2a6dc7cb3fab0e6a861dde92eee24c199f597c4c Igor Peymer <ipigp@yandex.ru> 1738257418 +0300	commit: modified: courses/html5/12.png
+2a6dc7cb3fab0e6a861dde92eee24c199f597c4c 624f921077b8de91702b70b977dff5c31e6e4763 Igor Peymer <ipigp@yandex.ru> 1738257804 +0300	commit: modified: courses/html5/Practic.html
+624f921077b8de91702b70b977dff5c31e6e4763 bf0fb9c91a839e13ce3299505a54d4e8dd88ffc7 Igor Peymer <ipigp@yandex.ru> 1738257925 +0300	commit: modified: courses/html5/Practic.html
+bf0fb9c91a839e13ce3299505a54d4e8dd88ffc7 9affb77177b1d8d345e3f466de89e754293fd7db Igor Peymer <ipigp@yandex.ru> 1738258022 +0300	commit: modified: courses/html5/Practic.html
+9affb77177b1d8d345e3f466de89e754293fd7db f9002431944899c4a2b7cabb294f196fb1cbff7a Igor Peymer <ipigp@yandex.ru> 1738258114 +0300	commit: modified: courses/html5/Practic.html
+f9002431944899c4a2b7cabb294f196fb1cbff7a e8f22c00b77c94cb43df95db7e7cb452bc121584 Igor Peymer <ipigp@yandex.ru> 1738258211 +0300	commit: modified: courses/html5/Practic.html
+e8f22c00b77c94cb43df95db7e7cb452bc121584 a46e5357c2656b997a7aa1b76af94d821e6d19bf Igor Peymer <ipigp@yandex.ru> 1738259474 +0300	commit: modified: courses/html5/Practic.html
+a46e5357c2656b997a7aa1b76af94d821e6d19bf da3c6f8c6fe11eb6bf7edafd3ddff7a8d98c42b5 Igor Peymer <ipigp@yandex.ru> 1738259871 +0300	commit: modified: courses/html5/10.png
+da3c6f8c6fe11eb6bf7edafd3ddff7a8d98c42b5 09788c24be05fb43b932df750ce88f7709a8b9b4 Igor Peymer <ipigp@yandex.ru> 1738268884 +0300	pull --tags origin main: Fast-forward
+09788c24be05fb43b932df750ce88f7709a8b9b4 04f87d8b3dae708f1f7045973e2af75eabdeebd9 Igor Peymer <ipigp@yandex.ru> 1738271668 +0300	commit: new file: courses/html5/14.png
+04f87d8b3dae708f1f7045973e2af75eabdeebd9 ae5589503ffb0eee34e92177e5c718967337763f Igor Peymer <ipigp@yandex.ru> 1738304230 +0300	pull --tags origin main: Fast-forward
+ae5589503ffb0eee34e92177e5c718967337763f 11c7a5ad06e4b6ae34d6bc4f8c11c99bbc33a755 Igor Peymer <ipigp@yandex.ru> 1738306038 +0300	commit: modified: courses/html5/events.html
+11c7a5ad06e4b6ae34d6bc4f8c11c99bbc33a755 30a88a13793c1a3e4fa59748d72dae3af966c547 Igor Peymer <ipigp@yandex.ru> 1738340635 +0300	commit: new file: courses/javascript/1.png
+30a88a13793c1a3e4fa59748d72dae3af966c547 762a7066365e602f23b8566506d1a3aa7aabc311 Igor Peymer <ipigp@yandex.ru> 1738341954 +0300	commit: modified: courses/javascript/index.html
+762a7066365e602f23b8566506d1a3aa7aabc311 eb468c9c1f9d56c009e4c8da7587915212999e38 Igor Peymer <ipigp@yandex.ru> 1738344143 +0300	commit: modified: index.html
+eb468c9c1f9d56c009e4c8da7587915212999e38 df14525adbf9e54e633ffa41de56cadd420351ac Igor Peymer <ipigp@yandex.ru> 1738361416 +0300	commit: modified: courses/index.html
+df14525adbf9e54e633ffa41de56cadd420351ac b7462da1bdbdaf8d8aa2a3640bccd60986b45505 Igor Peymer <ipigp@yandex.ru> 1738362172 +0300	commit: modified: courses/javascript/index.html
+b7462da1bdbdaf8d8aa2a3640bccd60986b45505 ff2af3bb3cf4135eda85534823a3390314dcf9be Igor Peymer <ipigp@yandex.ru> 1738362659 +0300	commit: modified: courses/javascript/index.html
+ff2af3bb3cf4135eda85534823a3390314dcf9be 8697b766932e80e26f13193da95bc3630374a053 Igor Peymer <ipigp@yandex.ru> 1738362996 +0300	commit: modified: courses/javascript/index.html
+8697b766932e80e26f13193da95bc3630374a053 9ea5380deb02908cb38417956cc6d424fc333faf Igor Peymer <ipigp@yandex.ru> 1738438776 +0300	commit: modified: courses/javascript/index.html
+9ea5380deb02908cb38417956cc6d424fc333faf 95bb557a6f495fba42fe6ce52e716fd6c1459cfd Igor Peymer <ipigp@yandex.ru> 1738447593 +0300	commit: modified: courses/javascript/index.html
+95bb557a6f495fba42fe6ce52e716fd6c1459cfd b69739e3dc18b5fc6cd8032238d85b7d7f6d5aaa Igor Peymer <ipigp@yandex.ru> 1738448076 +0300	commit: modified: courses/javascript/index.html
+b69739e3dc18b5fc6cd8032238d85b7d7f6d5aaa d8cb2e4bde4487fda00ec0f8e6acba5d1c446abf Igor Peymer <ipigp@yandex.ru> 1738500564 +0300	commit: modified: courses/javascript/index.html
+d8cb2e4bde4487fda00ec0f8e6acba5d1c446abf f732318fb7b165fa2c538735459bb4b2f0c24baa Igor Peymer <ipigp@yandex.ru> 1738500581 +0300	pull --tags origin main (finish): refs/heads/main onto 3681acc9d8c546b1eeecab64083efbed5131b5d8
+f732318fb7b165fa2c538735459bb4b2f0c24baa b4cc6ceb7c6ab93d48287e4bba6f44dc315fe26b Igor Peymer <ipigp@yandex.ru> 1738524288 +0300	pull --tags origin main: Fast-forward
+b4cc6ceb7c6ab93d48287e4bba6f44dc315fe26b 6a3e39fd5401a7ae8ebe2858d79fb4d410fa4072 Igor Peymer <ipigp@yandex.ru> 1738524421 +0300	commit: deleted: courses/javascript/example.html
+6a3e39fd5401a7ae8ebe2858d79fb4d410fa4072 335a267bbfaf95d8375d6b59c8c8b2d9f25bda37 Igor Peymer <ipigp@yandex.ru> 1738525739 +0300	commit: modified: courses/javascript/index.html
+335a267bbfaf95d8375d6b59c8c8b2d9f25bda37 05068308ea786b240a5369c775928950e886130b Igor Peymer <ipigp@yandex.ru> 1738608177 +0300	commit: new file: courses/interpolation/1.svg
+05068308ea786b240a5369c775928950e886130b 6732822eaa345ee14d38c349f8dbec523c117b80 Igor Peymer <ipigp@yandex.ru> 1738608204 +0300	pull --tags origin main (finish): refs/heads/main onto 6f705f892af6e919d45815e6127ecd6fc43f2e05
+6732822eaa345ee14d38c349f8dbec523c117b80 d6511d80e75fdf54af9f3e90f72a2c535d7be123 Igor Peymer <ipigp@yandex.ru> 1738619022 +0300	commit: modified: courses/interpolation/index.html
+d6511d80e75fdf54af9f3e90f72a2c535d7be123 b16fcdc0154a2da6503ee83447963c06b36e6a88 Igor Peymer <ipigp@yandex.ru> 1738619360 +0300	commit: modified: courses/interpolation/index.html
+b16fcdc0154a2da6503ee83447963c06b36e6a88 3a65ea41e23ab93087a97f0cc2eaa058e90b56cf Igor Peymer <ipigp@yandex.ru> 1738651237 +0300	commit: modified: courses/interpolation/index.html
+3a65ea41e23ab93087a97f0cc2eaa058e90b56cf f5240b51ea1ffda22699b40d1ac652d046f315ef Igor Peymer <ipigp@yandex.ru> 1738651384 +0300	rebase (finish): refs/heads/main onto 5e93423b074ad9fcc87a6292ab074a485fdca39c
+f5240b51ea1ffda22699b40d1ac652d046f315ef ed0203e5a2c017ea3e04613463002daf1cdd3f83 Igor Peymer <ipigp@yandex.ru> 1738651423 +0300	commit: modified: courses/interpolation/index.html
+ed0203e5a2c017ea3e04613463002daf1cdd3f83 422cef76c56b0b65727666ef448d6a8ea9dc19ff Igor Peymer <ipigp@yandex.ru> 1738653253 +0300	commit: new file: courses/DefNet/index.html
+422cef76c56b0b65727666ef448d6a8ea9dc19ff 7cab8b56a64c269096d7371d952caa094c6ff77b Igor Peymer <ipigp@yandex.ru> 1738658879 +0300	commit: modified: courses/javascript/index.html
+7cab8b56a64c269096d7371d952caa094c6ff77b 5daf318f42edd2b5bc352f4bcfc3c49563210809 Igor Peymer <ipigp@yandex.ru> 1738872896 +0300	pull --tags origin main: Fast-forward
+5daf318f42edd2b5bc352f4bcfc3c49563210809 1aeae2de820d7b53285e8174d8acc9f4339305a4 Igor Peymer <ipigp@yandex.ru> 1739479867 +0300	commit: new file: courses/interpolation/Zhemchuzhiny.pdf
+1aeae2de820d7b53285e8174d8acc9f4339305a4 e950ad6891fb0836506a12d814d06d4cdaf5c7c1 Igor Peymer <ipigp@yandex.ru> 1739479884 +0300	pull --tags origin main (finish): refs/heads/main onto 33bb18771b776ab2e58fbdbfd49dbbb551c2389a
+e950ad6891fb0836506a12d814d06d4cdaf5c7c1 15311841181b09e367e066a1450eb2cfccecaa61 Igor Peymer <ipigp@yandex.ru> 1739482609 +0300	commit: modified: courses/javascript/index.html
+15311841181b09e367e066a1450eb2cfccecaa61 39d8761e5db53b27b508e97919a5dc351a01e1de Igor Peymer <ipigp@yandex.ru> 1739557819 +0300	commit: modified: courses/javascript/index.html
+39d8761e5db53b27b508e97919a5dc351a01e1de 9c76c492f3556dd021ad85e9a25349a89be60e21 Igor Peymer <ipigp@yandex.ru> 1739557832 +0300	pull --tags origin main (finish): refs/heads/main onto 9bb702e9268d8e08ae7d37c2cf121da31ab567d9
+9c76c492f3556dd021ad85e9a25349a89be60e21 bd0a2d226b5f395505db647e9b05e229d906ed32 Igor Peymer <ipigp@yandex.ru> 1743151146 +0300	commit: new file: courses/LOBase/1.png
+bd0a2d226b5f395505db647e9b05e229d906ed32 59deeda52dee3cc0bcd85e3fadd492d3f47d256b Igor Peymer <ipigp@yandex.ru> 1743165583 +0300	commit: modified: courses/LOBase/index.html
+59deeda52dee3cc0bcd85e3fadd492d3f47d256b efd6773580d26b83cc1a6bd0168ae877123e78de Igor Peymer <ipigp@yandex.ru> 1743188017 +0300	commit: new file: courses/LOBase/11.png
+efd6773580d26b83cc1a6bd0168ae877123e78de 08f37e1918b155f388a258dda0fdc395bc0bb357 Igor Peymer <ipigp@yandex.ru> 1743188107 +0300	rebase (finish): refs/heads/main onto 51e78758290a9da7376f6f9a17f8d012b4f6d7b4
+08f37e1918b155f388a258dda0fdc395bc0bb357 350d3068bf24b2cd62beab7e743ca745baa3d316 Igor Peymer <ipigp@yandex.ru> 1743231385 +0300	commit: modified: courses/LOBase/index.html
+350d3068bf24b2cd62beab7e743ca745baa3d316 a7b1cb9d8a589c4a3ee61586b9023d355d62d4ff Igor Peymer <ipigp@yandex.ru> 1743231595 +0300	rebase (finish): refs/heads/main onto 9d10a16b0ef6af69028a44af9f6998b6f8cff769
+a7b1cb9d8a589c4a3ee61586b9023d355d62d4ff 5f5835615662e046e1fa69f7ec8368857f41cd57 Igor Peymer <ipigp@yandex.ru> 1743231900 +0300	commit: new file: courses/LOBase/1.png
+5f5835615662e046e1fa69f7ec8368857f41cd57 c545c8c06046a1b59aff6acd4d93d99ed2549da7 Igor Peymer <ipigp@yandex.ru> 1743232098 +0300	commit: new file: courses/LOBase/0.png
+c545c8c06046a1b59aff6acd4d93d99ed2549da7 4fbb38e580b948d4e63f84d2ee1c6bcce564d888 Igor Peymer <ipigp@yandex.ru> 1743232240 +0300	commit: new file: courses/LOBase/10.png
+4fbb38e580b948d4e63f84d2ee1c6bcce564d888 0c02639ffcbadfe30c5cbe664e92872b3b077735 Igor Peymer <ipigp@yandex.ru> 1743237319 +0300	commit: modified: courses/LOBase/index.html
+0c02639ffcbadfe30c5cbe664e92872b3b077735 0f283997b330d167f13e129f899d9419cfdf87a9 Igor Peymer <ipigp@yandex.ru> 1743237427 +0300	commit: modified: courses/LOBase/index.html
+0f283997b330d167f13e129f899d9419cfdf87a9 77961dbced4cf15451e03811cbc4def8365b4295 Igor Peymer <ipigp@yandex.ru> 1743237965 +0300	commit: modified: courses/LOBase/index.html
+77961dbced4cf15451e03811cbc4def8365b4295 9112a64abf1914b69ec48bf446d81a6dead0903d Igor Peymer <ipigp@yandex.ru> 1743239308 +0300	commit: modified: courses/LOBase/index.html
+9112a64abf1914b69ec48bf446d81a6dead0903d 3fe8ea532c556d0b7a73558b9974320cfde74d41 Igor Peymer <ipigp@yandex.ru> 1743239859 +0300	commit: modified: courses/LOBase/index.html
+3fe8ea532c556d0b7a73558b9974320cfde74d41 e2bf52a9df2d5d16c90d605069b93200d6c38e28 Igor Peymer <ipigp@yandex.ru> 1743240032 +0300	commit: modified: courses/LOBase/index.html
+e2bf52a9df2d5d16c90d605069b93200d6c38e28 8c5eb82c6ea97e00ad172ba12d9789d787e66084 Igor Peymer <ipigp@yandex.ru> 1743251192 +0300	commit: modified: courses/index.html
+8c5eb82c6ea97e00ad172ba12d9789d787e66084 50234b8358eac625bc371655ebac0e58d8fc5363 Igor Peymer <ipigp@yandex.ru> 1743408597 +0300	commit: new file: courses/LOBase/19.png
+50234b8358eac625bc371655ebac0e58d8fc5363 5e2b2022088327fcb309bd8bb801e49693c3b88b Igor Peymer <ipigp@yandex.ru> 1743411951 +0300	commit: modified: courses/LOBase/index.html
+5e2b2022088327fcb309bd8bb801e49693c3b88b 3617946705af2a622155f45661c622b844df0aba Igor Peymer <ipigp@yandex.ru> 1743412834 +0300	commit: new file: courses/LOBase/photo/index.html
+3617946705af2a622155f45661c622b844df0aba dbaba3166a320905eedac771da32d2fd987b5b43 Igor Peymer <ipigp@yandex.ru> 1743420138 +0300	commit: modified: courses/LOBase/photo/index.html
+dbaba3166a320905eedac771da32d2fd987b5b43 02a2d503d723943c3a9823448eaf4914c9a2762c Igor Peymer <ipigp@yandex.ru> 1743420297 +0300	commit: modified: courses/LOBase/photo/index.html
+02a2d503d723943c3a9823448eaf4914c9a2762c 7c1910e4e3acd9109f9f4e7d40329b05d9ae2aa4 Igor Peymer <ipigp@yandex.ru> 1743425359 +0300	commit: modified: courses/LOBase/index.html
+7c1910e4e3acd9109f9f4e7d40329b05d9ae2aa4 1cf1d13e398352806a2ce4a6c6b74aa2bd624468 Igor Peymer <ipigp@yandex.ru> 1744659541 +0300	commit: new file: courses/.vscode/launch.json
+1cf1d13e398352806a2ce4a6c6b74aa2bd624468 90c8ab9b558d1d70e78374a9554bddb2e03268a9 Igor Peymer <ipigp@yandex.ru> 1744664229 +0300	commit: modified: courses/LOCalc/index.html
+90c8ab9b558d1d70e78374a9554bddb2e03268a9 e776a7293813f971f83ce89564546bc314f04b3f Igor Peymer <ipigp@yandex.ru> 1744700460 +0300	commit: modified: courses/LOCalc/index.html
+e776a7293813f971f83ce89564546bc314f04b3f 92b4d4159de0fa7534479f1e102610a9dad82eff Igor Peymer <ipigp@yandex.ru> 1744700995 +0300	commit: modified: courses/LOCalc/index.html
+92b4d4159de0fa7534479f1e102610a9dad82eff 6d5a1f659819969a7312cfad1b73e586a26f1ec6 Igor Peymer <ipigp@yandex.ru> 1744701134 +0300	commit: modified: courses/LOCalc/index.html
+6d5a1f659819969a7312cfad1b73e586a26f1ec6 3b189c6a8788bbb4330055b6a25f4d5729438d4e Igor Peymer <ipigp@yandex.ru> 1744701186 +0300	commit: modified: courses/LOCalc/index.html
+3b189c6a8788bbb4330055b6a25f4d5729438d4e e94cdf89841cf49fbd9b3e431f497835d236ed39 Igor Peymer <ipigp@yandex.ru> 1744701347 +0300	commit: modified: courses/LOCalc/index.html
+e94cdf89841cf49fbd9b3e431f497835d236ed39 c1543bd20c5cd32014a25bb50ea4622cf60b8d84 Igor Peymer <ipigp@yandex.ru> 1744701524 +0300	commit: modified: courses/LOCalc/index.html
+c1543bd20c5cd32014a25bb50ea4622cf60b8d84 9baec0ec48eea0625ed1a3dff24508de362712ed Igor Peymer <ipigp@yandex.ru> 1744727058 +0300	commit: modified: courses/LOCalc/index.html
+9baec0ec48eea0625ed1a3dff24508de362712ed 03f340598f635214b0d0ecf6291a6e0b5fcd94e7 Igor Peymer <ipigp@yandex.ru> 1744727466 +0300	commit: modified: courses/LOCalc/index.html
+03f340598f635214b0d0ecf6291a6e0b5fcd94e7 f98f86c3abf1d872250ec62cfc05287584bc0aaf Igor Peymer <ipigp@yandex.ru> 1744729351 +0300	commit: modified: courses/LOCalc/index.html
+f98f86c3abf1d872250ec62cfc05287584bc0aaf 9721d157958cb34a07ab8216f4f84f9f5b1a24ab Igor Peymer <ipigp@yandex.ru> 1744741508 +0300	commit: modified: courses/LOCalc/index.html
+9721d157958cb34a07ab8216f4f84f9f5b1a24ab 91999e083cac6c3468ed6b9f7b2359f75b1218b7 Igor Peymer <ipigp@yandex.ru> 1744741555 +0300	commit: modified: courses/LOCalc/index.html
+91999e083cac6c3468ed6b9f7b2359f75b1218b7 d39d896ba843c01e7007c20819bab238d0dc4326 Igor Peymer <ipigp@yandex.ru> 1744751140 +0300	commit: modified: courses/LOCalc/index.html
+d39d896ba843c01e7007c20819bab238d0dc4326 e61deaa48519a77a2c9a81859af44ae779e5ad54 Igor Peymer <ipigp@yandex.ru> 1745390539 +0300	commit: new file: courses/LOCalc/19.png
+e61deaa48519a77a2c9a81859af44ae779e5ad54 b0a2c16393470527b41c5df0016f0991c07e414e Igor Peymer <ipigp@yandex.ru> 1745390676 +0300	rebase (finish): refs/heads/main onto dca773fe363fdcb6796f562acb5b435fb4a8c9bd
+b0a2c16393470527b41c5df0016f0991c07e414e 24cc552200f371b20834b2313c13c63c4fb44623 Igor Peymer <ipigp@yandex.ru> 1745390991 +0300	commit: modified: courses/LOCalc/index.html
+24cc552200f371b20834b2313c13c63c4fb44623 3814c4e385dd3c05805ad3370fcbd79d0069fa9b Igor Peymer <ipigp@yandex.ru> 1745391150 +0300	commit: modified: .vscode/launch.json

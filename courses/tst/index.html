@@ -1,0 +1,35 @@
+<!doctype html>
+<html lanr="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Светофор</title>
+    </head>
+    <body>
+        <canvas id="iii" width="200" height="300"
+            style="border:1px solid black;"></canvas>
+        <script>
+            var canvas=document.getElementById("iii");
+            var ctx = canvas.getContext("2d");
+            
+            for (let y=0; y <3; y ++){
+                switch (y){
+                    case 0:                 
+                        ctx.fillStyle = "red";
+                        break;
+                    case 1:
+                        ctx.fillStyle = "yellow";
+                        break;
+                    case 2:
+                        ctx.fillStyle = "green";
+                        break;
+                }
+                ctx.beginPath();
+                ctx.strokeStyle="black";
+                ctx.strokeWidth=5
+                ctx.arc(95,50+y*80,40,0,2*Math.PI);
+                ctx.fill();
+                ctx.stroke();
+            }
+        </script>
+    </body>
+</html>

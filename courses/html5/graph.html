@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Построитель графиков</title>
+	</head>
+<body>
+	<canvas id=canvas width=500 height=500 style="background: white"></canvas><br /><br />
+
+	<!-- <input id=txt type=text placeholder=" введите функцию " />
+	<button onclick="draw();"> нарисовать график </button><br/>
+	<button onclick="save();">Save</button><br/>
+	<img id="display" src="../Downloads/test.png"/> -->
+
+	<script>
+		var cw = canvas.width, ch = canvas.height;
+		var ctx = document.getElementById("canvas").getContext("2d");
+		var m = 100; // масштаб отображения, в данном случае 1 = 10 px
+		function draw(){
+			//ось Y
+			ctx.beginPath();
+			ctx.moveTo(cw/2, 0);
+			ctx.lineTo(cw/2, ch);
+			ctx.stroke();
+			// ос Х
+			ctx.beginPath();
+			ctx.moveTo(0, ch/2);
+			ctx.lineTo(cw, ch/2);
+			ctx.stroke();
+			ctx.font = "50% Arial";
+			// подписи осей
+			for (x = -2.5; x < 2.5; x += 0.25){
+				ctx.strokeText(x, x * m + cw / 2, ch - (ch / 2)- 5);
+				ctx.strokeText(x, cw / 2 - 25, ch/m - x * m + ch / 2);
+			}
+			// график
+			for(x = -2.5; x < 2.5; x += 1/m){
+				// eval(document.getElementById("txt").value);
+				y=x**3;
+				ctx.beginPath();
+				ctx.fillStyle = "red";
+				ctx.arc(x * m + cw / 2, ch - y * m - ch / 2, 1, 0, 2 * Math.PI);
+				ctx.fill();
+			}
+		}
+
+		// async function save(){
+		// let data=canvas.toDataURL("image/png");
+
+		// 	let link = document.createElement('a');
+		// 	link.download = "../Downloads/test.png";
+		// 	link.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");;
+		// 	link.click();
+		// 	let disp=document.getElementById("display");
+		// 	disp.src="../Downloads/test.png";
+		// }
+		draw();
+	</script>
+</body>
+</html>

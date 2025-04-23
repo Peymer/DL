@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Построитель графиков</title>
+	</head>
+<body>
+	<canvas id="canvas" width="500" height="500"></canvas><br /><br />
+
+	<input id="txt" type="text" placeholder="введите функцию" /><br/>
+	<button type="submit" onclick="draw();return false;" > нарисовать график </button><br/>
+
+	<script>
+		var cw = canvas.width, ch = canvas.height;
+		var ctx = document.getElementById("canvas").getContext("2d");
+		var m = 50; // масштаб отображения, в данном случае 1 = 10 px
+		function draw(){
+			//ось Y
+			ctx.beginPath();
+			ctx.moveTo(cw/2, 0);
+			ctx.lineTo(cw/2, ch);
+			ctx.stroke();
+			// ос Х
+			ctx.beginPath();
+			ctx.moveTo(0, ch/2);
+			ctx.lineTo(cw, ch/2);
+			ctx.stroke();
+			ctx.font = "50% Arial";
+			// подписи осей
+			// for (x = -2.5; x < 2.5; x += 0.25){
+			for (x = -cw/2/m; x < cw/2/m; x += 0.25){
+				ctx.strokeText(x, x * m + cw / 2, ch - (ch / 2)- 5);
+				ctx.strokeText(x, cw / 2 - 25, ch/m - x * m + ch / 2);
+			}
+			// график
+			// for(x = -2.5; x < 2.5; x += 1/m){
+			for (x = -cw/2/m; x < cw/2/m; x += 0.25){
+					eval(document.getElementById("txt").value);
+				// y=x**3;
+				ctx.beginPath();
+				ctx.fillStyle = "red";
+				ctx.arc(x * m + cw / 2, ch - y * m - ch / 2, 1, 0, 2 * Math.PI);
+				ctx.fill();
+			}
+		}
+		draw();
+	</script>
+</body>
+</html>

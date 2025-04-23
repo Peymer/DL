@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Использование средст отладки JavaScript</title>
+
+<!--		<link rel="stylesheet" href="node_modules/reveal.js/dist/reset.css">-->
+		
+		<link rel="stylesheet" href="reveal.css">
+		<link rel="stylesheet" href="black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Отладка JavaScript</h1>
+					<p align="right">&copy; <a href="mailto:ipigp@yandex.ru">IGP</a>, декабрь 2024 г.</p>
+				</section>
+				<section>
+					<aside class="notes">
+						<p>
+							Код уязвим для ошибок.
+						</p>
+						<p>
+							По умолчанию в браузере ошибки не видны.<br/>
+							То есть, если что-то пойдёт не так, мы не увидим, что именно сломалось, и не сможем это починить.
+						</p>
+						<p>
+							Chrome и Firefox снискали любовь подавляющего большинства программистов во многом благодаря своим отменным инструментам разработчика. 
+						</p>
+						<p>
+							Для начала знакомства с этими мощными инструментами давайте выясним, как их открывать, смотреть ошибки и запускать команды JavaScript.
+						</p>	
+					</aside>
+					<h4>Консоль разработчика</h4>
+					<p>Для WEB-обозревателей: «Инструменты разработки» (Developer tools).</p>
+					<p>Для Node: объект <code>console</code></p>
+				</section>
+				<section>
+					<pre>
+						<code  data-line-numbers data-trim><script type="text/template">
+							<!DOCTYPE HTML>
+							<html>
+							<head>
+							  <meta charset="utf-8">
+							</head>
+							<body>
+							  На этой странице есть ошибка в скрипте.
+							  <script>
+								lalala
+							  </sсript>
+							</body>
+							</html>
+						</script></code>
+					</pre>
+					<aside class="notes">
+						рассмотрим код. Он содержит ошибку.<br/>
+						Она не видна обычному посетителю<br/>
+					</aside>
+				</section>
+				<section>
+					<p>Developer tools можно запустить нажав <kbd class="shortcut">F12</kbd></p>
+					<img src="/js-debug/pic/chrome.png"/>
+					<p>Под сообщением об ошибке находится синий символ <code>&gt;</code>. Он обозначает командную строку, в ней мы можем редактировать и запускать JavaScript-команды. 
+					Для их запуска нажмите <kbd class="shortcut">Enter</kbd>.</p>
+				</section>
+				<section>
+					<h4>Объект console</h4>
+					<pre>
+						<code>
+							console.log("Failed to open the specified link");
+						</code>
+					</pre>
+					<img src="/js-debug/pic/chrome.png"/>
+					<aside class="notes">
+						<p>Объект Console служит для доступа к средствам отладки браузера</p>
+					</aside>
+				</section>
+				<section>
+					<h4>Visual studio code | Codium</h4>
+					<img src="/js-debug/pic/6.png" />
+				</section>
+				<section>
+					<pre>
+						<code>console.assert()</code>
+						<code>console.clear()</code>
+						<code>console.count()</code>
+						<code>console.countReset()</code>
+						<code>console.debug()</code>
+						<code>console.error()</code>
+						<code>console.group()</code>
+						<code>console.info()</code>
+						<code>console.log()</code>
+						<code>console.table()</code>
+						<code>console.time()</code>
+						<code>console.timeEnd()</code>
+						<code>console.warn()</code>
+					</pre>
+					<aside class="notes">					
+						<b>console.assert()</b>Выводит в консоль (имеется ввиду веб-консоль) сообщение и стек вызова метода, если первый аргумент false.<br/>
+						<b>console.clear()</b>Очистка консоли.<br/>
+						<b>console.count()</b>Выводит количество вызовов метода с определённой меткой (передаётся в параметре метода)<br/>
+						<b>console.countReset()</b>Обнуляет значение счётчика с заданным значением.<br/>
+						<b>console.debug()</b>Синоним для log()<br/>
+						<b>console.error()</b>Выводит сообщение об ошибке. Для форматирования вы можете использовать подстановочные символы (маски) с дополнительными параметрами.<br/>
+						<b>console.group()</b>Создаёт новую группировку сообщений, сдвигая все следующие выводимые строки вправо на один уровень. Для завершения группы вызовите groupEnd().<br/>
+						<b>console.info()</b>Информационное сообщение. Для форматирования вы можете использовать подстановочные символы (маски) с дополнительными параметрами.<br/>
+						<b>console.log()</b>Общий метод вывода информации. Для форматирования вы можете использовать подстановочные символы (маски) с дополнительными параметрами.<br/>
+						<b>console.table()</b>Отображает табличные данные в виде таблицы.<br/>
+						<b>console.time()</b>Запускает таймер с именем из переданного параметра. Можно запустить одновременно до 10,000 таймеров на странице.<br/>
+						<b>console.timeEnd()</b>Останавливает указанный таймер и записывает в лог, сколько прошло секунд от его старта.<br/>
+						<b>console.trace()</b>Вывод трассировки стека.
+					</aside>
+				</section>
+				<section>
+					<pre>
+						<code data-line-numbers data-trim>
+							var someObject = { str: "Some text", id: 5 };
+							console.log(someObject);
+						</code>
+					</pre>
+					<pre><code data-trim>[09:27:13.475] ({str:"Some text", id:5})</code></pre>
+					<br/>
+					<pre>
+						<code data-line-numbers data-trim>
+							var car = "Dodge Charger";
+							var someObject = { str: "Some text", id: 5 };
+							console.info("My first car was a", car,
+										". The object is: ", someObject);
+						</code>
+					</pre>
+					<pre>
+						<code data-trim>
+							[09:28:22.711] My first car was a Dodge Charger . The object is:  ({str:"Some text", id:5})
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h4>Преобразование строк с использованием масок</h4>
+					<img src="/js-debug/pic/1.png"/>
+				</section>				
+				<section>	
+					<pre>
+						<code data-trim data-noescape>
+							for (let i=0; i < 5; i++) {
+							  console.log("Hello, %s. You've called me %d times.", 
+										"Bob", i+1);
+							}
+						</code>
+					</pre>
+					<pre><code data-trim>
+						[13:14:13.481] Hello, Bob. You've called me 1 times.
+						[13:14:13.485] Hello, Bob. You've called me 3 times.
+						[13:14:13.487] Hello, Bob. You've called me 4 times.
+						[13:14:13.488] Hello, Bob. You've called me 5 times.
+					</code></pre>
+				</section>
+				<section>
+					<h4>Стилизация вывода консоли</h4>
+					<pre>
+						<code data-trim data-noescape>
+							console.log("This is %cMy stylish message",
+								"color: yellow; font-style: italic; background-color: blue; padding: 2px;",
+							);
+						</code>
+					</pre>
+					<img src="/js-debug/pic/2.png"/>
+				</section>				
+				<section>
+					<h4>Группирование вывода в консоли</h4>
+					<pre>
+						<code data-trim data-noescape>
+							console.log("This is the outer level");
+							console.group();
+							console.log("Level 2");
+							console.group();
+							console.log("Level 3");
+							console.warn("More of level 3");
+							console.groupEnd();
+							console.log("Back to level 2");
+							console.groupEnd();
+							console.debug("Back to the outer level");
+						</code>
+					</pre>
+					<img src="/js-debug/pic/3.png"/>
+				</section>				
+				<section>
+					<h4>Таймеры</h4>
+					<pre>
+						<code data-trim data-noescape>
+							console.time("answer time");
+							alert("Click to continue");
+							console.timeEnd("answer time");
+						</code>
+					</pre>
+					<img src="/js-debug/pic/4.png"/>
+				</section>				
+				<section>
+					<h4>Трассировка стека вызова</h4>
+					<pre>
+						<code data-trim data-noescape>
+							foo();
+
+							function foo() {
+							  function bar() {
+								console.trace();
+							  }
+							  bar();
+							}
+						</code>
+					</pre>
+					<img src="/js-debug/pic/5.png"/>
+				</section>	
+				<section>
+					<h4>Console.log или alert</h4>
+					<pre>
+						<code>
+							const a = { id: 1, value: 'one text' }
+							alert(a)
+							// [object Object]
+						</code>
+					</pre>
+					<pre>
+						<code>
+							const a = { id: 1, value: 'one text' }
+							console.log(a)
+							// Object { id: 1, value: "one text" }
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h4>console.table</h4>
+					<pre>
+						<code data-trim>
+							const data = [
+							  { section: 'HTML', count: 212 },
+							  { section: 'CSS', count: 121 },
+							  { section: 'JavaScript', count: 182 },
+							  { section: 'Tools', count: 211 },
+							]
+							console.table(data)
+						</code>
+					</pre>
+					<pre>
+						<code data-trim>
+							┌─────────┬──────────────┬───────┐
+							│ (index) │   section    │ count │
+							├─────────┼──────────────┼───────┤
+							│    0    │    'HTML'    │  212  │
+							│    1    │    'CSS'     │  121  │
+							│    2    │ 'JavaScript' │  182  │
+							│    3    │   'Tools'    │  211  │
+							└─────────┴──────────────┴───────┘
+						</code>
+					</pre>
+				</section>
+				<section>
+					<pre>
+						<code data-trim>
+							const language = 'JavaScript'
+							const count = 100
+
+							console.log('language:', language, 'count:', count)
+							// language: JavaScript count: 100
+						</code>
+					</pre>
+					<pre>
+						<code data-trim>
+							const language = 'JavaScript'
+							const count = 100
+
+							console.log({ language, count })
+							// { language: 'JavaScript', count: 100 }
+						</code>
+					</pre>
+				</section>
+			</div>
+		</div>
+		
+		<script src="reveal.js"></script>
+		<script src="notes.js"></script>
+		<script src="highlight.js"></script>
+		<!-- 	<script src="node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script> -->
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				slideNumber: 'c/t',
+				hash: true,
+				// multiplex: {
+				// 	secret:'17339873593016112019',
+				// 	id:'b3625b072a91d31a',
+				// 	url: '127.0.0.1:1948',
+				// },
+					// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealNotes, RevealHighlight ],
+				// dependencies: [
+				// 	{ src: 'node_modules/socket.io/socket.io.js', async: true },
+				// 	{ src: 'node_modules/reveal-multiplex/client.js', async: true }
+  				// ]
+			});
+		</script>
+
+	</body>
+<html>

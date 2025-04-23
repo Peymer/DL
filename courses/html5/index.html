@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="../reveal.css">
+        <link rel="stylesheet" href="../black.css">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="../monokai.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Язык разметки HTML5</h1>
+					<p align="right">&copy; <a href="mailto:ipigp@yandex.ru">IGP</a>, январь 2025 г.</p>
+                </section>
+				<section>
+                    <pre><code>
+&lt;div&gt;Текст&lt;br/&gt;элемента div&lt;/div&gt;
+                    </code></pre>
+					&lt;div&gt; - Тег<br/>
+                    &lt;/div&gt; - Закрытие тега <br/>
+                    &lt;br/&gt; - Тег без тела (самозакрывающий)<br/><br/>
+                    <pre><code data-trim>&lt;div style="color:red;"&gt;Кнопка&lt;/div&gt;</code></pre>
+				</section>
+                <section>
+                    <h4>Глобальные атрибуты</h4>
+                    <ul>
+                        <li><b>accesskey</b>: определяет клавишу для быстрого доступа к элементу</li>
+                        <li><b>class</b>: задает класс CSS, который будет применяться к элементу</li>
+                        <li><b>contenteditable</b>: определяет, можно ли редактировать содержимое элемента</li>
+                        <li><b>contextmenu</b>: определяет контекстное меню для элемента, которое отображается при нажатии на элемент правой кнопкой мыши</li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <li><b>dir</b>: устанавливает направление текста в элементе</li>
+                        <li><b>draggable</b>: определяет, можно ли перетаскивать элемент</li>   
+                        <li><b>dropzone</b>: определяет, можно ли копировать переносимые данные при переносе на элемент</li> 
+                        <li><b>hidden</b>: скрывает элемент</li>    
+                        <li><b>id</b>: уникальный идентификатор элемента. На веб-странице элементы не должны иметь повторяющихся идентификаторов</li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <li><b>lang</b>: определяет язык элемента</li>
+                        <li><b>spellcheck</b> указывает, будет ли для данного элемента использоваться проверка правописания</li>   
+                        <li><b>style</b>: задает стиль элемента</li>    
+                        <li><b>tabindex</b>: определяет порядок, в котором по элементам можно переключаться с помощью клавиши TAB</li>  
+                        <li><b>title</b>: устанавливает дополнительное описание для элемента</li>   
+                        <li><b>translate</b>: определяет, должно ли переводиться содержимое элемента</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Часто используемые атрибуты</h4>
+                    <ul>
+                        <li><b>class</b>: задает класс CSS, который будет применяться к элементу</li>
+                        <li><b>id</b>: уникальный идентификатор элемента. На веб-странице элементы не должны иметь повторяющихся идентификаторов</li>
+                        <li><b>style</b>: задает стиль элемента</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Атрибуты определяемые пользователем</h4>
+                    <p>Разработчик или создатель веб-страницы сам может определить любой атрибут, предваряя его префиксом <b>data-</b>.</p>
+                    <pre><code data-trim>&lt;input type="button" value="Нажать" data-color="red"/&gt;</code></pre>
+                </section>
+                <section>
+                    <h4>Одинарные или двойные кавычки</h4>
+                    <p>При определении значений атрибутов применяются как одинарные, так и двойные кавычки (последние предпочтительнее).</p>
+                    <pre>
+                        <code data-trim>&lt;input type=&apos;button&apos; value=&apos;Нажать&apos;&gt;</code>
+                    </pre>
+                    <pre>
+                        <code data-trim>&lt;input type="button" value="Нажать"&gt;</code>
+                    </pre>
+                    <pre>
+                        <code data-trim>&lt;input type="button" value="Кнопка &apos;Привет мир&apos;"&gt;</code>
+                    </pre>
+                </section>
+                <section>
+                    <h4>Шаблон документа</h4>
+                    <pre><code data-trim>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"/&gt;
+        &lt;title&gt;Документ HTML5&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div&gt;Содержание документа HTML5&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Элементы в HTML5</h4>
+                    <ul>
+                        <li>head</li>
+                        <li>title - заголовок</li>
+                        <li>base - базовый адрес веб-страницы</li>
+                        <li>meta - метаданные документа. 
+                            <pre><code data-trim>&lt;meta charset="utf-8"/&gt;</code></pre></li>
+                    </ul>
+                </section>
+                <section>
+                    <p>По умолчанию определены и используются поисковыми системами:</p>
+                    <ul>
+                        <li><b>application name</b>: название веб-приложения, частью которого является данный документ</li>
+                        <li><b>author</b>: автор документа</li>
+                        <li><b>description</b>: краткое описание документа. Его поисковые системы используют в качестве аннотации</li>
+                        <li><b>generator</b>: название программы, которая сгенерировала данный документ</li>
+                        <li><b>keywords</b>: ключевые слова документа</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Записать в тетради, что означает каждая строка</h4>
+                    <pre><code data-trim data-line-numbers>
+                        &lt;!DOCTYPE html&gt;
+                        &lt;html&gt;
+                            &lt;head&gt;
+                                &lt;meta charset="utf-8"/&gt;
+                                &lt;base href="content/"/&gt;
+                                &lt;title&gt;Элемент title&lt;/title&gt;
+                                &lt;meta name="description" content="Первый документ"/&gt;
+                                &lt;meta name="author" content="Bill Gates"/&gt;
+                            &lt;/head&gt;
+                            &lt;body&gt;
+                                &lt;a href="newpage.html"&gt;Содержание документа&lt;/a&gt;
+                            &lt;/body&gt;
+                        &lt;/html&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Элементы группировки. (&lt;DIV&gt;)</h4>
+                    <p>Div создает блок, который по умолчанию растягивается по всей ширине окна, а следующий после div элемент переносится на новую строку. </p>
+                    <p style="color:red;">Создать страницу с 2 элементами DIV, содержащими произвольный текст (более 1 строки)</p>
+                </section>
+                <section>
+                    <h4>Элементы группировки. Параграфы (&lt;p&gt;)</h4>
+                    <p>Каждый новый параграф располагается на новой строке.</p>
+                    <p style="color: red;">Дополнить страницу 2 параграфами, содержащими произвольный текст (более 1 строки). Сравнить с DIV</p>
+                </section>
+                <section>
+                    <h4>Элементы группировки. Предварительно отформатированный текст (&lt;pre&gt;)</h4>
+                    <p style="color: red;">Страницу дополнить 1 строфой стихотворения М.Ю. Лермонтова "Утес" <pre style="color: red">
+                        Ночевала тучка золотая
+                        На груди утеса-великана;
+                        ...</pre></p>
+                </section>
+                <section>
+                    <h4>Элементы группировки. Невидимая группировка (&lt;span&gt;)</h4>
+                    <p style="color: red;">Добавить на страницу текст (2-3 строки) зеленого цвета, используя span и атрибут style="color: green;"</p>
+                </section>
+                <section>
+                    <h4>Заголовки</h4>
+                    <pre><code data-trim>
+                        &lt;!DOCTYPE html&gt;
+                        &lt;html&gt;
+                            &lt;head&gt;
+                                &lt;meta charset="utf-8"/&gt;
+                                &lt;title&gt;Заголовки в HTML5&lt;/title&gt;
+                            &lt;/head&gt;
+                            &lt;body&gt;
+                                &lt;h1&gt;Заголовок первого уровня&lt;/h1&gt;
+                                &lt;h2&gt;Заголовок второго уровня&lt;/h2&gt;
+                                &lt;h3&gt;Заголовок третьего уровня&lt;/h3&gt;
+                                &lt;h4&gt;Заголовок четвертого уровня&lt;/h4&gt;
+                                &lt;h5&gt;Заголовок пятого уровня&lt;/h5&gt;
+                                &lt;h6&gt;Заголовок шестого уровня&lt;/h6&gt;
+                            &lt;/body&gt;
+                        &lt;/html&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Форматирование текста</h4>
+                    <p style="color: red;">Записать в тетради, что делает каждый тег форматирования</p>
+                    <pre><code data-trim data-line-numbers>
+                        &lt;!DOCTYPE html&gt;
+                        &lt;html&gt;
+                            &lt;head&gt;
+                                &lt;meta charset="utf-8"/&gt;
+                                &lt;title&gt;Форматирование текста в HTML5&lt;/title&gt;
+                            &lt;/head&gt;
+                            &lt;body&gt;
+                                &lt;p&gt;Форматирование в &lt;mark&gt;HTML5&lt;/mark&gt;&lt;/p&gt;
+                                &lt;p&gt;Это &lt;b&gt;выделенный&lt;/b&gt; текст&lt;/p&gt;
+                                &lt;p&gt;Это &lt;strong&gt;важный&lt;/strong&gt; текст&lt;/p&gt;
+                                &lt;p&gt;Это &lt;del&gt;зачеркнутый&lt;/del&gt; текст&lt;/p&gt;
+                                &lt;p&gt;Это &lt;s&gt;недействительный&lt;/s&gt; текст&lt;/p&gt;
+                                &lt;p&gt;Это &lt;em&gt;важный&lt;/em&gt; текст&lt;/p&gt;
+                                &lt;p&gt;Это текст &lt;i&gt;курсивом&lt;/i&gt; &lt;/p&gt;
+                                &lt;p&gt;Это &lt;ins&gt;добавленный&lt;/ins&gt; текст&lt;/p&gt;
+                                &lt;p&gt;Это &lt;u&gt;подчеркнутый&lt;/u&gt; текст&lt;/p&gt;
+                                &lt;p&gt;X&lt;sub&gt;i&lt;/sub&gt; = Y&lt;sup&gt;&lt;small&gt;2&lt;/small&gt;&lt;/sup&gt; + Z&lt;sup&gt;&lt;small&gt;2&lt;/small&gt;&lt;/sup&gt;&lt;/p&gt;
+                            &lt;/body&gt;
+                        &lt;/html&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Работа с изображениями (&lt;img&gt;)</h4>
+                    <ul>
+                        <li><b>src</b> адрес файла картинки</li>
+                        <li><b>alt</b> текстовое описание изображения. Если картинка не может быть загружена, отображается этот текст</li>
+                    </ul>
+                    <pre><code data-trim>
+                        &lt;img src="dubi.png" alt="Зимняя равнина" /&gt;                        
+                    </code></pre>
+                    <img src="./1.png"/>
+                </section>
+                <section>
+                    <h4>Работа с изображениями (&lt;img&gt;)</h4>
+                    <pre><code data-trim>
+                        &lt;div&gt;
+                            &lt;img src="dubi.png" alt="Зимняя равнина" style="float:left; margin-right:10px;" /&gt;
+                            &lt;h1&gt;Lorem Ipsum&lt;/h1&gt;
+                            &lt;b&gt;Lorem Ipsum&lt;/b&gt; is simply dummy text of the printing and typesetting industry. 
+                                Lorem Ipsum has been the industry....
+                        &lt;/div&gt;  
+                    </code></pre>
+                    <img src="./2.png"/>                     
+                </section>
+                <section>
+                    <h4>Картринки &lt;img&gt;</h4>
+                    <ul>
+                        <li><b>align</b> Определяет как рисунок будет выравниваться по краю и способ обтекания текстом. </li>
+                        <li><b>alt</b> Альтернативный текст для изображения. </li>
+                        <li><b>border</b> Толщина рамки вокруг изображения.</li>
+                        <li><b>height</b> Высота изображения.</li>
+                        </ul>
+                </section>
+                <section>
+                    <h4>Картринки &lt;img&gt;</h4>
+                    <ul>
+                        <li><b>hspace</b> Горизонтальный отступ от изображения до окружающего контента.</li>
+                        <li><b>ismap</b> Указывает браузеру, что картинка является серверной картой-изображением.</li>
+                        <li><b>longdesc</b> Указывает адрес документа, где содержится аннотация к картинке.</li>
+                        <li><b>lowsrc</b> Адрес изображения низкого качества.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Картринки &lt;img&gt;</h4>
+                    <ul>
+                        <li><b>src</b> Путь к графическому файлу. </li>
+                        <li><b>vspace</b> Вертикальный отступ от изображения до окружающего контента.</li>
+                        <li><b>width</b> Ширина изображения.</li>
+                        <li><b>usemap</b> Ссылка на тег <map>, содержащий координаты для клиентской карты-изображения. </li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Горизонтальная линия &lt;hr&gt;</h4>
+                    <ul>                    
+                        <li><b>align</b> Определяет выравнивание линии. </li>
+                        <li><b>color</b> Цвет линии.</li>
+                        <li><b>noshade</b> Рисует линию без трехмерных эффектов.</li>
+                        <li><b>size</b> Толщина линии.</li>
+                        <li><b>width</b> Ширина линии.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Списки</h4>
+                    <p>
+                        &lt;ol&gt; нумерованный список<br/>
+                        &lt;ul&gt; Маркированый список
+                    </p>
+                    <p>
+                        &lt;li&gt; элементы списка любого типа
+                    </p>
+                    <p style="color: red">На странице создайте нумерованый список c марками отечественных автомобилей 
+                         и маркированный список с названиями овощей</p>
+                </section>
+                <section>
+                    <h4>Нумерованные списоки</h4>
+                    <p>Изменение стиля номера <b>list-style-type</b>:</p>
+                    <pre><code data-trim>&lt;ol style="list-style-type:TYPE;"&gt;</code></pre>
+                    <ul>
+                        <li>decimal - десятичные числа</li>
+                        <li>decimal-leading-zero - десятичные числа, которые предваряются нулем</li>
+                        <li>lower-roman - строчные римские цифры</li>
+                        <li>upper-roman - заглавные римские цифры</li>
+                        <li>lower-alpha - строчные римские буквы</li>
+                        <li>upper-alpha - заглавные римские буквы</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Маркированые списки</h4>
+                    <pre><code data-trim>&lt;ul style="list-style-type:TYPE;"&gt;</code></pre>
+                    <ul>
+                        <li>disc - черный диск</li>
+                        <li>circle - пустой кружок</li>
+                        <li>square - черный квадрат</li>
+                    </ul>
+                    <pre><code data-trim>&lt;ul style="list-style-image:url(phone_touch.png);"&gt;</ul></code></pre>
+                    <img src="./3.png"/>
+                </section>
+                <section>
+                    <h4>Элемент details</h4>
+                    <p>Позволяет создавать раскрываемый блок, который по умолчанию скрыт.</p>
+                    <pre><code data-trim>
+                        &lt;details&gt;
+                            &lt;summary&gt;Флагманы 2015&lt;/summary&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;iPhone 6S Plus&lt;/li&gt;
+                                &lt;li&gt;Nexus 6P&lt;/li&gt;
+                                &lt;li&gt;Galaxy S6 Edge&lt;/li&gt;
+                                &lt;li&gt;Lumia 950 XL&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/details&gt;
+                    </code></pre>
+                    <p><b>summary</b> задаёт текст, отображаемый в свернутом режиме</p>
+                </section>
+                <section>
+                    <h4>Список определений &lt;DL&gt;</h4>
+                    <p>Ссписок задается в формате определение (&lt;dt&gt;), значение (&lt;dd&gt;)</p>
+                    <pre><code data-trim>
+                        &lt;dl&gt;
+                            &lt;dt&gt;Онтология&lt;/dt&gt;
+                            &lt;dd&gt;Раздел философии, изучающий фундаментальные принципы бытия&lt;/dd&gt;
+                            &lt;dt&gt;Гносеология&lt;/dt&gt;
+                            &lt;dd&gt;Философская дисциплина, занимающаяся исследованиями, критикой и теориями познания&lt;/dd&gt;
+                            &lt;dt&gt;Производственные отношения&lt;/dt&gt;
+                            &lt;dd&gt;Совокупность отношений между людьми, складывающихся в процессе общественного производства, 
+                                обмена, распределения материальных благ и услуг.&lt;/dd&gt;
+                        &lt;/dl&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Таблицы &lt;table&gt;</h4>
+                    <pre><code data-trim>
+                        &lt;table&gt;
+                            &lt;caption&gt;&lt;b&gt;Заголовок&lt;/b&gt;&lt;/caption&gt;
+                            &lt;thead&gt;
+                                &lt;tr&gt;
+                                    &lt;th&gt;Заголовок столбца 1&lt;/th&gt;
+                                    &lt;th&gt;Заголовок столбца 2&lt;/th&gt;
+                                    &lt;th&gt;Заголовок столбца 3&lt;/th&gt;
+                                &lt;/tr&gt;
+                            &lt;/thead&gt;
+                            &lt;tbody&gt;
+                                &lt;tr&gt;
+                                    &lt;td&gt;Ячейка строка 1&lt;/td&gt;
+                                    &lt;td&gt;Ячейка строка 1&lt;/td&gt;
+                                    &lt;td&gt;Ячейка строка 1&lt;/td&gt;
+                                &lt;tr&gt;
+                                &lt;tr&gt;
+                                    &lt;td&gt;Ячейка строка 2&lt;/td&gt;
+                                    &lt;td&gt;Ячейка строка 2&lt;/td&gt;
+                                    &lt;td&gt;Ячейка строка 2&lt;/td&gt;
+                                &lt;tr&gt;
+                            &lt;/tbody&gt;
+                            &lt;tfoot&gt;
+                                &lt;tr&gt;
+                                    &lt;th colspan="3"&gt;подвал таблицы&lt;/th&gt;
+                                &lt;/tr&gt;
+                            &lt;/tfoot&gt;
+                        &lt;/table&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Аттрибуты таблиц</h4>
+                    <dl>
+                        <dt>align</dt> <dd> Определяет выравнивание таблицы. </dd>
+                        <dt>background</dt> <dd>Задает фоновый рисунок в таблице. </dd>
+                        <dt>bgcolor</dt> <dd> Цвет фона таблицы. </dd>
+                        <dt>border</dt> <dd>Толщина рамки в пикселах. </dd>
+                        <dt>bordercolor</dt> <dd>Цвет рамки.</dd>
+                    </dl>
+                </section>
+                <section>
+                    <dl>
+                        <dt>cellpadding</dt> <dd>Отступ от рамки до содержимого ячейки.</dd>
+                        <dt>cellspacing</dt> <dd>Расстояние между ячейками.</dd>
+                        <dt>cols</dt> <dd>Число колонок в таблице.</dd>
+                        <dt>frame</dt> <dd>Сообщает браузеру, как отображать границы вокруг таблицы.</dd>
+                        <dt>height</dt> <dd>Высота таблицы.</dd>
+                    </dl>
+                </section>
+                <section>
+                    <dl>
+                        <dt>rules</dt> <dd>Сообщает браузеру, где отображать границы между ячейками.</dd>
+                        <dt>summary</dt> <dd>Краткое описание таблицы.</dd>
+                        <dt>width</dt> <dd>Ширина таблицы. </dd> 
+                    </dl>
+                </section>
+                <section>
+                    <h4>Заголовок таблицы &lt;thead&gt;</h4>
+                    <ul>
+                        <li><b>align</b> Определяет выравнивание текста в строке.</li>
+                        <li><b>char</b> Выравнивание содержимого ячеек относительно заданного символа.</li>
+                        <li><b>charoff</b> Смещение содержимого ячеек относительно указанного символа.</li>
+                        <li><b>bgcolor</b> Цвет фона ячеек.</li>
+                        <li><b>valign</b> Выравнивание содержимого ячеек по вертикали.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Тело таблицы &lt;tbody&gt;</h4>
+                    <ul>
+                        <li><b>align</b> Определяет выравнивание текста в строке.</li>
+                        <li><b>char</b> Выравнивание содержимого ячеек относительно заданного символа.</li>
+                        <li><b>charoff</b> Смещение содержимого ячеек относительно указанного символа.</li>
+                        <li><b>bgcolor</b> Цвет фона ячеек, которые расположены внутри контейнера &lt;tbody&gt;.</li>
+                        <li><b>valign</b> Выравнивание содержимого ячеек по вертикали.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Подвал таблицы &lt;tfoot&gt;</h4>
+                    <ul>
+                        <li><b>align</b> Определяет выравнивание текста в строке.</li>
+                        <li><b>bgcolor</b> Цвет фона ячеек, которые расположены внутри контейнера <tfoot>.</li> 
+                        <li><b>char</b> Выравнивание содержимого ячеек относительно заданного символа.</li>
+                        <li><b>charoff</b> Смещение содержимого ячеек относительно указанного символа.</li>
+                        <li><b>valign</b> Выравнивание содержимого ячеек по вертикали.</li>  
+                    </ul>
+                </section>
+                <section>
+                    <h4>Заголовок таблицы &lt;th&gt;</h4>
+                    <ul>
+                        <li><b>abbr</b> Краткое описание содержимого ячейки.</li>
+                        <li><b>align</b> Определяет выравнивание содержимого ячейки по горизонтали. </li>
+                        <li><b>axis</b> Группирует ячейки связанные между собой похожей информацией.</li>
+                        <li><b>background</b> Задает фоновый рисунок в ячейке.</li> 
+                        <li><b>bgcolor</b> Цвет фона ячейки.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Заголовок таблицы &lt;th&gt;</h4>
+                    <ul>
+                        <li><b>bordercolor</b> Цвет рамки.</li>
+                        <li><b>char</b> Выравнивает содержимое ячейки по заданному символу.</li>
+                        <li><b>charoff</b> Смещает содержимое ячейки относительно заданного символа.</li>
+                        <li><b>colspan</b> Объединяет горизонтальные ячейки.</li>
+                        <li><b>headers</b> Позволяет связать ячейки таблицы с заголовками в речевых браузерах.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Заголовок таблицы &lt;th&gt;</h4>
+                    <ul>
+                        <li><b>height</b> Высота ячейки.</li>
+                        <li><b>nowrap</b> Запрещает перенос строк.</li>
+                        <li><b>rowspan</b> Объединяет вертикальные ячейки.</li>
+                        <li><b>scope</b> Позволяет связать ячейки простой таблицы с заголовками в речевых браузерах.</li>
+                        <li><b>valign</b> Выравнивание содержимого ячейки по вертикали.</li>
+                        <li><b>width</b> Ширина ячейки.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Строки таблицы &lt;tr&gt;</h4>
+                    <ul> 
+                        <li><b>align</b> Определяет выравнивание содержимого ячеек по горизонтали. </li>
+                        <li><b>bgcolor</b> Цвет фона ячеек. </li>
+                        <li><b>bordercolor</b> Цвет рамки.</li>
+                        <li><b>char</b> Выравнивание содержимого ячеек относительно заданного символа.</li>
+                        <li><b>charoff</b> Смещение содержимого ячеек относительно указанного символа.</li>
+                        <li><b>valign</b> Выравнивание содержимого ячеек по вертикали. </li>
+                    </ul>
+                </section>
+                <section>
+                     <h4>Ячейки таблицы &lt;td&gt;</h4>
+                   <ul> 
+                        <li><b>abbr</b> Краткое описание содержимого ячейки.</li>
+                        <li><b>align</b> Определяет выравнивание содержимого ячейки по горизонтали. </li>
+                        <li><b>axis</b> Группирует ячейки связанные между собой похожей информацией.</li>
+                        <li><b>background</b> Задает фоновый рисунок в ячейке. </li>
+                        <li><b>bgcolor</b> Цвет фона ячейки. </li>
+                   </ul>
+                </section>
+                <section>
+                    <h4>Ячейки таблицы &lt;td&gt;</h4>
+                    <ul>
+                        <li><b>bordercolor</b> Цвет рамки.</li>
+                        <li><b>char</b> Выравнивает содержимое ячейки по заданному символу.</li>
+                        <li><b>charoff</b> Смещает содержимое ячейки относительно заданного символа.</li>
+                        <li><b>colspan</b> Объединяет горизонтальные ячейки.</li>
+                        <li><b>headers</b> Позволяет связать ячейки с заголовком.</li>
+                   </ul>
+                </section>
+                <section>
+                    <h4>Ячейки таблицы &lt;td&gt;</h4>
+                    <ul>
+                        <li><b>height</b> Высота ячейки.</li>
+                        <li><b>nowrap</b> Запрещает перенос строк.</li>
+                        <li><b>rowspan</b> Объединяет вертикальные ячейки.</li>
+                        <li><b>scope</b> Позволяет связать ячейки простой таблицы с заголовками в речевых браузерах.</li>
+                        <li><b>valign</b> Выравнивание содержимого ячейки по вертикали.</li>
+                        <li><b>width</b> Ширина ячейки.  </li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Практическое задание</h4>
+                    <p style="color:red;">Создать таблицу аналогичную представленной на картинке.</p>
+                    <img src="./4.png"/>
+                </section>
+                <section>
+                    <h4>Ссылки</h4>
+                    <p>Задаются тегом <b>&lt;a&gt;</b> - обеспечивают навигацию между отдельными документами и их частями.</p>
+                    <h5>Атрибуты</h5>
+                    <ul>
+                        <li><b>accesskey</b> Активация ссылки с помощью комбинации клавиш. </li>
+                        <li><b>coords</b> Устанавливает координаты активной области.</li>
+                        <li><b>download</b> Предлагает скачать указанный по ссылке файл.</li>
+                        <li><b>href</b> Задает адрес документа, на который следует перейти. </li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Ссылки</h4>
+                    <ul>
+                        <li><b>hreflang</b> Идентифицирует язык текста по ссылке. </li>
+                        <li><b>name</b> Устанавливает имя якоря внутри документа.</li>
+                        <li><b>rel</b> Отношения между ссылаемым и текущим документами.</li>
+                        <li><b>rev</b> Отношения между текущим и ссылаемым документами.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Ссылки</h4>
+                    <ul>
+                        <li><b>shape</b> Задает форму активной области ссылки для изображений.</li>
+                        <li><b>tabindex</b> Определяет последовательность перехода между ссылками при нажатии на кнопку Tab.</li>
+                        <li><b>target</b> Имя окна или фрейма, куда браузер будет загружать документ.</li>
+                        <li><b>title</b> Добавляет всплывающую подсказку к тексту ссылки.</li>
+                        <li><b>type</b> Указывает MIME-тип документа, на который ведёт ссылка.</li>                      
+                    </ul>
+                </section>
+                <section>
+                    <h4>Ссылки</h4>
+                    <p>Адрес ссылки задается в абсолютном или относительном формате:</p>
+                    <p>Абсолютная ссылка</p>
+                    <pre><code data-trim>&lt;a href="https://yandex.ru"&gt;Поисковик&lt;/a&gt;</code></pre>
+                    <p>Относительная ссылка</p>
+                    <pre><code data-trim>&lt;a href="file.html"&gt;Другой документ&lt;/a&gt;</code></pre>
+                </section>
+                <section>
+                    <h4>Навигация внутри документа</h4>
+                    <p>Можно задать внутренние ссылки, которые будут переходить к определенным блокам внутри страницы.</p>
+                    <pre><code data-trim>
+                        &lt;a href="#paragraph1"&gt;Параграф 1&lt;/a&gt; 
+                        | &lt;a href="#paragraph2"&gt;Параграф 2&lt;/a&gt; 
+                        | &lt;a href="#paragraph3"&gt;Параграф 3&lt;/a&gt;
+                        &lt;h2 id="paragraph1"&gt;Параграф 1&lt;/h2&gt;
+                        &lt;p&gt;Содержание параграфа 1&lt;/p&gt;
+                        &lt;h2 id="paragraph2"&gt;Параграф 2&lt;/h2&gt;
+                        &lt;p&gt;Содержание параграфа 2&lt;/p&gt;
+                        &lt;h2 id="paragraph3"&gt;Параграф 3&lt;/h2&gt;
+                        &lt;p&gt;Содержание параграфа 3&lt;/p&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Атрибут target</h4>
+                    <p>Ресурсы, открываются в том же окне. С помощью атрибута target можно переопределить это действие. </p>
+                    <ul>
+                        <li><b>_blank</b> открытие в новом окне или вкладке</li>
+                        <li><b>_self</b> открытие в том же фрейме (или окне)</li>
+                        <li><b>_parent</b> открытие в родительском фрейме</li>
+                        <li><b>_top</b> открытие на все окно обозревателя</li>
+                        <li><b>framename</b> открытие во фрейме framename</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Ссылка-картинка</h4>
+                    <pre><code data-trim>
+                        &lt;a href="file.html"&gt;
+                            &lt;img src="cover.jpg" alt="Гостиничный замок"&gt;
+                        &lt;/a&gt;
+                    </code></pre> 
+                    <a href="file.html">
+                        <img src="cover.jpg" height="200" alt="Гостиничный замок">
+                    </a>
+                </section>
+                <section>
+                    <h4>Фреймы</h4>
+                    <p>Фреймы позволяют встраивать на веб-страницу какую-нибудь другую веб-страницу.</p>
+                    <pre><code data-trim>
+                        &lt;iframe src="http://wikipedia.com" width="400" height="200"&gt;
+                        &lt;/iframe&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Атрибуты &lt;iframe&gt;</h4>
+                    <ul>
+                        <li><b>align</b> Определяет как фрейм будет выравниваться по краю, а также способ обтекания его текстом.</li>
+                        <li><b>allowtransparency</b> Устанавливает прозрачный фон фрейма, через который виден фон страницы.</li>
+                        <li><b>frameborder</b> Устанавливает, отображать границу вокруг фрейма или нет. </li>
+                        <li><b>height</b> Высота фрейма.</li>
+                        <li><b>hspace</b> Горизонтальный отступ от фрейма до окружающего контента.</li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <h4>Атрибуты &lt;iframe&gt;</h4>
+                        <li><b>marginheight</b> Отступ сверху и снизу от содержания до границы фрейма.</li>
+                        <li><b>marginwidth</b> Отступ слева и справа от содержания до границы фрейма.</li>
+                        <li><b>name</b> Имя фрейма.</li>
+                        <li><b>sandbox</b> Позволяет задать ряд ограничений на контент загружаемый во фрейме.</li>
+                        <li><b>scrolling</b> Способ отображения полосы прокрутки во фрейме.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Атрибуты &lt;iframe&gt;</h4>
+                    <ul>
+                        <li><b>seamless</b> Определяет, что содержимое фрейма должно отображаться так, словно оно является частью документа.</li>
+                        <li><b>src</b> Путь к файлу, содержимое которого будет загружаться во фрейм.</li>
+                        <li><b>srcdoc</b> Хранит содержимое фрейма непосредственно в атрибуте.</li>
+                        <li><b>vspace</b> Вертикальный отступ от фрейма до окружающего контента.</li>
+                        <li><b>width</b> Ширина фрейма.</li>
+                    </ul> 
+                </section>
+                <section>
+                    <h4 style="color:red;">Задание</h4>
+                    <ol>
+                        <li style="color:brown;">Создайте страницу на которой будет таблица оценок за прошедшую сессию.</li>
+                        <li style="color:darkred;">Добавьте ссылки на страницы wikipedia, соответствующие названиям предметов в таблице</li>
+                        <li style="color:crimson;">Сделайте так, чтобы ссылки открывались в фрейме под таблицей</li>
+                    </ol>
+                </section>
+            </div>
+        </div>
+
+        <script src="../reveal.js"></script>
+        <script src="../notes.js"></script>
+        <!-- <script src="markdown.js"></script> -->
+        <script src="../highlight.js"></script>
+        <script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash:true,
+                showSlideNumber: 'all',
+                slideNumber: "true",
+				// Learn about plugins:</b> https://revealjs.com/plugins/
+				plugins: [ RevealHighlight, RevealNotes ]
+			});
+		</script>
+    </body>
+</html>

@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="reveal.css">
+		<link rel="stylesheet" href="black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Объекты в JavaScript</h1>
+				</section>
+				<section>
+					<b>Объе́кт</b> в программировании — сущность в цифровом пространстве, обладающая состоянием и поведением, имеющая поля и методы. 
+				</section>
+				<section>
+					<h4>Примитивные типы </h4>
+					<ol><li>string</li><li>number</li><li>boolean</li><li>null</li><li>undefined</li><li>symbol</li><li>bigint</li></ol>
+					<h4>Сложные типы</h4>
+					<ol><li>массивы</li><li>обеъекты</li></ol>
+				</section>				<section>
+					За исключением прототипно-ориентированных языков вроде Lua и JavaScript, где понятие «класс» не используется вовсе, 
+					в большинстве объектно-ориентированных языков программирования (таких как Java, C++ или C#), 
+					объекты являются экземплярами некоторого заранее описанного класса.
+				</section>
+				<section>
+					<h2>Создание объекта</h2>
+					<pre>
+						<code>
+							let obj = {};
+							let obj = {1: 'a', 2: 'b', 3: 'c'};
+							console.log(obj[1]); // выведет 'a' 
+						</code>
+					</pre>
+				</section>
+				<section>
+					<img src="object.svg" alt="" width="248" height="173">
+					<p></p>
+					<pre><code>
+						let user = new Object(); // синтаксис "конструктор объекта"
+						let user = {};  // синтаксис "литерал объекта"
+					</code></pre>
+					<img src="object-user-empty.svg" alt="" width="248" height="173">
+				</section>
+
+				<section>
+						<pre><code>
+							let user = {     // объект
+								name: "John",  // под ключом "name" хранится значение "John"
+								age: 30        // под ключом "age" хранится значение 30
+							  };
+						</code></pre>
+						<img src="object-user.svg" alt="" width="248" height="173">
+				</section>
+				<section>
+					<pre><code>
+						user.isAdmin = true;
+					</code></pre>
+					<img src="object-user-isadmin.svg" alt="" width="248" height="173">
+				</section>
+				<section>
+						<pre><code>
+							delete user.isAdmin;
+						</code></pre>
+						<img src="object-user.svg" alt="" width="248" height="173">
+
+				</section>
+				<section>
+					<h2>Вывод всего объекта</h2>
+					<pre>
+						<code>
+							let obj = {1: 'a', 2: 'b', 3: 'c'};
+							console.log(obj); // выведет объект
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Строковые ключи объектов</h2>
+					<pre>
+						<code>
+							let obj = {'a': 1, 'b': 2, 'c': 3};
+							let obj = {a: 1, b: 2, c: 3};
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Свойства объектов</h2>
+					<pre>
+						<code>
+							let obj = {a: 1, b: 2, c: 3};
+							console.log(obj.a); // выведет 1
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Ограничения на ключи объектов</h2>
+					<pre>
+						<code>
+							let obj = {'1key': 'a', 'key-2': 'b', key3: 'c'};
+
+							console.log(obj['1key']);
+							console.log(obj['key-2']);
+							console.log(obj['key3']);
+							console.log(obj.key3);
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Изменение элементов объектов</h2>
+					<pre>
+						<code>
+							let obj = {a: 1, b: 2, c: 3};
+							obj['a'] = '!';
+							obj.b = '!';
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Добавление элементов в объекты</h2>
+					<pre>
+						<code>
+							let obj = {};
+
+							obj['a'] = 1;
+							obj['b'] = 2;
+							obj['c'] = 3;
+
+							obj.e = 4;
+							obj.f = 5;
+							obj.g = 6;
+
+							console.log(obj); // выведет {a: 1, b: 2, c: 3, e: 4, f: 5, g: 6}
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Неупорядоченность объектов</h2>
+					<pre>
+						<code>
+							let obj = {1: 'a', 2: 'b', 3: 'c'};
+
+							console.log(obj[1]); // выведет 'a'
+							console.log(obj[2]); // выведет 'b'
+							console.log(obj[3]); // выведет 'c'
+
+							let obj = {3: 'c', 1: 'a', 2: 'b'};
+
+							console.log(obj[1]); // выведет 'a'
+							console.log(obj[2]); // выведет 'b'
+							console.log(obj[3]); // выведет 'c'
+
+							let obj = {7: 'a', 50: 'b', 23: 'c'};
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Массив ключей объекта</h2>
+					<pre><code>
+						let obj = {a: 1, b: 2, c: 3};
+
+						let keys = Object.keys(obj);
+
+						console.log(keys);
+					</code></pre>
+				</section>
+				<section>
+					<pre><code>
+						let obj = {a: 1, b: 2, c: 3};
+
+						console.log(obj.length); // выведет undefined
+
+						console.log(Object.keys(obj).length); // выведет 3
+					</code></pre>
+				</section>
+				<section>
+					<h2>Ключи объектов из переменных</h2>
+					<pre><code>
+						let obj = {a: 1, b: 2, c: 3};
+						let key = 'a';
+
+						console.log(obj[key]); // выведет 1
+					</code></pre>
+				</section>
+				<section>
+					<h2>Обращение к элементы по ключу</h2>
+					<pre><code>
+						console.log(obj['key']);
+
+						console.log(obj[key]);
+					</code></pre>
+				</section>
+				<section>
+					<h2>Ошибка обращения к свойству объекта</h2>
+					<pre><code>
+						let obj = {a: 1, b: 2, c: 3};
+
+						let key = 'a';
+						console.log(obj.key); // undefined
+
+						console.log(obj[key]); // 1
+					</code></pre>
+				</section>
+				<section>
+					<h2>Вычисляемые свойства (ключи)</h2>
+					<pre><code>
+						let obj = {
+							a: 1,
+							b: 2,
+							c: 3
+						};
+
+						let key = 'a';
+
+						let obj = {
+							[key]: 1,
+							b: 2,
+							c: 3
+						};
+
+						let obj = {
+							[key + '1']: 1,
+							[key + '2']: 2,
+							[key + '3']: 3
+						};
+					</code></pre>
+				</section>
+				<section>
+					<h2>Оператор in</h2>
+					<pre><code>
+						let obj = {a: 1, b: 2, c: 3};
+
+						console.log('b' in obj); // выведет true
+						console.log('x' in obj); // выведет false
+					</code></pre>
+				</section>
+				<section>
+					<h2>Оператор delete</h2>
+					<pre><code>
+						let obj = {a: 1, b: 2, c: 3};
+
+						delete obj.b;
+
+						console.log(obj); // выведет {a: 1, c: 3}
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Передача объектов по ссылке</h2>
+					<pre><code>
+						let obj1 = {a: 1, b: 2, c: 3};
+
+						let obj2 = obj1;
+
+						obj2.a = '!';
+
+						console.log(obj1); // {a: '!', b: 2, c: 3}
+					</code></pre>
+				</section>
+				<section>
+					<h2>Константы с массивами или объектами</h2>
+					<pre><code>
+						const obj = {a: 1, b: 2, c: 3};
+
+						obj = 123; // ошибка
+						obj = {x: 1, y: 2, z: 3}; // ошибка
+
+						obj.a = '+'; // работает!
+					</code></pre>
+				</section>
+			</div>
+		</div>
+
+		<script src="reveal.js"></script>
+		<script src="notes.js"></script>
+		<!-- <script src="markdown.js"></script> -->
+		<script src="highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

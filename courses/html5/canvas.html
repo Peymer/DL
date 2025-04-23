@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="../reveal.css">
+        <link rel="stylesheet" href="../black.css">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="../monokai.css">
+        <!-- https://msiter.ru/tutorials/html5-canvas/gradients  -->
+
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Введениие в графический вывод
+                        информации.<br />Canvas</h1>
+                    <p align="right">&copy; <a
+                            href="mailto:ipigp@yandex.ru">IGP</a>, январь 2025
+                        г.</p>
+                </section>
+                <section>
+                    <p>HTML элемент <b>&lt;canvas&gt;</b> или растровый холст
+                        используется для рисования
+                        графических объектов на лету при помощи скриптов.</p>
+                    <p>Элемент <b>&lt;canvas&gt;</b> - это всего лишь контейнер
+                        для графики. Чтобы нарисовать какой-нибудь
+                        графический объект в действительности необходимо
+                        использовать специальный скрипт. Для этого у canvas есть
+                        несколько методов,
+                        которые позволяют нарисовать контуры, прямоугольники,
+                        окружности, вывести текст и добавить изображения.</p>
+                </section>
+                <section>
+                    <p>В элементе <b>&lt;canvas&gt;</b> можно вывести текст,
+                        анимированный или нет.</p>
+                    <p>Элемент <b>&lt;canvas&gt;</b> обладает богатыми
+                        возможностями для графического представления данных при
+                        помощи диаграмм, графиков и схем.</p>
+                    <p>Объекты элемента <b>&lt;canvas&gt;</b> могут двигаться.
+                        Возможно все: от прыгающих мячей до сложной
+                        анимации.</p>
+                </section>
+                <section>
+                    <p>Элемент <b>&lt;canvas&gt;</b> может быть интерактивным и
+                        реагировать на события JavaScript. Элемент
+                        <b>&lt;canvas&gt;</b> может отвечать
+                        на любое действие пользователя: нажатие на клавишу, на
+                        кнопку мыши, на элемент кнопки на веб-страницы, на
+                        движение пальца и т.д.</p>
+                    <p>Элемент <b>&lt;canvas&gt;</b> может использоваться для
+                        создания игр. Методы элемента <b>&lt;canvas&gt;</b> для
+                        анимирования
+                        графических объектов предоставляют богатые возможности
+                        для создания игровых HTML приложений.</p>
+                </section>
+                <section>
+                    <pre><code data-trim>
+                        &lt;canvas id="myCanvas" width="200" height="100"&gt;&lt;/canvas&gt;
+                    </code></pre>
+                    <p>У элемента <b>&lt;canvas&gt;</b> должен быть определен
+                        атрибут <b>id</b>,
+                        чтобы можно было получить к нему доступ в скрипте
+                        JavaScript.</p>
+                    <p>Атрибуты <b>width</b> и <b>height</b> необходимы для
+                        определения размеров (ширины и высоты) элемента.</p>
+                    <p>На HTML странице можно определять любое количество
+                        элементов <b>&lt;canvas&gt;</b>.</p>
+                </section>
+                <section>
+                    <p>Чтобы добавить рамку используется атрибут style:</p>
+                    <pre><code data-trim>
+                        &lt;canvas id="myCanvas" width="200" height="100" 
+                        style="border:1px solid #000000; background:white;"&gt;&lt;/canvas&gt;
+                    </code></pre>
+                    <canvas id="myCanvas" width="200" height="100"
+                        style="border:1px solid #000000; background:white;">
+                    </canvas>
+                </section>
+                <section>
+                    <h3>Заполненый прямоугольник</h3>
+                    <pre><code data-trim>
+                        &lt;canvas id="myCanvas1" width="200" height="100" 
+                        style="border:1px solid #000000; background:white;"&gt;&lt;/canvas&gt;
+                        &lt;script&gt;
+                            var canvas = document.getElementById("myCanvas1");
+                            var ctx = canvas.getContext("2d");
+                            ctx.fillStyle = "#FF0000";
+                            ctx.fillRect(10,10,150,75);
+                          &lt;/script&gt;
+                    </code></pre>
+                    <canvas id="myCanvas1" width="200" height="100"
+                        style="border:1px solid #000000; background:white;">
+                    </canvas>
+                    <script>
+                        var canvas = document.getElementById("myCanvas1");
+                        var ctx = canvas.getContext("2d");
+                        ctx.fillStyle = "#FF0000";
+                        ctx.fillRect(10,10,150,75);
+                    </script>
+                </section>
+                <section>
+                    <h3>Координаты в canvas</h3>
+                    <p>Пространство canvas или растрового холста представляет
+                        собой двухмерную сетку.</p>
+                    <p>Верхний левый угол холста имеет координаты
+                        <b>(0,0)</b>.</p>
+                    <!-- <p>Ось Х направлена слева направо.</p>
+                    <p>Ось Y направлена сверху вниз.</p> -->
+                    <img src="./5.png" width="400" height="200" />
+                </section>
+                <section>
+                    <section>
+                        <h4>HTML Цвета</h4>
+                        <p>В настоящее время цвета могут быть указаны с помощью
+                            следующих методов:</p>
+                        <ul>
+                            <li>Шестнадцатеричные значения цвета.</li>
+                            <li>RGB и RGBA значения цвета.</li>
+                            <li>HSL и HSLA значения цвета.</li>
+                            <li>Названия цветов (ключевые слова).</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4>Шестнадцатеричные значения цвета</h4>
+                        <p>Шестнадцатеричные значения цвета поддерживается всеми
+                            основными браузерами. Шестнадцатеричные значение
+                            цвета имеет следующий синтаксис:</p>
+                        <pre><code data-trim>
+                        #RRGGBB
+                    </code></pre>
+                        <ul>
+                            <li style="color: red;">RR (красный)</li>
+                            <li style="color: green;">GG (зеленый)</li>
+                            <li style="color: blue;">BB (синий)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <p>Все значения должны быть между 00 и FF.<br />
+                            Например, значение #0000FF отображается как синий,
+                            потому что компонент BB установлен в его самое
+                            высокое значение (FF),
+                            а другие установлены в самое низкое значение
+                            (00).</p>
+                        <p>Допускается сокращать шестнадцатеричные числа до трех
+                            символов, если каждое из трех двухзначных
+                            чисел содержит одинаковые символы. Например, #0000FF
+                            можно записывать как #00F.</p>
+                    </section>
+                    <section>
+                        <h4>RGB цвета</h4>
+                        <p>RGBA является более современным методом задания
+                            цвета, где:</p>
+                        <ul>
+                            <li>R означает Red (красный)</li>
+                            <li>G означает Green (зеленый)</li>
+                            <li>B означает Blue (синий)</li>
+                            <li>A означает Alpha (степень смешивания с
+                                фоном)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <p>Этот метод отличается от RGB тем, что он добавляет
+                            альфа-канал,
+                            который позволяет задать уровень прозрачности со
+                            значениями от 0 до 1, где:</p>
+                        <ul>
+                            <li>0 - цвет невидимый.</li>
+                            <li>1 - цвет непрозрачный.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <pre><code data-trim>
+                        &lt;p style = "color: rgba(255, 0, 0, 0.1)"&gt;абзац красного цвета?&lt;/p&gt;
+                        &lt;p style = "color: rgba(255, 0, 0, 0.2)"&gt;абзац красного цвета?&lt;/p&gt; 
+                        &lt;p style = "color: rgba(255, 0, 0, 0.3)"&gt;абзац красного цвета?&lt;/p&gt;
+                        &lt;p style = "color: rgba(255, 0, 0, 0.4)"&gt;абзац красного цвета?&lt;/p&gt; 
+                        &lt;p style = "color: rgba(255, 0, 0, 0.5)"&gt;абзац красного цвета?&lt;/p&gt;
+                    </code></pre>
+                        <p style="color: rgba(255, 0, 0, 0.1)">абзац красного
+                            цвета?</p>
+                        <p style="color: rgba(255, 0, 0, 0.2)">абзац красного
+                            цвета?</p>
+                        <p style="color: rgba(255, 0, 0, 0.3)">абзац красного
+                            цвета?</p>
+                        <p style="color: rgba(255, 0, 0, 0.4)">абзац красного
+                            цвета?</p>
+                        <p style="color: rgba(255, 0, 0, 0.5)">абзац красного
+                            цвета?</p>
+                    </section>
+                    <section>
+                        <h4>HSL цвета</h4>
+                        <p>К еще одному методу задания цвета относится HSL. HSL
+                            это аббревиатура, которая объединяет в себе первые
+                            буквы трех признаков:</p>
+                        <ul>
+                            <li>Hue — тон (в градусах).</li>
+                            <li>Saturation — насыщенность (в %).</li>
+                            <li>Lightness — осветленность (в %).</li>
+                        </ul>
+                        <p>При этом используется следующий синтаксис:</p>
+                        <pre><code data-trim>
+                        hsl(от 0&deg; до 360&deg;, от 0 до 100%, от 0% до 100%)
+                    </code></pre>
+                    </section>
+                    <section>
+                        <p>Градусы соответствуют цвету на круге оттенков:</p>
+                        <img src="./7.png" />
+                        <p>Для насыщенности: 0% - полное отсутствие, 100% -
+                            чистый и яркий цвет. </p>
+                        <p>Для осветленности: 0% (черный) до 100% (белый),
+                            значение 50% даёт чистый цвет.</p>
+                    </section>
+                    <section>
+                        <h4>Пример</h4>
+                        <img src="./8.png" />
+                    </section>
+                    <section>
+                        <h4>HSLA цвета</h4>
+                        <p>HSL поддерживает прозрачность с помощью добавления
+                            альфа-канала,
+                            который задает уровень прозрачности со значениями от
+                            0 до 1. </p>
+                        <pre><code data-trim>
+                        &lt;p style = "color: hsla(0,100%,50%,0.1)"&gt;Я абзац красного цвета?&lt;/p&gt; 
+                        &lt;p style = "color: hsla(0,100%,50%,0.2)"&gt;Я абзац красного цвета?&lt;/p&gt;  
+                        &lt;p style = "color: hsla(0,100%,50%,0.3)"&gt;Я абзац красного цвета?&lt;/p&gt;  
+                        &lt;p style = "color: hsla(0,100%,50%,0.4)"&gt;Я абзац красного цвета?&lt;/p&gt; 
+                    </code></pre>
+                        <p style="color: hsla(0,100%,50%,0.1)">Я абзац красного
+                            цвета?</p>
+                        <p style="color: hsla(0,100%,50%,0.2)">Я абзац красного
+                            цвета?</p>
+                        <p style="color: hsla(0,100%,50%,0.3)">Я абзац красного
+                            цвета?</p>
+                        <p style="color: hsla(0,100%,50%,0.4)">Я абзац красного
+                            цвета?</p>
+                    </section>
+                    <section>
+                        <h4>Имена цветов</h4>
+                        <img src="./9.png" />
+                        <pre><code data-trim>
+                        &lt;p style="color:red;background:silver;"&gt;красный на сером&lt;p&gt;
+                    </code></pre>
+                        <p style="color: red; background: silver;">красный на
+                            сером</p>
+                    </section>
+                </section>
+                <section>
+                    <h4>Линия</h4>
+                    <ul>
+                        <li>moveTo(x,y) — определяет начальную точку</li>
+                        <li>lineTo(x,y) — определяет конечную точку</li>
+                    </ul>
+                    <p>Чтобы действительно нарисовать линию, нужно
+                        воспользоваться "рисовальным" методом
+                        <b>stroke()</b>.</p>
+                    <pre><code data-trim>
+                        &lt;canvas id="myCanvas2" width="200" height="100" 
+                        style="border:1px solid #000000; background:white;"&gt;&lt;/canvas&gt;
+                        &lt;script&gt;
+                            var canvas = document.getElementById("myCanvas2");
+                            var ctx = canvas.getContext("2d");
+                            ctx.moveTo(0,0);
+                            ctx.lineTo(200,100);
+                            ctx.stroke();
+                        &lt;script&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Круг</h4>
+                    <ul>
+                        <li>beginPath() — начинает контур</li>
+                        <li>arc(x,y,r,startangle,endangle) — создает
+                            дугу/кривую.</li>
+                    </ul>
+                    <pre><code data-trim>
+                        var canvas = document.getElementById("myCanvas");
+                        var ctx = canvas.getContext("2d");
+                        ctx.beginPath();
+                        ctx.arc(95,50,40,0,2*Math.PI);
+                        ctx.stroke();
+                    </code></pre>
+                    <p style="color:red;">Нарисуйте "светофор": три круга -
+                        красного, желтого и зеленого цвета.
+                        Одинакового радиуса, один под другим</p>
+                </section>
+                <section>
+                    <h4>Градиенты</h4>
+                    <ul>
+                        <li>createLinearGradient(x,y,x1,y1) — создает линейный
+                            градиент</li>
+                        <li>createRadialGradient(x,y,r,x1,y1,r1) — создает
+                            радиальный градиент</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Линейный градиент</h4>
+                    <pre><code data-trim>
+                        var c=document.getElementById("myCanvas");
+                        var ctx=c.getContext("2d");
+
+                        // Создаем градиент
+                        var grd=ctx.createLinearGradient(0,0,200,0);
+                        grd.addColorStop(0,"red");
+                        grd.addColorStop(1,"white");
+
+                        // Заполняем градиентом фигуру
+                        ctx.fillStyle=grd;
+                        ctx.fillRect(10,10,150,80);
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>Радиальный градиент</h4>
+                    <pre><code data-trim>
+                        var c=document.getElementById("myCanvas");
+                        var ctx=c.getContext("2d");
+
+                        // Создаем градиент
+                        var grd=ctx.createLinearGradient(0,0,200,0);
+                        grd.addColorStop(0,"red");
+                        grd.addColorStop(1,"white");
+
+                        // Заполняем градиентом фигуру
+                        ctx.fillStyle=grd;
+                        ctx.fillRect(10,10,150,80);
+                    </code></pre>
+                </section>
+                <section>
+                    <p style="color:red;">Нарисуйте на холсте разные
+                        геометрические фигуры, заполненые линейным
+                        градиентом.</p>
+                    <p style="color:red;">Нарисуйте на холсте разные
+                        геометрические фигуры, заполненые радиальным
+                        градиентом.</p>
+                </section>
+                <section>
+                    <h4>Вывод текста</h4>
+                    <ul>
+                        <li>font — определяет шрифт текста</li>
+                        <li>fillStyle — цвет заливки</li>
+                        <li>textAlign — центрирование текста</li>
+                        <li>fillText(text,x,y) — рисует "залитый" текст</li>
+                        <li>strokeText(text,x,y) — рисует текст без заливки</li>
+                        <li>measureText(text) — объект, содержащий ширину
+                            заданного текста</li>
+                    </ul>
+                    <pre><code data-trim>
+                        var canvas = document.getElementById("myCanvas");
+                        var ctx = canvas.getContext("2d");
+                        ctx.font = "30px Comic Sans MS";
+                        ctx.fillStyle = "red";
+                        ctx.textAlign = "center";
+                        ctx.fillText("Hello World", canvas.width/2, canvas.height/2);
+                    </code></pre>
+                </section>
+                <section>
+                    <p style="color:red;">Нарисуйте на холсте две координатные
+                        оси (с началом координат в центре холста),
+                        установите шаг координатной сетики равным 20 и выведите
+                        подписи.</p>
+                </section>
+                <section>
+                    <h4>Cвойства и методы</h4>
+                    <ul>
+                        <li>lineCap — Устанавливает/возвращает стиль концов
+                            нарисованной линии</li>
+                        <li>lineJoin — Устанавливает/возвращает тип угла,
+                            созданного пересечением двух линий</li>
+                        <li>lineWidth — Устанавливает/возвращает ширину текущей
+                            линии</li>
+                        <li>miterLimit — Устанавливает/возвращает максимальную
+                            длину среза</li>
+                    </ul>
+                </section>
+                <section>
+                    <section>
+                        <h4>Контуры</h4>
+                        <ul>
+                            <li>arc() — Создает дугу/кривую (используется для
+                                создания окружностей или их части)</li>
+                            <li>arcTo() — Создает дугу/кривую между двумя
+                                касательными</li>
+                            <li>beginPath() — Начинает контур или сбрасывает
+                                текущий контур</li>
+                            <li>bezierCurveTo() — Создает кубическую кривую
+                                Безье</li>
+                            <li>clip() — Обрезает область любой формы и размера,
+                                находящуюся вне указанного контура</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4>arc()</h4>
+                        <pre>
+x	Координата X центра круга
+y	Координата Y центра круга
+r	Радиус круга
+sAngle	Начальный угол в радианах (0 — позиция на 3 часа)
+eAngle	Конечный угол в радианах
+counterclockwise	Необязательный параметр. Определяет, как рисовать окружность, по часовой стрелке или против часовой стрелки. 
+                        </pre>
+                    </section>
+                    <section>
+                        <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.beginPath();
+                            ctx.arc(100,75,50,0,2*Math.PI);
+                            ctx.stroke();
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>arcTo()</h4>
+                        <p>Метод arcTo() создает дугу/кривую между двумя
+                            касательными в элементе <canvas>.</p>
+                            <p>Чтобы действительно нарисовать дугу в элементе
+                                &lt;canvas&gt;, используется метод stroke().</p>
+                            <pre>
+x1	Координата X первой касательной
+y1	Координата Y первой касательной
+x2	Координата X второй касательной
+y2	Координата Y второй касательной
+r	Радиус дуги
+                        </pre>
+                        </section>
+                        <section>
+                            <h4>Пример</h4>
+                            <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.beginPath();
+                            // Создаем начальную точку
+                            ctx.moveTo(20,20);
+                            // Создаем горизонтальную линию
+                            ctx.lineTo(100,20);
+                            // Создаем дугу
+                            ctx.arcTo(150,20,150,70,50);
+                            // Продолжаем линию по вертикали
+                            ctx.lineTo(150,120);
+                            // Рисуем все
+                            ctx.stroke();
+                        </code></pre>
+                        </section>
+                        <section>
+                            <h4>beginPath()</h4>
+                            <p>Метод beginPath() начинает контур или сбрасывает
+                                текущий контур.</p>
+                            <p>Для создания контуров используйте методы
+                                moveTo(), lineTo(), quadraticCurveTo(),
+                                bezierCurveTo(), arcTo(), и arc().
+                                Чтобы действительно нарисовать контур в элементе
+                                &lt;canvas&gt;, используется метод stroke().</p>
+                        </section>
+                        <section>
+                            <h4>Пример</h4>
+                            <pre><code data-trim>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+// Зеленый контур
+ctx.beginPath(); 
+ctx.lineWidth="5";
+ctx.strokeStyle="green";
+ctx.moveTo(0,75);
+ctx.lineTo(250,75);
+ctx.stroke(); // Нарисуем его
+// Пурпурный контур
+ctx.beginPath();
+ctx.strokeStyle="purple";
+ctx.moveTo(50,0);
+ctx.lineTo(150,130); 
+ctx.stroke(); // Нарисуем его
+                        </code></pre>
+                        </section>
+                        <section>
+                            <h4>stroke()</h4>
+                            <pre><code data-trim>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.beginPath();
+ctx.moveTo(20,20);
+ctx.lineTo(20,100);
+ctx.lineTo(70,100);
+ctx.strokeStyle="red";
+ctx.stroke();
+                        </code></pre>
+                        </section>
+                    </section>
+
+                    <section>
+                        <h4>Контуры</h4>
+                        <ul>
+                            <li>closePath() — Замыкает контур соединяя последнюю
+                                точку с первой</li>
+                            <li>fill() — Делает заливку текущей фигуры
+                                (контура)</li>
+                            <li>isPointInPath() — Возвращает значение true, если
+                                заданная точка находится внутри текущего
+                                контура, в обратном случае возвращается значение
+                                false</li>
+                            <li>lineTo() — Добавляет новую точку контура и
+                                создает линию к этой точке от последней заданной
+                                точки</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4>Контуры</h4>
+                        <ul>
+                            <li>moveTo() — Передвигает точку контура в заданные
+                                координаты не рисуя линию</li>
+                            <li>quadraticCurveTo() — Создает квадратичную кривую
+                                Безье</li>
+                            <li>stroke() — В действительности рисует
+                                определенный вами контур</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4><u>Домашнее задание</u></h4>
+                        <p style="color: yellowgreen">Изучить понятие и
+                            математические основы кривых Безье</p>
+                    </section>
+                    <section>
+                        <section>
+                            <h4>Прямоугольники</h4>
+                            <ul>
+                                <li>clearRect() — Очищает заданную область
+                                    пикселей внутри данного прямоугольника</li>
+                                <li>fillRect() — Рисует "залитый"
+                                    прямоугольник</li>
+                                <li>rect() — Создает прямоугольник</li>
+                                <li>strokeRect() — Рисует прямоугольник (без
+                                    заливки)</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h4>clearRect()</h4>
+                            <p>Метод clearRect() очищает заданную область
+                                пикселей внутри данного прямоугольника.</p>
+                            <pre>
+x	Координата X верхнего левого угла очищаемой области
+y	Координата Y верхнего левого угла очищаемой области
+width	Ширина очищаемой области в пикселях
+height	Высота очищаемой области в пикселях                            
+                        </pre>
+                        </section>
+                        <section>
+                            <h4>Пример</h4>
+                            <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.fillStyle="red";
+                            ctx.fillRect(0,0,300,150);
+                            ctx.clearRect(20,20,100,50);
+                        </code></pre>
+                        </section>
+                        <section>
+                            <h4>fillRect()</h4>
+                            <p>Метод fillRect() рисует "залитый" прямоугольник.
+                                Цвет заливки, по умолчанию, черный.</p>
+                            <p>Чтобы установить другой цвет/градиент заливки,
+                                используется свойство fillStyle.</p>
+                            <h5>Параметры</h5>
+                            <pre>
+x	Координата X верхнего левого угла прямоугольника
+y	Координата Y верхнего левого угла прямоугольника
+width	Ширина прямоугольника в пикселях
+height	Высота прямоугольника в пикселях                            
+                        </pre>
+                        </section>
+                        <section>
+                            <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.fillRect(20,20,150,100);
+                        </code></pre>
+                        </section>
+                        <section>
+                            <h4>rect()</h4>
+                            <p>Метод rect() создает прямоугольник.</p>
+                            <p>Чтобы действительно нарисовать прямоугольник,
+                                используйте метод stroke() или fill().</p>
+                            <h5>Параметры</h5>
+                            <pre>
+x	Координата X верхнего левого угла прямоугольника                            var ctx=c.getContext("2d");
+ctx.strokeRect(20,20,150,100);
+height	Высота прямоугольника в пикселях
+                        </pre>
+                            <pre><code data-trim>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.rect(20,20,150,100);
+ctx.stroke();
+                        </code></pre>
+                        </section>
+                        <section>
+                            <h4>Пример</h4>
+                            <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            // Красный прямоугольник
+                            ctx.beginPath();
+                            ctx.lineWidth="6";
+                            ctx.strokeStyle="red";
+                            ctx.rect(5,5,290,140); 
+                            ctx.stroke();
+                            // Зеленый прямоугольник
+                            ctx.beginPath();
+                            ctx.lineWidth="4";
+                            ctx.strokeStyle="green";
+                            ctx.rect(30,30,50,50);
+                            ctx.stroke();
+                            // Синий прямоугольник
+                            ctx.beginPath();
+                            ctx.lineWidth="10";
+                            ctx.strokeStyle="blue";
+                            ctx.rect(50,50,150,80);
+                            ctx.stroke();
+                        </code></pre>
+                        </section>
+                        <section>
+                            <h4>strokeRect()</h4>
+                            <p>Метод strokeRect() рисует прямоугольник (без
+                                заливки). По умолчанию прямоугольник рисуется
+                                черным цветом.</p>
+                            <p>Чтобы задать цвет, градиент или паттерн, которым
+                                будет нарисован прямоугольник используется
+                                свойство strokeStyle.</p>
+                            <h5>Параметры</h5>
+                            <pre>
+x	Координата X верхнего левого угла прямоугольника
+y	Координата Y верхнего левого угла прямоугольника
+width	Ширина прямоугольника в пикселях
+height	Высота прямоугольника в пикселях
+                        </pre>
+                        </section>
+                        <section>
+                            <h4>Пример</h4>
+                            <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.strokeRect(20,20,150,100);
+                        </code></pre>
+                        </section>
+                    </section>
+                    <section>
+                        <section>
+                            <h4>Трансформации</h4>
+                            <ul>
+                                <li>rotate() — Поворачивает текущий графический
+                                    объект</li>
+                                <li>scale() — Изменяет масштаб текущего
+                                    графического объекта</li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h4>rotate()</h4>
+                            <p>Метод позволяет поворачивать текущий графический
+                                объект.
+                                <p>Чтобы графический объект был повернут, метод
+                                    <b>rotate()</b> необходимо применить до
+                                    того, как объект будет нарисован.</p>
+                                <h5>Параметр</h5>
+                                <pre>
+    угол	Угол поворота в радианах. 
+                        </pre>
+                                <p>Чтобы пересчитать градусы в радианы:
+                                    градусы*Math.PI/180.</p>
+                            </section>
+                            <section>
+                                <h4>Пример</h4>
+                                <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.rotate(20*Math.PI/180);
+                            ctx.fillRect(50,20,100,50);
+                        </code></pre>
+                            </section>
+                            <section>
+                                <h4>scale()</h4>
+                                <p>Метод scale() изменяет масштаб текущего
+                                    графического объекта, делает его больше или
+                                    меньше.</p>
+                                <p>Если изменяется масштаб графического объекта,
+                                    то будущие графические объекты также изменят
+                                    масштаб.
+                                    Позиционирование также будет
+                                    масштабироваться.</p>
+                                <h5>Параметры</h5>
+                                <pre>
+    scalewidth	Масштабирует ширину текущего графического объекта (1=100%, 0.5=50%)
+    scaleheight	Масштабирует высоту текущего графического объекта (1=100%, 0.5=50%)                            
+                        </pre>
+                            </section>
+                            <section>
+                                <h4>Примеры</h4>
+                                <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.strokeRect(5,5,25,15);
+                            ctx.scale(2,2);
+                            ctx.strokeRect(5,5,25,15);
+                        </code></pre>
+                                <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.strokeRect(5,5,25,15);
+                            ctx.scale(2,2);
+                            ctx.strokeRect(5,5,25,15);
+                            ctx.scale(2,2);
+                            ctx.strokeRect(5,5,25,15);
+                            ctx.scale(2,2);
+                            ctx.strokeRect(5,5,25,15);
+                        </code></pre>
+                            </section>
+                        </section>
+                        <section>
+                            <h4>Трансформации</h4>
+                            <ul>
+                                <li>transform() — Применяет заданную матрицу
+                                    трансформации</li>
+                                <li>translate() — Ретранслирует позицию (0,0) в
+                                    новое место</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h4>transform()</h4>
+                            <p>У каждого объекта на растровом холсте есть
+                                текущая матрица трансформации.</p>
+                            <p>Метод transform() комбинирует путем умножения
+                                текущую матрицу трансформации с матрицей,
+                                описываемой как:</p>
+                            <pre>
+                            a c e
+                            b d f
+                            0 0 1
+                        </pre>
+                            <p>Метод transform() позволяет масштабировать,
+                                поворачивать, двигать и скручивать текущий
+                                контекст.</p>
+                        </section>
+                        <section>
+                            <h4>Параметры матрицы</h4>
+                            <pre>
+a	Горизонтальный масштаб
+b	Горизонтальное скручивание
+c	Вертикальное скручивание
+d	Вертикальный масштаб
+e	Горизонтальный сдвиг
+f	Вертикальный сдвиг
+                        </pre>
+                        </section>
+                        <section>
+                            <h4>Пример</h4>
+                            <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.fillStyle="yellow";
+                            ctx.fillRect(0,0,250,100)
+                            ctx.transform(1,0.5,-0.5,1,30,10);
+                            ctx.fillStyle="red";
+                            ctx.fillRect(0,0,250,100);
+                            ctx.transform(1,0.5,-0.5,1,30,10);
+                            ctx.fillStyle="blue";
+                            ctx.fillRect(0,0,250,100);
+                        </code></pre>
+                        </section>
+                        <section>
+                            <h4>translate()</h4>
+                            <p>Метод translate() ретранслирует позицию (0,0) в
+                                новое место растрового холста.</p>
+                            <p>Если после метода translate() вызывается,
+                                например, такой метод как fillRect(),
+                                то его значение добавляется к значениям x- и
+                                y-координат.</p>
+                            <img src="./6.png" />
+                        </section>
+                        <section>
+                            <h4>Значения параметров</h4>
+                            <pre>
+x	Значение, добавляемое к горизонтальным (x) координатам
+y	Значение, добавляемое к вертикальным (y) координатам 
+                        </pre>
+                        </section>
+                        <section>
+                            <h4>Пример</h4>
+                            <pre><code data-trim>
+                            var c=document.getElementById("myCanvas");
+                            var ctx=c.getContext("2d");
+                            ctx.fillRect(10,10,100,50);
+                            ctx.translate(70,70);
+                            ctx.fillRect(10,10,100,50);
+                        </code></pre>
+                        </section>
+                    </section>
+                    <section>
+                        <section>
+                            <h4 style="color: red;">Задание</h4>
+                            <p style="color: red;">Нарисовать кубик со стороной
+                                20 в аксонометрической (изометрической)
+                                проекции.</p>
+                        </section>
+                        <section>
+                            <h4>Изометрия</h4>
+                            <p>Является вариантом аксонометрической проекции,
+                                при котором все три оси координат имеют
+                                одинаковый наклон (120&deg;).
+                                В данном случае изменение размеров проецируемого
+                                предмета одинаковое по всем трем осям.
+                                Для построения чертежей чаще всего применяется
+                                прямоугольная изометрия (проектирующие лучи
+                                перпендикулярны плоскости).</p>
+                        </section>
+                        <section>
+                            <h4>Диметрия</h4>
+                            <p>В этом случае две оси в системе координат имеют
+                                одинаковый наклон, а третья — другой (например,
+                                135&deg;, 135&deg; и 90&deg;).
+                                Соответственно, уменьшение размеров предмета
+                                будет одинаковым только по двум осям,
+                                а сам он будет выглядеть повернутым фронтальной
+                                стороной к наблюдателю.</p>
+                        </section>
+                        <section>
+                            <h4>Триметрия</h4>
+                            <p>В данном случае коэффициенты искажения
+                                изображения проецируемого предмета отличаются
+                                друг
+                                от друга сразу по трем осям (150&deg;, 70&deg;,
+                                140&deg;).
+                                Следовательно, аксонометрический вид предмета
+                                будет специфичным: наблюдатель по-прежнему
+                                увидит его с тех сторон,
+                                но некоторые детали могут быть менее
+                                детализированны за счет изменения угла обзора.
+                            </p>
+                        </section>
+                    </section>
+                    <section>
+                        <h4 style="color: red;">Задание повышенной
+                            сложности</h4>
+                        <p style="color:red;">Нарисовать кубик состороной 1.
+                            Вращать кубик на экране средствами JavaScript.
+                            Объяснить математическую модель и алгоритм.</p>
+                        <div align="center">
+                            <canvas id="cubeCanvas" width="100" height="100"
+                                style="background: white;"></canvas>
+                        </div>
+                        <script type="text/javascript">
+                        (function () {
+                            var canvas = document.getElementById("cubeCanvas");
+                            var size = Math.min (canvas.width,canvas.height);
+                            var g = canvas.getContext("2d");
+                            var nodes = //Вершины
+                            [[-1, -1, -1], [-1, -1, 1], [-1, 1, -1], [-1, 1, 1],
+                            [1, -1, -1], [1, -1, 1], [1, 1, -1], [1, 1, 1]];
+                            var edges = //грани
+                            [[0, 1], [1, 3], [3, 2], [2, 0], [4, 5], [5, 7], [7, 6],
+                            [6, 4], [0, 4], [1, 5], [2, 6], [3, 7]];
+                                
+                            function scale (factor0, factor1, factor2) { 
+                                nodes.forEach(function (node) {
+                                node[0] *= factor0; node[1] *= factor1; node[2] *= factor2;
+                                });
+                            }
+                        
+                        function rotateCuboid (angleX, angleY) { 
+                            var sinX = Math.sin(angleX);
+                            var cosX = Math.cos(angleX);
+                            var sinY = Math.sin(angleY);
+                            var cosY = Math.cos(angleY);
+                            nodes.forEach(function (node) {
+                                var x = node[0]; var y = node[1]; var z = node[2];
+                                node[0] = x * cosX - z * sinX;
+                                node[2] = z * cosX + x * sinX;
+                                z = node[2];
+                                node[1] = y * cosY - z * sinY;
+                                node[2] = z * cosY + y * sinY;
+                            });
+                        }
+                        
+                        function drawCuboid () {
+                            g.save();
+                            g.clearRect(0, 0, canvas.width, canvas.height); 
+                            g.translate(canvas.width / 2, canvas.height / 2); 
+                            g.strokeStyle = "#000000"; 
+                            g.beginPath();
+                            edges.forEach(function (edge) {
+                                var p1 = nodes[edge[0]];
+                                var p2 = nodes[edge[1]];
+                                g.moveTo(p1[0], p1[1]);
+                                g.lineTo(p2[0], p2[1]);
+                            });
+                            g.closePath();
+                            g.stroke();
+                            g.restore();
+                        }
+                        
+                            scale (size/4, size/4, size/4); 
+                            rotateCuboid (Math.PI / 3, Math.atan(Math.sqrt(3))); 
+                            setInterval( function() {
+                            rotateCuboid (Math.PI / 180, Math.PI / 180); 
+                            drawCuboid ();
+                            }, 10);
+                        })(); 
+                    </script>
+                        <noscript><div>Извините, требуется включённый
+                                Javascript</div></noscript>
+                    </section>
+                </div>
+            </div>
+            <script src="../reveal.js"></script>
+            <script src="../notes.js"></script>
+            <!-- <script src="markdown.js"></script> -->
+            <script src="../highlight.js"></script>
+            <script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash:true,
+                showSlideNumber: 'all',
+                slideNumber: "true",
+				// Learn about plugins:</b> https://revealjs.com/plugins/
+				plugins: [ RevealHighlight, RevealNotes ]
+			});
+		</script>
+        </body>
+    </html>

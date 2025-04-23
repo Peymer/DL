@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Объекты JavaScript Часть 2</title>
+
+<!--		<link rel="stylesheet" href="reset.css">-->
+		
+		<link rel="stylesheet" href="reveal.css">
+		<link rel="stylesheet" href="black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Объекты JavaScript (продолжение)</h1> 
+					<p align="right">&copy; <a href="mailto:ipigp@yandex.ru">IGP</a>, декабрь 2024 г.</p>
+				</section>
+
+				<section>
+				<p>Объекты обычно создаются, чтобы представлять сущности реального мира</p>
+					<pre>
+						<code data-trim>
+// Объект пользователя
+let user = {
+  name: "Лоханкин",
+  age: 30
+};
+						</code>
+					</pre>
+					<p>Так же, как и в реальном мире, пользователь может <i>совершать действия</i>.<br/>
+					Такие действия в JavaScript представлены функциями в свойствах, которые называются <b>методами</b>.</p>
+				</section>
+				<section>
+				<h4>Пример метода</h4>
+					<pre><code>
+let user = {
+  name: "Лоханкин",
+  age: 30,
+  sayHi: function() {
+			consile.log("Привет!");
+		}
+};
+					</code></pre>
+					<p>Вызов метода:</p>
+					<pre><code>
+user.sayHi();	// Привет!			
+					</code></pre>
+					</section>
+					<section>
+						<h4>Другой вариант</h4>
+						<p>Свойству с именем sayHi присваивается заранее созданная функция</p>
+					<pre><code data-trim>
+// Объект пользователя
+let user = {
+  name: "Лоханкин",
+  age: 30
+};
+function sayHi() {
+  alert("Привет!");
+}
+// добавляем в качестве метода
+user.sayHi = sayHi;					
+					</code></pre>
+					<p>Вызов метода:</p>
+					<pre><code data-trim>
+user.sayHi();	// Привет!			
+					</code></pre>
+				</section>
+				<section>
+					<h4>Сокращённая запись метода</h4>
+					<pre><code data-trim>
+// эти объекты делают одно и то же
+
+user = {
+  sayHi: function() {
+    console.log("Привет");
+  }
+};
+// сокращённая запись выглядит лучше
+user = {
+  sayHi() { // то же самое, что и "sayHi: function(){...}"
+    console.log("Привет");
+  }
+};
+					</code></pre>
+					<p>Эти две записи не полностью эквивалентны. Есть тонкие различия.</p>
+				</section>
+				<section>
+					<h4>Ключевое слово «this» в методах</h4>
+					<p><b>this</b> - означает "текущий объект"</p>
+					<pre><code data-trim>
+let user = {
+  name: "Иннокентий",
+  age: 30,
+
+  sayHi() {
+    console.log(this.name);
+  }
+};
+
+user.sayHi(); // Иннокентий					
+					</code></pre>
+				</section>
+				<section>
+					<h4>«this» не является фиксированным</h4>
+					<pre><code data-trim>
+let user = { name: "Пётр" };
+let admin = { name: "Admin" };
+
+function sayHi() {
+  console.log( this.name );
+}
+
+user.f = sayHi;
+admin.f = sayHi;
+
+user.f(); // Пётр  (this == user)
+admin.f(); // Admin  (this == admin)
+admin['f'](); // Admin					
+					</code></pre>
+				</section>
+				<section>
+				<h4>Стрелочные функции</h4>
+				<pre><code data-trim>
+let user = {
+  name: "Василий",
+  age: 30,
+  sayHi: () => {
+    console.log("Привет!");
+  }
+};
+user.sayHi(); // Привет!					
+				</code></pre>
+				<p>Стрелочные функции <b>не имеют</b> «собственного» this</p>
+				</section>
+				<section>
+					<h4>Возвращаемые значения</h4>
+					<pre><code data-trim>
+let calc = {
+	x: 0
+	y: 0
+	sum: function (a,b){
+		return a+b;
+	}
+};
+
+console.log(calc.sum(33, 66)); // 99
+					</code></pre>
+				</section>
+				<section>
+					<p>У объекта может быть два типа свойств</p>
+					<ul>
+						<li>Свойства-данные</li>
+						<li>Свойства-аксессоры - это функции, которые используются для присвоения и получения значения</li>
+					</ul>
+					<pre><code data-trim>
+let obj = {
+  get propName() {
+    // геттер, срабатывает при чтении obj.propName
+  },
+  set propName(value) {
+    // сеттер, срабатывает при записи obj.propName = value
+  }
+};						
+					</code></pre>
+				</section>
+				<section>
+					<pre><code data-trim>
+let user = {
+  name: "Остап",
+  surname: "Бендер",
+
+  get fullName() {
+    return `${this.name} ${this.surname}`;
+  }
+};
+console.log(user.fullName); // Остап Бендер					
+					</code></pre>
+				</section>
+				<section>
+				<pre><code data-trim>
+let user = {
+  name: "Паниковский",
+  surname: "Михаил",
+  get fullName() {
+    return `${this.name} ${this.surname}`;
+  },
+  set fullName(value) {
+    [this.name, this.surname] = value.split(" ");
+  }
+};
+user.fullName = "Балаганов Шура";
+
+console.log(user.name); // Балаганов
+console.log(user.surname); // Шура
+				</code></pre>
+				</section>
+				<section>
+					<h4>Важно</h4>
+					<p>Cвойство объекта может быть либо свойством-аксессором (с методами get/set), либо свойством-данных</p>
+				</section>
+				<section>
+					<pre><code data-trim>
+let user = {
+  name: "Александр",
+  surname: "Корейко"
+};
+Object.defineProperty(user, 'fullName', {
+  get() {
+    return `${this.name} ${this.surname}`;
+  },
+  set(value) {
+    [this.name, this.surname] = value.split(" ");
+  }
+});
+console.log(user.fullName); // Александр Корейко 
+for(let key in user) console.log(key); // name, surname						
+					</code></pre>
+				</section>
+				<section>
+					<pre><code data-trim>
+function User(name, birthday) {
+  this.name = name;
+  this.birthday = birthday;
+ }
+ 
+ let u = new User("Райкер", new Date(1966, 10, 03));
+ console.log(u.birthday); // 03.10.1966
+ console.log(u.name); // Райкер
+					</code></pre>
+				</section>
+
+			</div>
+		</div>
+		
+		<script src="reveal.js"></script>
+		<script src="notes.js"></script>
+		<script src="highlight.js"></script>
+		<!-- 	<script src="node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script> -->
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				slideNumber: 'c/t',
+				hash: true,
+				// multiplex: {
+				// 	secret:'17339873593016112019',
+				// 	id:'b3625b072a91d31a',
+				// 	url: '127.0.0.1:1948',
+				// },
+					// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealNotes, RevealHighlight ],
+				// dependencies: [
+				// 	{ src: 'node_modules/socket.io/socket.io.js', async: true },
+				// 	{ src: 'node_modules/reveal-multiplex/client.js', async: true }
+  				// ]
+			});
+		</script>
+
+	</body>
+<html>
