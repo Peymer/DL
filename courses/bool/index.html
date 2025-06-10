@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../reveal.css">
+    <link rel="stylesheet" href="../black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="../monokai.css">
+    <!-- https://presium.pro/blog/diplom -->
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Основы математической логики</h1>
+                <h2>Булева алгебра</h2>
+                <p align="right">&copy; <a href="mailto:ipigp@yandex.ru">Игорь Григорьевич Пеймер</a>, июнь 2025 г</p>
+            </section>
+            <section>
+                <section>
+                    <h2>ОСНОВНЫЕ ПОНЯТИЯ МАТЕМАТИЧЕСКОЙ ЛОГИКИ</h2>
+                </section>
+                <section>
+                    <!-- <p>основные формы процесса человеческого мышления:</p> -->
+                    <ul>
+                        <li>понятие</li>
+                        <li>суждение (высказывание, утверждение)</li>
+                        <li>умозаключение</li>
+                    </ul>
+                    <aside class="notes">
+                        <p>Джордж Буль выделил три основные формы процесса человеческого мышления.<br />
+                    </aside>
+                </section>
+                <section>
+                    <h2>Понятие</h2>
+                    <ul>
+                        <li>содержание</li>
+                        <li>объем</li>
+                    </ul>
+                    <aside class="notes">
+                        <p>Понятие &mdash; это форма мышления, фиксирующая основные, существенные признаки
+                            объекта.<br /></p>
+                        <ul>
+                            <li>Содержание &mdash; это совокупность существенных признаков объекта.</li>
+                            <li>Объем &mdash; это совокупность предметов, на которые распространяется понятие.</li>
+                        </ul>
+                    </aside>
+                </section>
+                <section>
+                    <h2>Высказывание</h2>
+                    <p>форма мышления, в которой что-либо утверждается или отрицается
+                        о реальных предметах, их свойствах и отношениях между ними
+                    </p>
+                </section>
+                <section>
+                    <ul>
+                        <li>стественный язык</li>
+                        <li>формальный язык</li>
+                    </ul>
+                    <br />
+                    <ul>
+                        <li>простые выссказывания</li>
+                        <li>составные выссказывания</li>
+                    </ul>
+                    <aside class="notes">
+                        <p>Высказывания на естественном языке могут быть выражены
+                            только повествовательным предложением.<br />
+                            Истинность простых высказываний определяется на основании
+                            здравого смысла.<br />
+                            Истинность составных высказываний определяется с помощью
+                            алгебры высказываний.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h2>Умозаключение</h2>
+                    <p>форма мышления, с помощью которой из одного или нескольких высказываний может быть
+                        получено новое суждение</p>
+                    <p>Посылки &mdash; только истинные суждения</p>
+                    <aside class="notes">
+                        <ol>
+                            <li>«Все люди смертны. Сократ – человек. Сле-
+                                довательно, Сократ смертен»</li>
+                            <li>«Все граждане России имеют право на обра-
+                                зование. Сидоров &mdash; гражданин России. Следовательно, Сидоров
+                                имеет право на образование».</li>
+                        </ol>
+                        <p>Можно заметить, что все эти умозаключения построены по од-
+                            ной и той же схеме: все M &mdash; суть P. S есть M. Следовательно, S есть
+                            P. Поэтому с точки зрения математической логики они являются
+                            одинаковыми.</p>
+                    </aside>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h1>Логика</h1>
+                    <p>наука о формах и способах мышления</p>
+                </section>
+                <section>
+                    <h1>Математическая логика</h1>
+                    <p>наука, изучающая умозаключения с точки зрения их формального строения</p>
+                </section>
+                <section>
+                    <h2>Истинностные значения</h2>
+                    <ul>
+                        <li>истина</li>
+                        <li>лож</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Логические операции (связки)</h2>
+                    <ul>
+                        <li>Отрицание</li>
+                        <li>Конъюнкция</li>
+                        <li>Дизъюнкция</li>
+                        <li>Импликация</li>
+                        <li>Эквиваленция</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Отрицание</h2>
+                    <p>применяется к 1 высказыванию</p>
+                    <p>P или P̅</p>
+                    <aside class="notes">
+                        <p>Отрицанием высказывания P является высказывание, истинное
+                            тогда и только тогда, когда высказывание P ложно.<br />
+                            Аналог в естественном языке: не верно, что P; не P.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h2>Конъюнкция</h2>
+                    <p>связывает 2 высказывания</p>
+                    <p> P ∧ Q; P & Q; PQ</p>
+                    <aside class="notes">
+                        <p>Конъюнкцией двух высказываний P и Q называется высказы-
+                            вание, истинное тогда и только тогда, когда истины оба высказывания P и Q.<br />
+                            Аналог в естественном языке: P и Q</p>
+                    </aside>
+                </section>
+                <section>
+                    <h2>Дизъюнкция</h2>
+                    <p>связывает 2 высказывания</p>
+                    <p>P ∨ Q</p>
+                    <aside class="notes">
+                        <p>Дизъюнкцией двух высказываний P и Q называется высказы-
+                            вание, ложное тогда и только тогда, когда ложны оба высказывания
+                            P и Q.<br />Аналог в естественном языке: P или Q</p>
+                    </aside>
+                </section>
+                <section>
+                    <h2>Импликация</h2>
+                    <p>связывает 2 высказывания</p>
+                    <p> P &rArr; Q, P → Q, P ⊃ Q</p>
+                    <p>из истины не может следовать ложь</p>
+                    <aside class="notes">
+                        <p>Аналог в естественном языке: из P следует Q; если P, то Q.<br />
+                            P – посылка импликации.<br />
+                            Q – заключение импликации.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h2>Эквиваленция</h2>
+                    <p>связывает 2 высказывания</p>
+                    <p>P~Q</p>
+                    <p>они либо оба истинны, либо оба ложны</p>
+                    <aside class="notes">
+                        <p>Аналог в естественном языке: P эквивалентно Q</p>
+                    </aside>
+                </section>
+                <section>
+                    <h2>Алфавит математической логики</h2>
+                    <ul>
+                        <li>высказывательные переменные &mdash; буквы латинского алфавита, возможно с индексами</li>
+                        <li>логические символы: ∧, ∨, &, &rArr;, →, ⊃, ~</li>
+                        <li>символы скобок: ()</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>БУЛЕВЫ ФУНКЦИИ</h2>
+                </section>
+                <section>
+                    <h2>Основные равносильности</h2>
+                    <ol>
+                        <li>Коммутативность
+                            <p>a ∧ b ≡ b ∧ a ,<br />
+                                a ∨ b ≡ b ∨ a</p>
+                        </li>
+
+                        <li>Идемпотентность
+                            <p>a ∧ a ≡ a,<br />
+                                a ∨ a ≡ a.</p>
+                        </li>
+
+                    </ol>
+                </section>
+                <section>
+                    <ol start="3">
+                        <li>Ассоциативность
+                            <p>a ∧ (b ∧ c) ≡ (a ∧ b) ∧ c ,<br />
+                                a ∨ (b ∨ c) ≡ (a ∨ b) ∨ c .</p>
+                        </li>
+                        <li> Дистрибутивность
+                            <p></p>a ∧ (b ∨ c) ≡ (a ∧ b) ∨ (a ∧ c),<br />
+                            a ∨ (b ∧ c) ≡ (a ∨ b) ∧ (a ∨ c).</p>
+                        </li>
+                        <li>Законы поглощения
+                            <p>a ∧ (a ∨ b) ≡ a ,<br />
+                                a ∨ (a ∧ b) ≡ a .</p>
+                        </li>
+                    </ol>
+                </section>
+                <section>
+                    <ol start="6">
+                        <li>Снятие двойного отрицания
+                            <p>a̿ ≡ a.</p>
+                        </li>
+                        <li>Расщепление
+                            <p>a ≡ (a ∧ b) ∨ (a ∧ b̅),<br />
+                                a ≡ (a ∨ b) ∧ (a ∨ b̅).</p>
+                        </li>
+                        <li>Тождества для операций с константами
+                            <p>a ∧ 0 ≡ 0,<br />
+                                a ∨ 0 ≡ a,<br />
+                                a ∧ 1 ≡ a,<br />
+                                a ∨ 1 ≡ 1.</p>
+                        </li>
+                    </ol>
+                </section>
+                <section>
+                    <ol start="9">
+                        <li>Закон исключения третьего
+                            <p>a ∨ a̅ ≡ 1.</p>
+                        </li>
+                        <li>Закон противоречия</li>
+                        <p>a ∧ a̅ ≡ 0.</p>
+                        <li>Правило вычеркивания</li< /li>>
+                            <p>a̅ ∧ b ∨ a ≡ b ∨ a.</p>
+                    </ol>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>ПРИМЕНЕНИЕ БУЛЕВОЙ АЛГЕБРЫ
+                        ПРИ МОДЕЛИРОВАНИИ ЭЛЕКТРОННЫХ
+                        УСТРОЙСТВ</h2>
+                </section>
+                <section>
+                    <img src="./01.png"/>
+                </section>
+                <section>
+                    <img src="./02.png"/>
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="../reveal.js"></script>
+    <script src="../notes.js"></script>
+    <!-- <script src="markdown.js"></script> -->
+    <!-- <script src="../math/math.js"></script> -->
+    <script src="../highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            showSlideNumber: 'all',
+            slideNumber: "true",
+            // Learn about plugins:</b> https://revealjs.com/plugins/
+            plugins: [RevealHighlight, RevealNotes]
+            // plugins: [RevealHighlight, RevealNotes, RevealMath.KaTeX]
+        });
+    </script>
+</body>
+
+</html>
