@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../reveal.css">
+    <link rel="stylesheet" href="../black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="../monokai.css">
+    <!-- https://presium.pro/blog/diplom -->
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Компьютерные сети</h1>
+                <p align="right">&copy; <a href="mailto:ipigp@yandex.ru">Игорь Григорьевич Пеймер</a>, июнь 2025 г</p>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Общие принципы построения</h2>
+                    <p><b>Компьютерная сеть</b> &mdash; физически соединеные (проводным или беспроводном способом) два
+                        или более компьютеров для передачи данных между ними.</p>
+                    <aside class="notes">
+                        <p>Главной целью объединения вычислительных устройств в сеть
+                            является удаленный доступ к разделяемым ресурсам: пользователи компьютеров, подключенных к
+                            сети,
+                            или приложения, выполняемые на этих компьютерах, получают возможность доступа к
+                            разнообразным
+                            ресурсам других
+                            компьютеров сети, находящихся на расстоянии.</p>
+                    </aside>
+                </section>
+                <section>
+                    <p><b>Сервера</b> &mdash; компьютеры, ресурсы которых должны быть доступны всем пользователям
+                        сети.<br />
+                        <b>Клиенты</b> &mdash; компьютеры, которые хотят получать доступ к ресурсам других компьютеров.
+                    </p>
+                    <img src="./1.png" />
+                    <aside class="notes">
+                        <p>В терминах Интернет-технологий компьютеры (клиенты и серверы) подключенные к Интернету
+                            называют <b>конечными узлами</b> или <b>хостами</b>. </p>
+                    </aside>
+                </section>
+                <section>
+                    <h2>Классификация компьютерных сетей</h2>
+                </section>
+                <section>
+                    <p>По среде передачи данных:
+                    <ul>
+                        <li>проводные</li>
+                        <li>беспроводные</li>
+                    </ul>
+                    </p>
+                </section>
+                <section>
+                    <p>По скорости передачи данных:
+                    <ul>
+                        <li>низкоскоростные</li>
+                        <li>среднескоростные</li>
+                        <li>высокоскоростные</li>
+                    </ul>
+                    </p>
+                </section>
+                <section>
+                    <p>по размеру охваченной территории:
+                    <ul>
+                        <li>глобальные</li>
+                        <li>региональные</li>
+                        <li>локальные сети</li>
+                    </ul>
+                    </p>
+                    <aside class="notes">
+                        <p><b>Глобальные сети</b> (Wide Area Networks, WAN) объединяют компьютеры,
+находящиеся на больших расстояниях друг от друга: в различных городах, в
+разных странах и на разных континентах. Глобальные сети могут объединять
+как отдельные компьютеры, так локальные и региональные сети.</p>
+<p></p>
+                    </aside>
+                </section>
+                <section>
+                    <p>по иерархической организации (локальные сети):
+                    <ul>
+                        <li>одноранговые</li>
+                        <li>с выделенным сервером</li>
+                    </ul>
+                    </p>
+                </section>
+                <section>
+                    <h2>Карта сети Интернет</h2>
+                    <img src="./2.png" height="500"/>
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="../reveal.js"></script>
+    <script src="../notes.js"></script>
+    <!-- <script src="markdown.js"></script> -->
+    <!-- <script src="../math/math.js"></script> -->
+    <script src="../highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            showSlideNumber: 'all',
+            slideNumber: "true",
+            // Learn about plugins:</b> https://revealjs.com/plugins/
+            plugins: [RevealHighlight, RevealNotes]
+            // plugins: [RevealHighlight, RevealNotes, RevealMath.KaTeX]
+        });
+    </script>
+</body>
+
+</html>
