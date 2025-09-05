@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../reveal.css">
+    <link rel="stylesheet" href="../black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="../monokai.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Fastyfy.Js</h1>
+                <p align="right">&copy; <a href="mailto:ipigp@yandex.ru">Игорь Григорьевич Пеймер</a>, сентябрь 2025 г
+                </p>
+            </section>
+            <section>
+                <p>Fastify — это библиотека Node.js, созданная Маттео Коллиной и Дэвидом Марком Клементсом в конце 2016
+                    года.</p>
+                <p>Fastify скачивают более 700 000 раз в неделю. <br />
+                    На данный момент он используется в 25 000 проектах. </p>
+            </section>
+            <section>
+                <h2>Зачем использовать Fastify?</h2>
+                <ul>
+                    <li>Производительность</li>
+                    <li>Ремонтопригодность</li>
+                    <li>Гибкость</li>
+                    <li>Простота разработки</li>
+                </ul>
+                <aside class="notes">
+                    <h2>Производительность</h2>
+                    Но Fastify также обладает высокой масштабируемостью, что делает
+                    фреймворк подходящим как для небольших, так и для крупных проектов. Формат JSON автоматически
+                    анализирует функции Fastifiy, обеспечивая быструю маршрутизацию пакетов данных по сети.
+                </aside>
+            </section>
+            <section>
+                <h2>Зачем использовать Fastify?</h2>
+                <ul>
+                    <li>Производительность</li>
+                    <li>Ремонтопригодность</li>
+                    <li>Гибкость</li>
+                    <li>Простота разработки</li>
+                </ul>
+                <aside class="notes">
+                    <h2>Ремонтопригодность</h2>
+                    Fastify — это веб-фреймворк с низкими накладными расходами, который минимизирует затраты на
+                    обслуживание всего приложения. Кроме того, это веб-фреймворк, ориентированный на безопасность,
+                    который гарантирует систему автоматической безопасности и проверки данных.
+                </aside>
+            </section>
+            <section>
+                <h2>Зачем использовать Fastify?</h2>
+                <ul>
+                    <li>Производительность</li>
+                    <li>Ремонтопригодность</li>
+                    <li>Гибкость</li>
+                    <li>Простота разработки</li>
+                </ul>
+                <aside class="notes">
+                    <h2>Гибкость</h2>
+                    Fastify поддерживает TypeScript, сотрудничает с AWS Lambda и взаимодействует с его API через адаптер
+                    GraphQL. В результате он отлично подходит для разработки веб-приложений, а также для разработки
+                    интерфейса API.
+                </aside>
+            </section>
+            <section>
+                <h2>Зачем использовать Fastify?</h2>
+                <ul>
+                    <li>Производительность</li>
+                    <li>Ремонтопригодность</li>
+                    <li>Гибкость</li>
+                    <li>Простота разработки</li>
+                </ul>
+                <aside class="notes">
+                    <h2>Простота разработки</h2>
+                    Одним из самых больших преимуществ Fastify в бессерверных приложениях является простота разработки.
+                    В вашей локальной среде вы всегда будете запускать приложение Fastify напрямую, без необходимости
+                    использования каких-либо дополнительных инструментов, в то время как тот же код будет выполняться на
+                    выбранной вами бессерверной платформе с дополнительным фрагментом кода.
+                </aside>
+            </section>
+            <section>
+                <section>
+                    <p>Начнем с реализации основных модулей: маршрутизатора, приложения и сервера.</p>
+                    <ol>
+                        <li> server.js — основной скрипт приложения,</li>
+                        <li> app.js — скрипт, в котором мы создаем экземпляр сервера Fastify Node,</li>
+                        <li> router.js — Fastify экземпляр маршрутизатора, который помогает нам инкапсулировать маршруты
+                            и
+                            подключаемые модули.</li>
+                    </ol>
+                </section>
+                <section>
+                    <h2>server.js</h2>
+                    <pre><code>
+import { createApp } from “./app”; 
+
+(async () => { 
+  const app = createApp(); 
+  const port = 1337; 
+  app.listen({ port }, (err: Error) => { 
+    if (err) process.exit(1); 
+    app.log.info(`listening on port: ${port}`); 
+  });
+})();
+                </code></pre>
+                </section>
+                <section>
+                    <h2>app.js</h2>
+                    <pre><code>
+import fastify, { FastifyInstance } from "fastify";
+import helmet from "fastify-helmet";
+import cors from "fastify-cors";
+import fastifySwagger from "fastify-swagger"; 
+import { createRouter } from "./router"; 
+
+function createApp() { 
+  const app: FastifyInstance = fastify({ logger: true }); 
+  const router = createRouter(); 
+  app.register(cors); 
+  app.register(helmet); 
+  app.register(fastifySwagger); 
+  app.decorateReply("basicInfo", null); 
+  app.register(router, { prefix: "/api" }); 
+  app.ready((err) => { 
+    if (err) throw err; }); 
+    return app;
+} 
+export { createApp };
+                </code></pre>
+                </section>
+                <section>
+                    <h2>Router.js</h2>
+                    <pre><code>
+import { FastifyInstance, FastifyPluginOptions } from “fastify”;
+import { usersRouting } from “./routing”;
+
+export const createRouter = () => ( 
+  // ROUTES_DEPENDENCIES 
+  fastify: FastifyInstance, opts: FastifyPluginOptions, done: 
+  (err?: Error | undefined) => void,) => { 
+    fastify.register(usersRouting, { 
+    prefix: "/users" }); 
+    fastify.get("/health", (_req, reply) => { 
+  reply.status(200).send({ status: "200 - ok" }); 
+  }); // ROUTES_CONFIG 
+  done();
+};
+                </code></pre>
+                    <aside class="notes">
+                        определяет способ обработки клиентских запросов конечными точками приложения. Маршрутизатор
+                        собирает
+                        маршруты для всех функций. В приведенном ниже примере мы регистрируем usersRouting в
+                        маршрутизаторе.
+                        Передаем роутер в app.js. Там же мы его и регистрируем.
+                    </aside>
+                </section>
+                <section>
+                    <h2>routing.js</h2>
+                    <pre><code>
+import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+ 
+export const usersRouting = () => (
+  fastify: FastifyInstance, done: 
+  (err?: Error | undefined) => void) => { 
+  fastify.get("/", (_req: FastifyRequest, replay: FastifyReply) => { 
+  replay.status(200).send("User found!"); }); 
+  done();
+};                    
+                </code></pre>
+                    <aside class="notes">
+                        обрабатывает маршрутизацию для пользователей. Мы используем его для определения каждой конечной
+                        точки, связанной с пользователями. В примере показано, как можно определить конечную точку
+                        получения.
+                    </aside>
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="../reveal.js"></script>
+    <script src="../notes.js"></script>
+    <!-- <script src="markdown.js"></script> -->
+    <!-- <script src="../math/math.js"></script> -->
+    <script src="../highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            showSlideNumber: 'all',
+            slideNumber: "true",
+            transition: "none",
+            // Learn about plugins:</b> https://revealjs.com/plugins/
+            plugins: [RevealHighlight, RevealNotes]
+            // plugins: [RevealHighlight, RevealNotes, RevealMath.KaTeX]
+        });
+    </script>
+</body>
+
+</html>
