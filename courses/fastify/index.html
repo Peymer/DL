@@ -183,6 +183,54 @@ export const usersRouting = () => (
                     </aside>
                 </section>
             </section>
+            <section>
+                <section>
+                    <h2>Создание первого сервера с помощью Fastify</h2>
+                </section>
+                <section>
+                    <ol>
+                        <li>Создайте новый проекта
+                            <pre><code>npm  init  -y</code></pre>
+                        </li>
+                        <li>Добавьте зависимость Fastify проект
+                            <pre><code>npm  i fastify  --  save </code></pre>
+                        </li>
+                </section>
+                <section>
+                    <ol start="3">
+                        <li>Создайте server.mjs
+                            <pre><code>import  Fastify  from  'fastify'
+const fastify = Fastify({  logger  :   true   }) 
+
+fastify.listen({port: 5000},(err, address) => { 
+   if (err) {
+    console.log(err)
+    process.exit(1)
+   }    
+   else { 
+        console.log  (`Cервер работает ${address}`)
+    }
+})</code></pre>
+                        </li>
+                    </ol>
+                </section>
+                <section>
+                    <ol start="4">
+<pre><code>const stack = []
+
+    fastify.get('/getStack', (request, reply) => {
+      reply.send(stack)
+    })</code></pre>                        
+                    </ol>
+                </section>
+                <section>
+<pre><code>fastify.post('/addItem', (request, reply) => {
+    const item = request.body.item
+    stack.push(item)
+    reply.send(stack)
+})</code></pre>                    
+                </section>
+            </section>
         </div>
     </div>
 
