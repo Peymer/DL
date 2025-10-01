@@ -21,72 +21,78 @@
             </section>
 
             <section>
-                <img src="./typical-monolithic-application.webp" height="500"/>
+                <img src="./typical-monolithic-application.webp" height="500" />
             </section>
             <section>
-                <img src="./microservices-architecture-working.webp" height="500"/>
+                <img src="./microservices-architecture-working.webp" height="500" />
             </section>
             <section>
-                <img src="./services-using-virtualization.webp" height="500"/>
+                <img src="./services-using-virtualization.webp" height="500" />
             </section>
             <section>
-                <img src="./communication-between-services.webp"  height="500"/>
+                <img src="./communication-between-services.webp" height="500" />
             </section>
             <section>
-                <img src="./microservices-using-node-js.webp" height="500"/>
+                <img src="./microservices-using-node-js.webp" height="500" />
             </section>
             <section>
-                <img src="./different-services-with-different-languages.webp"  height="500"/>
+                <img src="./different-services-with-different-languages.webp" height="500" />
 
             </section>
-            <section><section>
-                <p>Чтобы продемонстрировать возможности сервис-ориентированной архитектуры с использованием микросервисов Node. js, мы создадим серверную часть приложения Node.js, которая будет отправлять запросы в 3 различных микросервиса с помощью вызовов API и отображать эти данные. </p>
-            </section>
             <section>
-                <p>Создаем каталог проекта</p>
-                <pre><code>mkdir ms</code></pre>
-                <p>Создаем конфигурацию проекта (по умолчанию).</p>
-                <pre><code>npm init -y</code></pre>
-                <p>Для этого приложения нам понадобится сервер Fastify и axios</p>
-                <pre><code>npm i fastify axios</code></pre>
-                <p>Входим в папку проекта и запускаем IDE</p>
-                <pre><code>cd ms
-codium .</code></pre>
-            </section>
                 <section>
-<p>Для этой демонстрации мы будем использовать следующие три микросервиса:</p>
-<ul>
-<li>Bored — API для случайных предложений о том, чем заняться</li>
-<li>Cocktail База данных — API для получения подробной информации обо всех напитках</li>
-<li>WeatherDB — API для простых прогнозов погоды на основе местоположения</li>
-</ul>
+                    <p>Чтобы продемонстрировать возможности сервис-ориентированной архитектуры с использованием
+                        микросервисов Node. js, мы создадим серверную часть приложения Node.js, которая будет отправлять
+                        запросы в 3 различных микросервиса с помощью вызовов API и отображать эти данные. </p>
                 </section>
-<section>
-    текс модeля на fastify (а нужен ли он?)
-</section>
+                <section>
+                    <p>Создаем каталог проекта</p>
+                    <pre><code>mkdir ms</code></pre>
+                    <p>Создаем конфигурацию проекта (по умолчанию).</p>
+                    <pre><code>npm init -y</code></pre>
+                    <p>Для этого приложения нам понадобится сервер Fastify и axios</p>
+                    <pre><code>npm i fastify axios</code></pre>
+                    <p>Входим в папку проекта и запускаем IDE</p>
+                    <pre><code>cd ms
+codium .</code></pre>
+                </section>
+                <section>
+                    <p>Для этой демонстрации мы будем использовать следующие три микросервиса:</p>
+                    <ul>
+                        <li>Bored — API для случайных предложений о том, чем заняться</li>
+                        <li>Cocktail База данных — API для получения подробной информации обо всех напитках</li>
+                        <li>WeatherDB — API для простых прогнозов погоды на основе местоположения</li>
+                    </ul>
+                </section>
+                <section>
+                    текс модуля на fastify (а нужен ли он?)
+                </section>
             </section>
-<section>
-    <section>
-<h2>Bored API</h2>
-    </section>
-    <section>
-        <p>Bored API — это простой и бесплатный API, который предлагает случайные действия для борьбы со скукой. Он идеально подходит для разработчиков, которые хотят интегрировать случайные действия в свои приложения или веб-сайты. API не требует аутентификации и поддерживает HTTPS-запросы.</p>
-        </section>
-        <section>
-            <p>Для использования Bored API не требуется аутентификация. Вы можете напрямую отправлять запросы в API без использования ключей или токенов API.<br/>
+            <section>
+                <section>
+                    <h2>Bored API</h2>
+                </section>
+                <section>
+                    <p>Bored API — это простой и бесплатный API, который предлагает случайные действия для борьбы со
+                        скукой. Он идеально подходит для разработчиков, которые хотят интегрировать случайные действия в
+                        свои приложения или веб-сайты. API не требует аутентификации и поддерживает HTTPS-запросы.</p>
+                </section>
+                <section>
+                    <p>Для использования Bored API не требуется аутентификация. Вы можете напрямую отправлять запросы в
+                        API без использования ключей или токенов API.<br />
 
-                Разработка мобильного приложения, которое предлагает пользователям случайные действия.
-                Интеграция API в веб-сайт, чтобы предлагать посетителям случайные действия.
-                Создание чат-бота, который предлагает пользователям случайные действия.</p>
-        </section>
-        <section>
-<pre><code>fetch('https://www.boredapi.com/api/activity')
+                        Разработка мобильного приложения, которое предлагает пользователям случайные действия.
+                        Интеграция API в веб-сайт, чтобы предлагать посетителям случайные действия.
+                        Создание чат-бота, который предлагает пользователям случайные действия.</p>
+                </section>
+                <section>
+                    <pre><code>fetch('https://www.boredapi.com/api/activity')
 .then(response => response.json())
 .then(data => console.log(data));</code></pre>
-        </section>
-        <section>
-            <p>Ответ на запрос в формате JSON:</p>
-            <pre><code>{
+                </section>
+                <section>
+                    <p>Ответ на запрос в формате JSON:</p>
+                    <pre><code>{
     "activity": "Изучить новый язык",
     "type": "Обучение",
     "participants": 1,
@@ -94,20 +100,20 @@ codium .</code></pre>
     "link": "https://www.duolingo.com/",
     "key": "5881028"
 }</code></pre>
-        </section>
-        <section>
-            <ul>
-<li>API не требует указания каких-либо параметров</li>
-<li>"type" в ответе обозначает категорию мероприятия</li>
-<li>"participants" показывает количество людей</li>
-<li>"price" указывает стоимость мероприятия (0 означает «бесплатно»)</li>
-<li>"link" содержит URL-адрес для получения дополнительной информации</li>
-                </ul>
-        </section>
-        <section>
-            <p>Получите случайное задание</p>
-            <pre><code>GET https://bored-api.appbrewery.com/random</code></pre>
-            <pre><code>{
+                </section>
+                <section>
+                    <ul>
+                        <li>API не требует указания каких-либо параметров</li>
+                        <li>"type" в ответе обозначает категорию мероприятия</li>
+                        <li>"participants" показывает количество людей</li>
+                        <li>"price" указывает стоимость мероприятия (0 означает «бесплатно»)</li>
+                        <li>"link" содержит URL-адрес для получения дополнительной информации</li>
+                    </ul>
+                </section>
+                <section>
+                    <p>Получите случайное задание</p>
+                    <pre><code>GET https://bored-api.appbrewery.com/random</code></pre>
+                    <pre><code>{
  "activity": "Learn Express.js",
  "availability": 0.25,
  "type": "education",
@@ -119,15 +125,17 @@ codium .</code></pre>
  "link": "https://expressjs.com/",
  "key": "3943506"
 }</code></pre>
-            </section>
-            <section>
-                <p>Фильтрация<br/>
-                    type (необязательно): тип мероприятия для фильтрации. Выбор: education, recreational, social, charity, cooking, relaxation, busywork<br/>
-                    participants (необязательно): количество участников для фильтрации. Выбор: 1, 2, 3, 4, 5, 6, 8.
-                </p>
-                <pre><code>GET https://bored-api.appbrewery.com/filter?type=educationGET https://bored-api.appbrewery.com/filter?type=education</code></pre>
                 </section>
-                <section><pre><code>[
+                <section>
+                    <p>Фильтрация<br />
+                        type (необязательно): тип мероприятия для фильтрации. Выбор: education, recreational, social,
+                        charity, cooking, relaxation, busywork<br />
+                        participants (необязательно): количество участников для фильтрации. Выбор: 1, 2, 3, 4, 5, 6, 8.
+                    </p>
+                    <pre><code>GET https://bored-api.appbrewery.com/filter?type=educationGET https://bored-api.appbrewery.com/filter?type=education</code></pre>
+                </section>
+                <section>
+                    <pre><code>[
  {
   "activity": "Learn Express.js",
   "availability": 0.25,
@@ -152,11 +160,12 @@ codium .</code></pre>
   "link": "https://reactjs.org/",
   "key": "7890123"
  }
-]</code></pre></section>
-            <section>
-                <p>Получение активности по ключу</p>
-<pre><code>GET https://bored-api.appbrewery.com/activity/3943506</code></pre>
-<pre><code>{
+]</code></pre>
+                </section>
+                <section>
+                    <p>Получение активности по ключу</p>
+                    <pre><code>GET https://bored-api.appbrewery.com/activity/3943506</code></pre>
+                    <pre><code>{
     "activity": "Learn Express.js",
     "availability": 0.25,
     "type": "education",
@@ -168,15 +177,15 @@ codium .</code></pre>
     "link": "https://expressjs.com/",
     "key": "3943506"
   }</code></pre>
-            </section>
+                </section>
 
-</section>
-<section>
-    <section>
-    <h2>CoctaiDB</h2>
-    </section>
-    <section >
-<pre><code>
+            </section>
+            <section>
+                <section>
+                    <h2>CoctaiDB</h2>
+                </section>
+                <section>
+                    <pre><code>
     const response = await fetch('https://www.thecocktaildb.com/api.php', {
         method: 'GET',
         headers: {
@@ -186,10 +195,10 @@ codium .</code></pre>
     
     const data = await response.json();
     console.log(data);</code></pre>
-    </section>
-    <section >
-        <p>Сдгчайный коктейль</p>
-<pre><code>const getRandomDrink = async () => {
+                </section>
+                <section>
+                    <p>Сдгчайный коктейль</p>
+                    <pre><code>const getRandomDrink = async () => {
     const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php');
     const data = await response.json();
     return data.drinks;
@@ -197,25 +206,25 @@ codium .</code></pre>
   
   getRandomDrink()
     .then(data => console.log(data));</code></pre>
-    </section>
-    </section>
-<section >
-    <section>
-        <h2>WeatherDb</h2>
-    </section>
-    <section>
-<pre><code>https://weatherdbi.herokuapp.com/data/weather/{location}</code></pre>
-<pre><code>https://weatherdbi.herokuapp.com/data/weather/{lat,long}</code></pre>
-    </section>
-</section>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>WeatherDb</h2>
+                </section>
+                <section>
+                    <pre><code>https://weatherdbi.herokuapp.com/data/weather/{location}</code></pre>
+                    <pre><code>https://weatherdbi.herokuapp.com/data/weather/{lat,long}</code></pre>
+                </section>
+            </section>
 
             <section>
                 <h3>Заключение</h3>
                 <ul>
-<li>Один сервис отвечает только за одну задачу</li>
-<li>Друг с другом взаимодействуют через API</li>
-<li>Микросервисы Node.js созданы для устранения недостатков монолитной архитектуры</li>
-</ul>
+                    <li>Один сервис отвечает только за одну задачу</li>
+                    <li>Друг с другом взаимодействуют через API</li>
+                    <li>Микросервисы Node.js созданы для устранения недостатков монолитной архитектуры</li>
+                </ul>
             </section>
         </div>
     </div>
