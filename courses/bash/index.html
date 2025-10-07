@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../reveal.css">
+    <link rel="stylesheet" href="../black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="../monokai.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Bash</h1>
+                <p align="right">&copy; <a href="mailto:ipigp@yandex.ru">Игорь Григорьевич Пеймер</a>, 2025 г.</p>
+            </section>
+            <!-- <section>
+                <section>
+                    <h2>Массивы Bash</h2>
+                </section>
+                <section>
+                    <h3>Объявление</h3>
+                    <ul>
+                        <li>
+                            <pre><code>declare -a имя_массива</code></pre>
+                        </li>
+                        <li>
+                            <pre><code>имя_массива[XX] = значение</code></pre>
+                        </li>
+                        <li>
+                            <pre><code>имя_массива=( элемент_1 элемент_2 элемент_3 ... )</code></pre>
+                        </li>
+                        <li>
+                            <pre><code>имя_массива=( [XX]=значение [XX]=значение . . . )</code></pre>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Использованиие</h3>
+                    <pre><code>${имя_массива[XX]}</code></pre>
+                    </li>
+                    <p>Нумерация элементов массива начинается с нуля</p>
+                </section>
+                <section>
+                    <h3>Пример использования</h3>
+                    <pre><code>array=(первый второй третий четвертый пятый)
+echo ${array[1]}
+echo ${array[2]}
+echo ${array[0]}
+
+echo ${array:0}
+echo ${array[@]}
+echo ${array[@]:1}
+echo ${array[@]:1:4}
+                </code></pre>
+                    </li>
+                </section>
+                <section>
+                    <p>Длина первого элемента</p>
+                    <pre><code>echo ${#array[0]}</code></pre>
+                    <p>Количество элементов массива</p>
+                    <pre><code>echo ${#array[@]}</code></pre>
+                </section>
+                <section>
+                    <p>Перебор элементов массива</p>
+                    <pre><code>array=(первый второй третий четвертый пятый)
+for i in ${array[@]}
+do
+echo $i
+done</code></pre>
+                </section>
+                <section>
+                    <p>Результат выполнения команды в массив</p>
+                    <pre><code>array=( $(ls /) )</code></pre>
+                </section>
+            </section> -->
+
+            <section>
+                <section>
+                    <h2>Ассоциативные массива</h2>
+                </section>
+                <section>
+                    <pre><code>declare -A assoc_array</code></pre>
+                    <pre><code>assoc_array[first]=первый
+assoc_array[last]=последний</code></pre>
+                    <p>Результат</p>
+                    <pre><code>echo ${assoc_array[first]}
+echo ${assoc_array[last]}</code></pre>
+                </section>
+                <section>
+                    <pre><code>declare -A matrix
+arr[0,0]=0
+arr[0,1]=1
+arr[1,0]=2
+arr[1,1]=3          
+
+echo "${arr[0,0]} ${arr[0,1]}"
+                    </code></pre>
+                </section>
+                <section>
+                    <p>Удаление массива</p>
+                    <pre><code>unset matrix</code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Горячие клавиши Bash</h2>
+                </section>
+                <section>
+                    <ul>
+                        <li>Tab &mdash; автодополнение, наберите начало команды или пути и нажмите Tab</li>
+                        <li>Стрелка вверх &mdash; предыдущая команда в истории</li>
+                        <li>Стрелка вниз &mdash; следующая команда в истории</li>
+                        <li>Ctrl+R &mdash; поиск по истории.</li>
+                        <li>Ctrl+G &mdash; выйти из режима поиска</li>
+                        <li>Alt+. &mdash; предыдущее слово последней команды</li>
+                        <li>Ctrl+L &mdash; очистить вывод терминала</li>
+                        <li>Ctrl+A &mdash; перейти в начало строки</li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <li>Ctrl+E &mdash; в конец строки</li>
+                        <li>Ctrl+K &mdash; удалить символы начиная от курсора и к концу команды</li>
+                        <li>Ctrl+U &mdash; удалить символы от курсора до начала команды</li>
+                        <li>Ctrl+W &mdash; удалить все символы этого слова слева</li>
+                        <li>Ctrl+Y &mdash; удалить все символы этого слова справа</li>
+                        <li>Ctrl+S &mdash; остановить вывод на экран</li>
+                        <li>Ctrl+Q &mdash; возобновить вывод на экран</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Объединение команд</h2>
+                </section>
+                <section>
+                    <ul>
+                        <li>&& - выполнить первую команду, а вторую выполнять только если первая завершится успешно</li>
+                        <li>|| - выполнить первую команду, а вторую выполнять только если первая завершится неудачей
+                        </li>
+                        <li>; - выполняет последовательно каждую следующую команду, как только завершится предыдущая
+                        </li>
+                        <li>& - запустить команду в фоне и сразу же вернуть управление в командную оболочку для
+                            выполнения следующей команд</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h3>Перенаправление ввода вывода Linux</h3>
+                </section>
+                <section>
+                    <ul>
+                        <li>STDIN или 0 &mdash; этот файл связан с клавиатурой и большинство команд получают данные для
+                            работы
+                            отсюда</li>
+                        <li>STDOUT или 1 &mdash; это стандартный вывод, сюда программа отправляет все результаты своей
+                            работы
+                        </li>
+                        <li>STDERR или 2 &mdash; все сообщения об ошибках выводятся в этот файл</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Перенаправить вывод в файл (STDOUT)</h3>
+                    <pre><code>top -bn 5 &gt; top.log
+cat top.log</code></pre>
+                </section>
+                <section>
+                    <h3>Добавление данных в файл</h3>
+                    <pre><code>top -bn 5 &gt;&gt; top.log</code></pre>
+                </section>
+                <section>
+                    <h3>Перенаправление ошибок в файл (STDERR)</h3>
+                    <pre><code>ls -l /root
+ls: невозможно открыть каталог '/root': Отказано в доступе
+                    </code></pre>
+                    <pre><code>ls -l /root 2&gt;err.log
+cat err.log</code></pre>
+                    <pre><code>ls -l /root/ 2&gt;&gt;ls-error.log</code></pre>
+                </section>
+                <section>
+                    <h3>Стандартный ввод из файла</h3>
+                    <pre><code>cat &lt;domains.list</code></pre>
+                    <pre><code>sort &lt;domains.list &gt;sort.output</code></pre>
+                </section>
+                <section>
+                    <h3>Использование тоннелей</h3>
+                    <pre><code>ls -lt | head -n 5</code></pre>
+                    <pre><code>echo test/ tmp/ | xargs -n 1 cp -v testfile.sh</code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Переменные среды</h2>
+                </section>
+                <section>
+                    <p>Переменные среды, отслеживают различную системную информацию:</p>
+                    <ul>
+                        <li>Имя системы</li>
+                        <li> Имя пользовател, зарегистрированного в системе</li>
+                        <li> Идентификатор пользователя (UID)</li>
+                        <li> Исходный (домашний) каталог пользоват по умолчанию и т.п</li>
+                    </ul>
+                </section>
+                <section>
+                    <p>Полный списк локальных переменных среды</p>
+                    <pre><code>set</code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>declare</h2>
+                </section>
+                <section>
+                    <p>Переменная заглавными буквами</p>
+                    <pre><code>declare -u upper_var="hello world"
+echo "$upper_var"</code></pre>
+                </section>
+                <section>
+                    <p>Переменная строчными буквами</p>
+                    <pre><code>declare -l upper_var="hello world"
+echo "$upper_var"</code></pre>
+                </section>
+                <section>
+                    <p>Перечислить все переменные</p>
+                    <pre><code>declare -p</code></pre>
+                </section>
+                <section>
+                    <p>Перечислить конкретную переменную</p>
+                    <pre><code>declare -p my_var
+declare -- my_var="Hello, World!"
+                    </code></pre>
+                </section>
+                <section>
+                    <p>Переменная только для чтения</p>
+                    <pre><code>declare -r my_var</code></pre>
+                </section>
+                <section>
+                    <p>Переменная целого типа</p>
+                    <pre><code>declare -i num=10
+num+=5
+echo "$num"</code></pre>
+                </section>
+                <section>
+                    <p>Экспорт переменной</p>
+                    <pre><code>declare -x my_env_var="Exported Value"</code></pre>
+                    <pre><code>export my_env_var="Exported Value"</code></pre>
+                </section>
+                <section>
+                    <p>Настройка атрибутов для функций</p>
+                    <pre><code>my_function() {
+    declare -l local_var="Это локальная переменная"
+    echo "$local_var"
+}</code></pre>
+                </section>
+                <section>
+                    <p>Перечислить все функции</p>
+                    <pre><code>declare -f</code></pre>
+                </section>
+                <section>
+                    <p>Перечислить только названия функций</p>
+                    <pre><code>declare -F</code></pre>
+                </section>
+                <section>
+                    <p>Экспорт функции</p>
+                    <pre><code>declare -xf my_function</code></pre>
+                </section>
+                <section>
+                    <p>Сброс настроек переменных и функций</p>
+                    <pre><code>unset my_var</code></pre>
+                    <pre><code>unset -f function_name</code></pre>
+                </section>
+                <section>
+                    <ul>
+                        <li>-a Объявить индексированный массив</li>
+                        <li>-A Объявить ассоциативный массив (Bash 4+)</li>
+                        <li>-i Объявить целочисленную переменную</li>
+                        <li>-r Объявить переменную или функцию, доступную только для чтения</li>
+                        <li>-x Экспортировать переменную или функцию в среду</li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <li>-f Отобразить определение функции</li>
+                        <li>-F Отобразить названия всех функций</li>
+                        <li>-l Преобразовать значение в нижний регистр (для переменных)</li>
+                        <li>-u Преобразовать значение в верхний регистр (для переменных)</li>
+                        <li>-p Отображение атрибутов и значения переменной</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Средства коммункации с пользователем</h2>
+                </section>
+                <section>
+                    <h3>Оператор read</h3>
+                    <p></p>
+                </section>
+                <section>
+                    <pre><code>read variable_name</code></pre>
+                    <pre><code>#!/bin/bash
+echo "Введите ваше имя:"
+read name
+echo "Привет, $name!" </code></pre>
+                </section>
+                <section>
+                    <pre><code>#!/bin/bash
+echo "Введите имя и фамилию:"
+read first_name last_name
+echo "Привет, $first_name $last_name!"</code></pre>
+                </section>
+                <section>
+                    <ul>
+                        <li>Считывать данные из файлов при перенаправлении ввода</li>
+                        <li>Обрабатывать ввод построчно в циклах</li>
+                        <li>Работать с различными разделителями полей</li>
+                        <li>Устанавливать таймауты для ввода</li>
+                        <li>Скрывать вводимые символы (например, для паролей) </li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <li>-p Вывод приглашения без перевода строки
+                            <pre><code>read -p "Введите имя: " name</code></pre>
+                        </li>
+                        <li>-s Не отображать вводимые символы (для паролей)
+                            <pre><code>read -sp "Пароль: " password</code></pre>
+                        </li>
+                        <li>-n N Считать только N символов
+                            <pre><code>read -n 1 -p "Нажмите любую клавишу" key</code></pre>
+                        </li>
+                        <li>-t N Таймаут в секундах для ввода
+                            <pre><code>read -t 5 -p "У вас 5 секунд: " answer</code></pre>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <li>-d delim Устанавливает разделитель вместо новой строки
+                            <pre><code>read -d ":" -p "Введите текст до двоеточия: " text</code></pre>
+                        </li>
+                        <li>-r "Raw" режим (не обрабатывать обратные слэши)
+                            <pre><code>read -r line</code></pre>
+                        </li>
+                        <li>-a array Считать значения в массив
+                            <pre><code>read -a names -p "Введите имена: " </code></pre>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>select</h2>
+                </section>
+                <section>
+                    <pre><code>select ITEM in [LIST]
+do
+    [COMMANDS]
+done</code></pre>
+                </section>
+                <section>
+                    <pre><code>PS3="Enter a number: "
+
+select character in Sheldon Leonard Penny Howard Raj
+do
+    echo "Selected character: $character"
+    echo "Selected number: $REPLY"
+done</code></pre>
+                </section>
+                <section>
+                    <pre><code>PS3="Select the operation: "
+select opt in add subtract multiply divide quit; do
+case $opt in
+    add)
+        read -p "Enter the first number: " n1
+        read -p "Enter the second number: " n2
+        echo "$n1 + $n2 = $(($n1+$n2))"
+        ;;
+    subtract)
+        read -p "Enter the first number: " n1
+        read -p "Enter the second number: " n2
+        echo "$n1 - $n2 = $(($n1-$n2))"
+        ;;
+    multiply)
+        read -p "Enter the first number: " n1
+        read -p "Enter the second number: " n2
+        echo "$n1 * $n2 = $(($n1*$n2))"
+        ;;
+    divide)
+        read -p "Enter the first number: " n1
+        read -p "Enter the second number: " n2
+        echo "$n1 / $n2 = $(($n1/$n2))"
+        ;;
+    quit)
+        break
+        ;;
+    *) 
+        echo "Invalid option $REPLY"
+        ;;
+    esac
+done</code></pre>
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="../reveal.js"></script>
+    <script src="../notes.js"></script>
+    <!-- <script src="markdown.js"></script> -->
+    <!-- <script src="../math/math.js"></script> -->
+    <script src="../highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            showSlideNumber: 'all',
+            slideNumber: "true",
+            // Learn about plugins:</b> https://revealjs.com/plugins/
+            plugins: [RevealHighlight, RevealNotes]
+            // plugins: [RevealHighlight, RevealNotes, RevealMath.KaTeX]
+        });
+    </script>
+</body>
+
+</html>
