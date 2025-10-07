@@ -19,7 +19,7 @@
                 <h1>Bash</h1>
                 <p align="right">&copy; <a href="mailto:ipigp@yandex.ru">Игорь Григорьевич Пеймер</a>, 2025 г.</p>
             </section>
-            <!-- <section>
+            <section>
                 <section>
                     <h2>Массивы Bash</h2>
                 </section>
@@ -78,7 +78,7 @@ done</code></pre>
                     <p>Результат выполнения команды в массив</p>
                     <pre><code>array=( $(ls /) )</code></pre>
                 </section>
-            </section> -->
+            </section>
 
             <section>
                 <section>
@@ -405,6 +405,64 @@ case $opt in
     esac
 done</code></pre>
                 </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Ветвления</h2>
+                </section>
+                <section>
+                    <pre><code>if [ condition ]; then
+# Выполнить, если условие истинно
+elif [ condition ]; then
+# Выполнить, если условие истинно
+else
+# Выполнить, если все предыдущие условия ложны
+fi</code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Циклы</h2>
+                </section>
+                <section>
+                    <pre><code>for variable in list; do
+
+    # Выполнить для каждого элемента в списке
+
+done</code></pre>
+                </section>
+                <section>
+                    <pre><code>while condition; do
+
+    # Выполнить, пока условие истинно
+
+done</code></pre>
+                </section>
+                <section>
+                    <pre><code>until condition; do
+
+    # Выполнять, пока условие ложно
+
+done</code></pre>
+                </section>
+                <section>
+                    <pre><code>for i in $(seq 1 10); do
+
+    echo $i
+
+done</code></pre>
+                </section>
+                <section><pre><code>while true; do
+
+    read input
+
+    if [ $input == "q" ]; then
+
+        break
+
+    fi
+
+done</code></pre></section>
             </section>
         </div>
     </div>
