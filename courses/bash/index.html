@@ -652,7 +652,86 @@ printf "The result is: %e\n", x
                 <section>
                     <h2>SED</h2>
                 </section>
-                <section></section>
+                <section>
+                    <p>Утилиту sed называют потоковым текстовым редактором. В интерактивных текстовых редакторах,
+                        наподобие nano, с текстами работают, используя клавиатуру, редактируя файлы, добавляя, удаляя
+                        или изменяя тексты. Sed позволяет редактировать потоки данных, основываясь на заданных
+                        разработчиком наборах правил.</p>
+                </section>
+                <section>
+                    <p>Формат уоманды</p>
+                    <pre><code>sed options  file</code></pre>
+                    <pre><code>echo "This is a test" | sed 's/test/another test/'</code></pre>
+                    <p>sed заменяет слово «test» в строке, переданной для обработки, словами «another test». Для
+                        оформления правила обработки текста, заключённого в кавычки, используются прямые слэши. </p>
+                </section>
+                <section>
+                    <pre><code>sed -e 's/This/That/; s/test/another test/' ./myfile</code></pre>
+                    <pre><code>sed -e '
+> s/This/That/
+> s/test/another test/' ./myfile</code></pre>
+                </section>
+                <section>
+                    <p>Чтение команд из файла</p>
+                    <pre><code>sed -f mycommands ./myfile</code></pre>
+                    <p>mycommands:</p>
+                    <pre><code>s/This/That/
+s/test/another test/</code></pre>
+                </section>
+                <section>
+                    <p>Схема записи команды замены</p>
+                    <pre><code>b,es/pattern/replacement/flags</code></pre>
+                    <ul>
+                        <li>b - начало поиска</li>
+                        <li>e - конец поиска</li>
+                        <li>flags - флаги команды</li>
+                    </ul>
+                </section>
+                <section>
+                    <p>флаги команды</p>
+                    <ul>
+                        <li>g &mdash; обработать все вхождения шаблона, имеющиеся в строке</li>
+                        <li>p &mdash; вывести содержимое исходной строки</li>
+                        <li>w file &mdash; записать результаты обработки текста в файл</li>
+                    </ul>
+                    <pre><code>sed 's/test/another test/2' myfile</code></pre>
+                    Обрадотать только 2 вхождение
+                </section>
+                <section>
+                    <pre><code>sed '2,3s/test/another test/' myfile</code></pre>
+                    Искать во 2 и 3 строка
+                    <pre><code>sed '2,$s/test/another test/' myfile</code></pre>
+                    Искать со 2 строки до конца файла
+                </section>
+                <section>
+                    <p>Удаление строк</p>
+                    <pre><code>sed '3d' myfile</code></pre>
+                    <pre><code>sed '2,$d' myfile</code></pre>
+                    <pre><code>sed '/test/d' myfile</code></pre>
+                </section>
+                <section>
+                    <p>Вставка текста в поток</p>
+                    <ul>
+                        <li>i добавляет новую строку перед заданной</li>
+                        <li>a добавляет новую строку после заданной</li>
+                    </ul>
+                    <pre><code>echo "Another test" | sed 'i\First test '</code></pre>
+                    <pre><code>echo "Another test" | sed 'a\First test '</code></pre>
+                </section>
+                <section>
+                    <p>Замена строк</p>
+                    <pre><code>sed '3c\This is a modified line.' myfile</code></pre>
+                    <pre><code>sed '/This is/c This is a changed line of text.' myfile</code></pre>
+                </section>
+                <section>
+                    <p>Замена символов</p>
+                    <pre><code>sed 'y/123/567/' myfile</code></pre>
+                </section>
+                <section>
+                    <p>Чтение данных для вставки из файла</p>
+                    <pre><code>sed '3r newfile' myfile</code></pre>
+                    <pre><code>sed '/test/r newfile' myfile</code></pre>
+                </section>
             </section>
 
         </div>
