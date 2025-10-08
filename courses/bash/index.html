@@ -21,94 +21,6 @@
             </section>
             <section>
                 <section>
-                    <h2>Массивы Bash</h2>
-                </section>
-                <section>
-                    <h3>Объявление</h3>
-                    <ul>
-                        <li>
-                            <pre><code>declare -a имя_массива</code></pre>
-                        </li>
-                        <li>
-                            <pre><code>имя_массива[XX] = значение</code></pre>
-                        </li>
-                        <li>
-                            <pre><code>имя_массива=( элемент_1 элемент_2 элемент_3 ... )</code></pre>
-                        </li>
-                        <li>
-                            <pre><code>имя_массива=( [XX]=значение [XX]=значение . . . )</code></pre>
-                        </li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Использованиие</h3>
-                    <pre><code>${имя_массива[XX]}</code></pre>
-                    </li>
-                    <p>Нумерация элементов массива начинается с нуля</p>
-                </section>
-                <section>
-                    <h3>Пример использования</h3>
-                    <pre><code>array=(первый второй третий четвертый пятый)
-echo ${array[1]}
-echo ${array[2]}
-echo ${array[0]}
-
-echo ${array:0}
-echo ${array[@]}
-echo ${array[@]:1}
-echo ${array[@]:1:4}
-                </code></pre>
-                    </li>
-                </section>
-                <section>
-                    <p>Длина первого элемента</p>
-                    <pre><code>echo ${#array[0]}</code></pre>
-                    <p>Количество элементов массива</p>
-                    <pre><code>echo ${#array[@]}</code></pre>
-                </section>
-                <section>
-                    <p>Перебор элементов массива</p>
-                    <pre><code>array=(первый второй третий четвертый пятый)
-for i in ${array[@]}
-do
-echo $i
-done</code></pre>
-                </section>
-                <section>
-                    <p>Результат выполнения команды в массив</p>
-                    <pre><code>array=( $(ls /) )</code></pre>
-                </section>
-            </section>
-
-            <section>
-                <section>
-                    <h2>Ассоциативные массива</h2>
-                </section>
-                <section>
-                    <pre><code>declare -A assoc_array</code></pre>
-                    <pre><code>assoc_array[first]=первый
-assoc_array[last]=последний</code></pre>
-                    <p>Результат</p>
-                    <pre><code>echo ${assoc_array[first]}
-echo ${assoc_array[last]}</code></pre>
-                </section>
-                <section>
-                    <pre><code>declare -A matrix
-arr[0,0]=0
-arr[0,1]=1
-arr[1,0]=2
-arr[1,1]=3          
-
-echo "${arr[0,0]} ${arr[0,1]}"
-                    </code></pre>
-                </section>
-                <section>
-                    <p>Удаление массива</p>
-                    <pre><code>unset matrix</code></pre>
-                </section>
-            </section>
-            <section>
-                <section>
                     <h2>Горячие клавиши Bash</h2>
                 </section>
                 <section>
@@ -295,6 +207,95 @@ echo "$num"</code></pre>
                     </ul>
                 </section>
             </section>
+            <section>
+                <section>
+                    <h2>Массивы Bash</h2>
+                </section>
+                <section>
+                    <h3>Объявление</h3>
+                    <ul>
+                        <li>
+                            <pre><code>declare -a имя_массива</code></pre>
+                        </li>
+                        <li>
+                            <pre><code>имя_массива[XX] = значение</code></pre>
+                        </li>
+                        <li>
+                            <pre><code>имя_массива=( элемент_1 элемент_2 элемент_3 ... )</code></pre>
+                        </li>
+                        <li>
+                            <pre><code>имя_массива=( [XX]=значение [XX]=значение . . . )</code></pre>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Использованиие</h3>
+                    <pre><code>${имя_массива[XX]}</code></pre>
+                    </li>
+                    <p>Нумерация элементов массива начинается с нуля</p>
+                </section>
+                <section>
+                    <h3>Пример использования</h3>
+                    <pre><code>array=(первый второй третий четвертый пятый)
+echo ${array[1]}
+echo ${array[2]}
+echo ${array[0]}
+
+echo ${array:0}
+echo ${array[@]}
+echo ${array[@]:1}
+echo ${array[@]:1:4}
+                </code></pre>
+                    </li>
+                </section>
+                <section>
+                    <p>Длина первого элемента</p>
+                    <pre><code>echo ${#array[0]}</code></pre>
+                    <p>Количество элементов массива</p>
+                    <pre><code>echo ${#array[@]}</code></pre>
+                </section>
+                <section>
+                    <p>Перебор элементов массива</p>
+                    <pre><code>array=(первый второй третий четвертый пятый)
+for i in ${array[@]}
+do
+echo $i
+done</code></pre>
+                </section>
+                <section>
+                    <p>Результат выполнения команды в массив</p>
+                    <pre><code>array=( $(ls /) )</code></pre>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Ассоциативные массива</h2>
+                </section>
+                <section>
+                    <pre><code>declare -A assoc_array</code></pre>
+                    <pre><code>assoc_array[first]=первый
+assoc_array[last]=последний</code></pre>
+                    <p>Результат</p>
+                    <pre><code>echo ${assoc_array[first]}
+echo ${assoc_array[last]}</code></pre>
+                </section>
+                <section>
+                    <pre><code>declare -A matrix
+arr[0,0]=0
+arr[0,1]=1
+arr[1,0]=2
+arr[1,1]=3          
+
+echo "${arr[0,0]} ${arr[0,1]}"
+                    </code></pre>
+                </section>
+                <section>
+                    <p>Удаление массива</p>
+                    <pre><code>unset matrix</code></pre>
+                </section>
+            </section>
+
             <section>
                 <section>
                     <h2>Средства коммункации с пользователем</h2>
@@ -490,7 +491,7 @@ done</code></pre>
                         <li>-f file — указывает имя файла, из которого нужно прочесть awk-скрипт</li>
                         <li>-v var=value — позволяет объявить переменную и задать её значение по умолчанию</li>
                         <li>-mf N — задаёт максимальное число полей для обработки в файле данных</li>
-                        <li>-mr N — задаёт максимальный размер записи в файле данных</li>
+                        <sed '/test/r newfile' myfileli>-mr N — задаёт максимальный размер записи в файле данных</li>
                     </ul>
                 </section>
                 <section>
