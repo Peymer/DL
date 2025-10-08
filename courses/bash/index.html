@@ -452,7 +452,8 @@ done</code></pre>
 
 done</code></pre>
                 </section>
-                <section><pre><code>while true; do
+                <section>
+                    <pre><code>while true; do
 
     read input
 
@@ -462,7 +463,193 @@ done</code></pre>
 
     fi
 
-done</code></pre></section>
+done</code></pre>
+                </section>
+            </section>
+
+            <!-- AWK -->
+            <section>
+                <section>
+                    <h2>>AWK
+                </section>
+                <section>
+                    <p>awk — это намного больше, чем средство подготовки отчётов.</p>
+                </section>
+                <section>
+                    <p>Формат уоманды</p>
+                    <pre><code>awk options program file</code></pre>
+                    <p>Awk воспринимает поступающие к нему данные в виде набора записей. Записи представляют собой
+                        наборы полей. Упрощенно, если не учитывать возможности настройки awk и говорить о некоем вполне
+                        обычном тексте, строки которого разделены символами перевода строки, запись — это строка. Поле —
+                        это слово в строке.</p>
+                </section>
+                <section>
+                    <p>options</p>
+                    <ul>
+                        <li>-F fs — позволяет указать символ-разделитель для полей в записи</li>
+                        <li>-f file — указывает имя файла, из которого нужно прочесть awk-скрипт</li>
+                        <li>-v var=value — позволяет объявить переменную и задать её значение по умолчанию, которое
+                            будет использовать awk</li>
+                        <li>-mf N — задаёт максимальное число полей для обработки в файле данных</li>
+                        <li>-mr N — задаёт максимальный размер записи в файле данных</li>
+                        <li>-W keyword — позволяет задать режим совместимости или уровень выдачи предупреждений awk</li>
+                    </ul>
+                </section>
+                <section>
+                    <p>program</p>
+                    <pre><code>awk '{print "Welcome to awk command tutorial"}'</code></pre>
+                </section>
+                <section>
+                    <p>Позиционные переменные</p>
+                    <ul>
+                        <li>$0 — представляет всю строку текста (запись)</li>
+                        <li>$1 — первое поле</li>
+                        <li>$2 — второе поле</li>
+                        <li>$n — n-ное поле</li>
+                    </ul>
+                </section>
+                <section>
+                    <p>Выполнение команд до начала обработки данных</p>
+                    <pre><code>'BEGIN {print "Hello World!"}'</code></pre>
+                </section>
+                <section>
+                    <p>Выполнение команд после обработки данных</p>
+                    <pre><code>'END {print "All records processing"}'</code></pre>
+                </section>
+                <section>
+                    <p>Программа из файла</p>
+                    <pre><code>awk -f myscript  /etc/passwd</code></pre>
+                </section>
+                <section>
+                    <p>Встроенные переменные</p>
+                    <ul>
+                        <li>FIELDWIDTHS — разделённый пробелами список чисел, определяющий точную ширину каждого поля
+                            данных с учётом разделителей полей</li>
+                        <li>FS — уже знакомая вам переменная, позволяющая задавать символ-разделитель полей</li>
+                        <li>RS — переменная, которая позволяет задавать символ-разделитель записей</li>
+                        <li>OFS — разделитель полей на выводе awk-скрипта</li>
+                        <li>ORS — разделитель записей на выводе awk-скрипта</li>
+                    </ul>
+                </section>
+                <section>
+                    <p>Сведения о данных и об окружении</p>
+                    <ul>
+                        <li>ARGC — количество аргументов командной строки</li>
+                        <li>ARGV — массив с аргументами командной строки</li>
+                        <li>ARGIND — индекс текущего обрабатываемого файла в массиве ARGV</li>
+                        <li>ENVIRON — ассоциативный массив с переменными окружения и их значениями</li>
+                </section>
+                <section>
+                    <ul>
+                        <li>ERRNO — код системной ошибки, которая может возникнуть при чтении или закрытии входных
+                            файлов</li>
+                        <li>FILENAME — имя входного файла с данными</li>
+                        <li>FNR — номер текущей записи в файле данных</li>
+                        <li>IGNORECASE — если эта переменная установлена в ненулевое значение, при обработке
+                            игнорируется регистр символов</li>
+                        <li>NF — общее число полей данных в текущей записи</li>
+                        <li>NR — общее число обработанных записей</li>
+                    </ul>
+                </section>
+                <section>
+                    <pre><code>awk '
+BEGIN{
+print ENVIRON["HOME"]
+print ENVIRON["PATH"]
+}'</code></pre>
+                </section>
+                <section>
+                    <pre><code>echo | awk -v home=$HOME '{print "My home is " home}'</code></pre>
+                    <pre><code>awk 'BEGIN{FS=":"; OFS=":"} {print $1,$NF}' /etc/passwd</code></pre>
+                </section>
+                <section>
+                    <p>Пользовательские переменные</p>
+                    <pre><code>awk '
+BEGIN{
+test="This is a test"
+print test
+}'</code></pre>
+                </section>
+                <section>
+                    <p>Условный оператор</p>
+                    <pre><code>awk '{if ($1 > 20) print $1}' testfile</code></pre>
+                    <pre><code>awk '{
+if ($1 > 20)
+{
+x = $1 * 2
+print x
+}
+}' testfile</code></pre>
+                </section>
+                <section>
+                    <p>Цикл while</p>
+                    <pre><code>awk '{
+total = 0
+i = 1
+while (i < 4)
+{
+total += $i
+i++
+}
+avg = total / 3
+print "Average:",avg
+}' testfile</code></pre>
+                </section>
+                <section>
+                    <pre><code>awk '{
+total = 0
+for (i = 1; i < 4; i++)
+{
+total += $i
+}
+avg = total / 3
+print "Average:",avg
+}' testfile</code></pre>
+                </section>
+                <section>
+                    <p>Форматированный вывод данных</p>
+                    <pre><code>awk 'BEGIN{
+x = 100 * 100
+printf "The result is: %e\n", x
+}'</code></pre>
+                </section>
+                <section>
+                    <ul>
+                        <li>c — воспринимает переданное ему число как код ASCII-символа и выводит этот символ</li>
+                        <li>d — выводит десятичное целое число</li>
+                        <li>i — то же самое, что и d</li>
+                        <li>e — выводит число в экспоненциальной форме</li>
+                        <li>f — выводит число с плавающей запятой</li>
+                        <li>g — выводит число либо в экспоненциальной записи, либо в формате с плавающей запятой, в
+                            зависимости от того, как получается короче</li>
+                        <li>o — выводит восьмеричное представление числа</li>
+                        <li>s — выводит текстовую строку</li>
+                    </ul>
+                </section>
+                <section>
+                    <p>Встроенные математические функции</p>
+                    <ul>
+                        <li>cos(x) — косинус x (x выражено в радианах)</li>
+                        <li>sin(x) — синус x</li>
+                        <li>exp(x) — экспоненциальная функция</li>
+                        <li>int(x) — возвращает целую часть аргумента</li>
+                        <li>log(x) — натуральный логарифм</li>
+                        <li>rand() — возвращает случайное число с плавающей запятой в диапазоне 0 — 1</li>
+                        <li>sqrt(x) — квадратный корень из x</li>
+                    </ul>
+                </section>
+                <section>
+                    <p>Пользовательские функции</p>
+<pre><code> awk '
+    function myprint()
+    {
+    printf "The user %s has home path at %s\n", $1,$6
+    }
+    BEGIN{FS=":"}
+    {
+    myprint()
+    }' /etc/passwd</code></pre>
+                </section>
             </section>
         </div>
     </div>
