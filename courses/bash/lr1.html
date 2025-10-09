@@ -201,21 +201,21 @@ done</code></pre>
 for i in 0 1 2 3 4
 # переменной $i будем поочередно присваивать значения от 0 до 4 включительно
 do
-echo "Console number is $i" >> /dev/pts/$i
+    echo "Console number is $i" >> /dev/pts/$i
 # Пишем в файл /dev/pts/$i (файл виртуального терминала) строку "Console number is $i"
 done
 #цикл окончен
-exit 0</code></pre>
+    exit 0</code></pre>
                 </section>
                 <section>
                     Обход списка файлов в каталоге, используя цикл for:
 
                     <pre><code>for f in $HOME/tmp/*; do
-filename=$(basename "$f")
-extension=${filename##*.}
+    filename=$(basename "$f")
+    extension=${filename##*.}
 
 if [ "$filename" == "stop.txt" ]; then
-break
+    break
 fi
 
 if [ $extension != 'png' ]; then continue; fi
@@ -250,12 +250,13 @@ let "c = a % b" # находит остаток от деления a на b ech
                     исключить дублирование кода в скриптах.
 
                     <pre><code>some_sunction() { # Объявляем переменную $str локальной и читаем в нее стандартный поток ввода 
-local str read str first_argument="$1" second_argument="$2" # Читаем построчно входной поток 
+local str 
+read str first_argument="$1" second_argument="$2" # Читаем построчно входной поток 
 while read line; do # Возвращаем список строк для последующей обработки 
-echo -n "${first_argument} and $second_argument"
+    echo -n "${first_argument} and $second_argument"
 done &lt;&lt;&lt; file.txt # Вернуть код завершения (0 - при успешном завершении) 
 # Код ответа доступен после выполнения ф-ции в переменной $? 
-return 0 
+    return 0 
 } 
 
 # Пример вызова функции
