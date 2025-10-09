@@ -124,9 +124,9 @@ fi</code></pre>
                 </section>
                 <section>
                     Для построения многоуровневых условий вида:<br/ >
-                    <pre><code>if ... then ... else if ... then ... else ...</code></pre>
+                    <pre><code>if ... then ... else if ... then ... else ...fi</code></pre>
                     для краткости и читаемости кода, можно использовать структуру<br/ >
-                    <pre><code>if ... then ... elif ... then ... elif ....</code></pre>
+                    <pre><code>if ... then ... elif ... then ... elif ....fi</code></pre>
 
                     Если необходимо сравнивать одну переменную с большим количеством возможных значений, то
                     целесообразней использовать оператор case.
@@ -190,8 +190,9 @@ esac #окончание оператора case.</code></pre>
 
                     Синтаксис оператора следующий:
 
-                    <pre><code>for переменная in список_значений do
-команды
+                    <pre><code>for переменная in список_значений 
+do
+    команды
 done</code></pre>
                 </section>
                 <section>
@@ -308,13 +309,9 @@ command &&gt; ~/out.txt # весь вывод в файл</code></pre>
                     которых встретится слово hash, и передает их команде сортировке sort,
                     которая пишет результат в файл sorting_list.txt.
                 </section>
-
-
-
             </section>
 
             <section>
-
                 <section>
                     <h2>Общее задание</h2>
                 </section>
