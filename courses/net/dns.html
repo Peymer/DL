@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../reveal.css">
+    <link rel="stylesheet" href="../black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="../monokai.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h2>Преобразование имен TCP/IP</h2>
+                <aside class="notes">
+                    <p> Схема присвоения имен в одноуровневой сети проста. Имена хостов состоят из простого набора
+                        символов, а удаленное управление хостами в этом случае, как правило, не используется. В каждой
+                        системе одноуровневой сети TCP/IP есть файл <b>/etc/hosts</b>, содержащий таблицу преобразования
+                        имен
+                        всех имеющихся хостов в IP-адреса. В больших сетях TCP/IP для поддержания в каждой системе файла
+                        с таблицей преобразования имен администратору требуется прикладывать очень много усилий. Если
+                        сеть TCP/IP становится очень большой (например, Internet), то необходимо переходить к
+                        иерархической структуре присвоения имен. Обычно иерархия имен соответствует структуре сети. В
+                        TCP/IP иерархическая структура имен называется системой имен доменов (DNS). Для ее поддержания
+                        применяется протокол DOMAIN. Протокол DOMAIN реализуется именованным демоном в TCP/IP.</p>
+                    <p>Как и в случае с одноуровневыми сетями, иерархия имен доменов позволяет присваивать сетям и
+                        хостам осмысленные и легко запоминающиеся символьные имена. Однако, вместо того, чтобы хранить
+                        файл с таблицей преобразования имен в IP-адреса на каждом хосте, выбирается один или несколько
+                        хостов, которые применяются в качестве серверов имен. Серверы имен преобразуют (разрешают)
+                        символические имена, присвоенные сетям и хостам, в эффективные интернет-адреса, используемые
+                        компьютерами. На сервере имен хранится полная информация об определенной части домена,
+                        называемой областью. Кроме того, сервер несет ответственность за свою область.</p>
+                </aside>
+            </section>
+            <section>
+                <img src="./100.jpg" />
+                <aside class="notes">
+                    <p>В одноуровневой сети администрирование всех входящих в нее хостов осуществляется централизованно.
+                        Такая структура сети требует присвоения всем хостам сети уникальных имен. Если сеть большая, то
+                        это требование создает большие трудности для администратора сети.</p>
+
+                    <p>В доменной сети администрирование выполняется отдельно для каждой группы хостов в соответствии с
+                        иерархией доменов и субдоменов. В этом случае имена хостов должны быть уникальными только в
+                        пределах локального домена, а централизованное администрирование осуществляется только для
+                        корневого домена. Такая структура допускает локальное администрирование субдоменов и сокращает
+                        нагрузку на организацию, осуществляющую централизованное управление. Например, корневой домен
+                        сети Internet состоит из доменов com (коммерческие организации), edu (образовательные
+                        учреждения), gov (правительственные организации) и mil (военные учреждения). Новые домены
+                        верхнего уровня могут добавляться только централизованно. Присваивать имена на втором уровне
+                        разрешено уполномоченным представителям внутри соответствующих доменов. Например, уполномоченная
+                        организация на уровне домена com может присваивать имена всем входящим в него субдоменам
+                        коммерческих организаций. Аналогично, присвоение имен на третьем и последующих уровнях разрешено
+                        соответствующим организациям. Например, на рисунке домен
+                        Century уполномочен распределять имена в субдоменах Austin, Hopkins и Charlotte.</p>
+                </aside>
+            </section>
+            <section>
+                <pre><code>host.subdomain1.[subdomain2 . . . subdomain].rootdomain</code></pre>
+                <aside class="notes">
+                    <p>длина имени локального домена ограничена 64 символами, а длина имени хоста - 32 символами. После
+                        имени хоста ставится точка (.), а затем указываются имена всех вложенных доменов (также через
+                        точку) вплоть до корневого домена.</p>
+                    <p> имена хостов должны быть уникальными в пределах домена, можно использовать сокращенное имя при
+                        отправке сообщений хосту в пределах одного домена. Например, при отправке сообщения с хоста,
+                        находящегося в домене eng, вместо имени smith.eng.lsu.edu можно указать имя smith. Кроме того, у
+                        каждого хоста может быть несколько псевдонимов, и другие хосты могут использовать их при
+                        отправке сообщений.</p>
+                </aside>
+            </section>
+            <section>
+                <h4>Несколько рекомендаций по выбору простых и легких для запоминания имен</h4>
+                <ul>
+                    <li>Выбирайте редко используемые слова, например, sphinx или eclipse</li>
+                    <li>Используйте тематические наборы имен, например, названия химических элементов (такие как helium,
+                        argon или zinc), цветов, рыб и т.п. </li>
+                    <li>Используйте реально существующие слова, а не случайные наборы символов</li>
+                </ul>
+            </section>
+            <section>
+                <p>Неудачные наборы имен:</p>
+                <ul>
+                    <li> Широко используемые термины: up, down или crash</li>
+                    <li> Имена, состоящие только из чисел</li>
+                    <li> Имена, содержащие знаки препинания</li>
+                    <li> Имена, различающиеся регистром символов: Orange и orange</li>
+                    <li> Имена длиной более 8 символов</li>
+                    <li> Имена с необычным/неправильным написанием: "check" или "czech"</li>
+                    <li> Имена, совпадающие с именем домена</li>
+                </ul>
+                <aside class="notes">В общем случае они или трудны для запоминания, или сбивают с толку (и человека, и
+                    компьютер)</aside>
+            </section>
+            <section>
+                <ul>
+                    <li>/etc/hosts</li>
+                    <li>серверы имен</li>
+                </ul>
+            </section>
+            <section>
+                <p>/etc/hosts</p>
+                <pre><code>127.0.0.1	localhost
+127.0.1.1	igp-sff.tech.lan	igp-sff
+#192.168.133.156	igor-hp.tech.lan igor-hp
+
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+fe80:0000:0000:0000:7646:a0ff:fe9f:61d2%enp3s0	igor-hp.tech.lan igor-hp</code></pre>
+            </section>
+            <section>
+                <ul>
+                    <li>Главный сервер имен</li>
+                    <li>Подчиненный сервер имен</li>
+                    <li>Ограниченный сервер имен</li>
+                    <li>Сервер подсказок</li>
+                    <li>Клиент или сервер пересылки</li>
+                    <li>Удаленный сервер</li>
+                </ul>
+                <aside class="notes">
+                    <p>Хост, выполняющий преобразование имен в области ответственности, обычно называют сервером имен,
+                        но на самом деле преобразование осуществляется процессом сервера с именем named<br />
+                        все серверы имен в течение определенного времени хранят адреса,
+                        полученные с других серверов, в кэше. <br />
+                        Когда клиент обращается к серверу с запросом на преобразование имени, сервер сначала
+                        просматривает свою кэш-память и определяет, не
+                        преобразовывал ли он уже это имя. <br />
+                        Так как имена доменов и хостов могут изменяться, то каждый
+                        элемент остается в кэш-памяти в течение ограниченного времени, которое определяется параметром
+                        времени хранения в кэше (TTL).</p>
+                    <ul>
+                        <li>Главный сервер имен &mdash; Загружает свои данные из файла или с диска и может передавать
+                            полномочия другим серверам в своем домене.</li>
+                        <li>Подчиненный сервер имен &mdash; Во время загрузки системы получает с главного сервера
+                            информацию о выделенной ему области ответственности, а затем периодически обращается к
+                            главному серверу для обновления этой информации. По истечении срока действия значения
+                            обновления в начальной записи зоны (SOA) ресурса на подчиненном сервере имен или при
+                            получении сообщения уведомления от главного сервера имен подчиненный сервер имен вновь
+                            загружает базу данных с главного сервера имен, если серийный номер базы данных на главном
+                            сервере имен превышает серийный номер в текущей базе данных на подчиненном сервере имен. При
+                            необходимости принудительно передать новую зону с главного сервера имен следует удалить
+                            существующие подчиненные базы данных и обновить именованный демон на подчиненном сервере
+                            имен.</li>
+                        <li>Ограниченный сервер имен &mdash; Данный сервер имен применяет такой же способ копирования
+                            базы данных, что и подчиненный сервер, однако он копирует из базы данных главного сервера
+                            только записи о серверах имен.</li>
+                        <li>Сервер подсказок &mdash; Это сервер имен, который отвечает на запросы только на основании
+                            данных, полученных им в результате предыдущих обращений к другим сервером имен. Если в
+                            кэш-памяти сервера нет записей преобразования имен в адреса, то для ответа на запросы он
+                            обращается к другим серверам.</li>
+                        <li>Клиент или сервер пересылки &mdash; Этот сервер пересылает перечисленным серверам те
+                            запросы, которые он не может обработать самостоятельно. Серверы, предназначенные только для
+                            пересылки, занимаются только получением информации и ее передачей другим клиентам. Они не
+                            взаимодействуют с главными серверами имен корневого и других доменов. Для обращения к
+                            серверам пересылки используются рекурсивные запросы. Может быть определено несколько
+                            серверов пересылки, к которым клиент обращается по очереди до тех пор, пока не исчерпается
+                            список. Серверы пересылки обычно применяются в том случае, когда вы не хотите, чтобы все
+                            серверы данной сети взаимодействовали с остальными серверами Internet, или когда необходимо
+                            создать на серверах имен кэш-память большого объема.</li>
+                        <li>Удаленный сервер &mdash; Выполняет все сетевые программы, использующие сервер имен; при этом
+                            процесс сервера имен на локальном хосте не запускается. Все запросы обслуживаются сервером
+                            имен, работающим в другой системе.</li>
+                    </ul>
+                </aside>
+            </section>
+            <section>
+                <h3>Преобразование имен</h3>
+                <ol>
+                    <li> Сервер BIND/DNS (named)</li>
+                    <li> Служба информации о сети (NIS)</li>
+                    <li> Локальный файл /etc/hosts</li>
+                </ol>
+                <ul>
+                    <li>Текущая служба не запущена, и поэтому недоступна</li>
+                    <li> Текущая служба не смогла найти имя и не помечена как "ответственная"</li>
+
+                </ul>
+                <aside class="notes">
+                    <p>Сначала функция обращается к серверу BIND/DNS. Если файл /etc/resolv.conf отсутствует, либо
+                        серверу BIND/DNS не удалось найти требуемое имя, то функция преобразования обращается к
+                        службе NIS (если она активна). Так как служба NIS имеет более высокий приоритет, чем
+                        локальный файл /etc/hosts, то на этом поиск завершается. Если служба NIS не запущена, то
+                        просматривается локальный файл /etc/hosts. Если имя не удалось найти ни одним из этих
+                        способов, то функция преобразования завершает работу с кодом возврата HOST_NOT_FOUND. Если
+                        ни одна из служб не доступна, функция преобразования завершает работу с кодом возврата
+                        SERVICE_UNAVAILABLE.</p>
+                </aside>
+            </section>
+            <section>
+                <h3>Обратный протокол преобразования адресов</h3>
+                <p>RARP преобразует уникальные аппаратные адреса адаптеров сети Ethernet в IP-адреса. </p>
+                <ul>
+
+                    <li> Сервер отвечает на запросы RARP</li>
+                    <li> Сервер применяет только записи постоянной таблицы ARP</li>
+                    <li> Сервер не применяет записи динамической таблицы ARP</li>
+                    <li> Сервер не отвечает на собственные запросы автоматически</li>
+
+                </ul>
+                <aside class="notes">
+                    <p>Администратор системы должен вручную построить и сопровождать таблицу постоянных записей ARP с
+                        помощью команды arp.<br />
+                        В таблицу ARP сервера необходимо добавить записи для всех хостов, которые будут обращаться с
+                        запросами RARP к ответственному источнику. </p>
+                </aside>
+            </section>
+            <section>
+                <h3>Выбор сервера имен</h3>
+                <ul>
+                    <li> Выбирайте компьютеры, которые физически находятся ближе других к внешним системам</li>
+                    <li> Серверы имен должны быть как можно более автономными</li>
+                    <li> Храните резервные копии данных вашей службы преобразования имен в другой сети</li>
+                </ul>
+                <aside class="notes">
+                    <p>Изменить имя существенно сложнее, чем сразу выбрать его правильно. </p>
+                </aside>
+            </section>
+            <section>
+                <h3>Параметры серверов имен</h3>
+                <ul>
+                    <li>conf</li>
+                    <li>cache</li>
+                    <li>named.abc.data</li>
+                    <li>named.abc.rev</li>
+                    <li>named.abc.local</li>
+                    <li>resolv.conf</li>
+                </ul>
+                <aside class="notes">
+                    <p>Если домен по умолчанию не указан в файле /etc/resolv.conf, он должен быть задан в файле hostname
+                    </p>
+                </aside>
+            </section>
+            <section>
+                <section>
+                    <h3>Настройка named<br />(/etc/named.conf)</h3>
+
+                </section>
+                <section>
+                    <h4>Постановка задачи</h4>
+                    <p>Домен: abc.aus.century.com</p>
+                    <p>Сервер DNS: 192.9.201.1 &mdash; venus.abc.aus.century.com</p>
+                    <p>Хосты: venus, earth, mars и jupiter</p>
+                    <p>Подчиненый сервер: earth.abc.aus.century.com &mdash; 192.9.201.5</p>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Настройка сервера имен контроллеров</h4>
+                    <p>файл /etc/named.conf</p>
+                    <pre><code>options {
+    directory "/etc/named.d";
+};</code></pre>
+                    <aside class="notes">
+                        Если вы не укажете имя каталога, то поиск необходимых файлов данных будет выполняться в каталоге
+                        /etc.
+                    </aside>
+                </section>
+                <section>
+                    <h4>Кэшь</h4>
+                    <pre><code>zone "." IN {
+    type hint;
+    file "named.ca";
+};</code></pre>
+                </section>
+                <section>
+                    <h4>Прямая и обратная зона</h4>
+                    <pre><code>zone "abc.aus.century.com" in {
+    type master;
+    file "named.abc.data";
+};
+
+zone "201.9.192.in-addr.arpa" in {
+    type master;
+    file "named.abc.rev";
+};</code></pre>
+                </section>
+                <section>
+                    <h4>Локальная зона</h4>
+                    <pre><code>zone "0.0.127.in-addr.arpa" in {
+    type master;
+    file "named.abc.local";
+};</code></pre>
+                </section>
+                <section>
+                    <h4>Файл named.ca</h4>
+                    <pre><code>; root name servers.
+.          IN    NS    relay.century.com.
+relay.century.com.   3600000    IN    A     129.114.1.2</code></pre>
+                </section>
+                <section>
+                    <h3>named.abc.local</h3>
+                    <pre><code>$TTL 3h    ;3 hour
+
+    @ IN SOA venus.abc.aus.century.com. gail.zeus.abc.aus.century.com.  (
+    
+                               1       ;serial
+                               3600    ;refresh
+                               600     ;retry
+                               3600000 ;expire
+                               3600    ;negative caching TTL
+    )</code></pre>
+                </section>
+                <section>
+                    <h3>named.abc.local</h3>
+                    <h4>Запись сервера имен (NS)</h4>
+                    <pre><code>&lt;tab&gt;	IN    NS     venus.abc.aus.century.com.</code></pre>
+                    <h4>Запись указателя (PTR)<h4>
+                            <pre><code>1      IN    PTR    localhost.</code></pre>
+                </section>
+                <section>
+                    <h3>named.abc.data</h3>
+                    <pre><code>$TTL 3h    ;3 hour
+
+    @ IN    SOA     venus.abc.aus.century.com. gail.zeus.abc.aus.century.com. (
+                    1       ;serial
+                    3600    ;refresh
+                    600     ;retry
+                    3600000 ;expire
+                    3600    ;negative caching TTL
+    )</code></pre>
+                </section>
+                <section>
+                    <h3>named.abc.data</h3>
+                    <h4>Запись сервера имен (NS)</h4>
+                    <pre><code>&lt;tab&gt;	IN    NS     venus.abc.aus.century.com.</code></pre>
+                    <h4>Запись имен (A)<h4>
+                            <pre><code>venus        IN    A        192.9.201.1
+    earth        IN    A        192.9.201.5
+    mars         IN    A        192.9.201.3
+    jupiter      IN    A        192.9.201.7</code></pre>
+                </section>
+                <section>
+                    <h3>named.abc.rev</h3>
+                    <pre><code>$TTL 3h    ;3 hour
+
+    @  IN  SOA  venus.abc.aus.century.com. gail.zeus.abc.aus.century.com.  (
+                               1       ;serial
+                               3600    ;refresh
+                               600     ;retry
+                               3600000 ;expire
+                               3600    ;negative caching TTL
+    )</code></pre>
+                </section>
+                <section>
+                    <h3>named.abc.rev</h3>
+                    <h4>Запись сервера имен (NS).</h4>
+                    <pre><code>&lt;tab&gt;	IN    NS     venus.abc.aus.century.com.</code></pre>
+                    <h4>Запись указателя (PTR)<h4>
+                            <pre><code>1                      IN    PTR    venus.abc.aus.century.com.
+    5                      IN    PTR    earth.abc.aus.century.com.
+    3                      IN    PTR    mars.abc.aus.century.com.
+    7                      IN    PTR    jupiter.abc.aus.century.com.</code></pre>
+                </section>
+                <section>
+                    <h4>resolv.conf</h4>
+                    <pre><code>nameserver 127.0.0.1</code></pre>
+                    <pre><code>domain abc.aus.century.com</code></pre>
+                    <p>Для перезапуска сервера используется команда (от root)</p>
+                    <pre><code>systemctl restart naded</code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Настройка сервера имен рабочих</h2>
+                </section>
+                <section>
+                    <h3>named.conf</h3>
+                    <pre><code>options {
+    directory "/usr/local/domain";
+};
+zone "." IN {
+    type hint;
+    file "named.ca";
+};
+zone "abc.aus.century.com" IN {
+    type slave;
+    file "named.abc.data.bak";
+    masters { 192.9.201.1; };
+};</code></pre>
+                </section>
+                <section>
+                    <pre><code>zone "201.9.192.in-addr.arpa" IN {
+    type slave;
+    file "named.abc.rev.bak";
+    masters { 192.9.201.1; };
+};
+zone "0.0.127.in-addr.arpa" in {
+    type master;
+    file "named.abc.local";
+};</code></pre>
+                </section>
+                <section>
+                    <h2>named.abc.local</h2>
+                    <pre><code>zone "0.0.127.in-addr.arpa" in {
+    type master;
+    file "named.abc.local";
+};</code></pre>
+                </section>
+                <section>
+                    <h2>named.abc.local</h2>
+                    <pre><code>$TTL 3h    ;3 hour
+
+    @ IN SOA earth.abc.aus.century.com. gail.zeus.abc.aus.century.com.  (
+    
+                               1       ;serial
+                               3600    ;refresh
+                               600     ;retry
+                               3600000 ;expire
+                               3600    ;negative caching TTL
+    )
+    &lt;tab&gt;	IN    NS     earth.abc.aus.century.com.
+    1      IN    PTR    localhost.</code></pre>
+                </section>
+                <section>
+                    <h2>resolv.conf</h2>
+                    <pre><code>nameserver 127.0.0.1
+    domain abc.aus.century.com</code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Настройка сервера имен подсказок</h2>
+                </section>
+                <section>
+                    <h2>named.conf</h2>
+                    <pre><code>options {
+    directory "/usr/local/domain";
+};
+zone "0.0.127.in-addr.arpa" IN {
+    type master;
+	  file "named.abc.local";
+};
+zone "." IN {
+    type hint;
+    file "named.ca";
+};</code></pre>
+                </section>
+                <section>
+                    <h2>named.ca</h2>
+                    <pre><code>; root name servers.
+    .          IN    NS    relay.century.com.
+    relay.century.com.   3600000    IN    A     129.114.1.2</code></pre>
+                </section>
+                <section>
+                    <h2>named.local</h2>
+                    <pre><code>$TTL 3h    ;3 hour
+
+    @ IN SOA venus.abc.aus.century.com. gail.zeus.abc.aus.century.com.  (
+    
+                               1       ;serial
+                               3600    ;refresh
+                               600     ;retry
+                               3600000 ;expire
+                               3600    ;negative caching TTL
+    )
+    &lt;tab&gt;	IN    NS     venus.abc.aus.century.com.
+    1      IN    PTR    localhost.</code></pre>
+                </section>
+                <section>
+                    <h2>resolv.conf</h2>
+                    <pre><code>nameserver 127.0.0.1
+domain abc.aus.century.com</code></pre>
+                </section>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="../reveal.js"></script>
+    <script src="../notes.js"></script>
+    <!-- <script src="markdown.js"></script> -->
+    <!-- <script src="../math/math.js"></script> -->
+    <script src="../highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            showSlideNumber: 'all',
+            slideNumber: "true",
+            // Learn about plugins:</b> https://revealjs.com/plugins/
+            plugins: [RevealHighlight, RevealNotes]
+            // plugins: [RevealHighlight, RevealNotes, RevealMath.KaTeX]
+        });
+    </script>
+</body>
+
+</html>
