@@ -43,6 +43,7 @@ zone "." IN {
     type hint;
     file "named.ca";
 };
+
 zone "our.lan" IN {
     type master;
     file "named.our.data";
@@ -61,15 +62,32 @@ zone "0.0.127.in-addr.arpa" in {
                 </section>
                 <section>
                     <h2>named.our.data</h2>
-                    <pre><code>1                      IN    PTR    first.our.lan.
+                    <pre><code>$TTL 3h    ;3 hour
+@ IN    SOA     first.our.lan. admin.our.lan. (
+                1       ;serial
+                3600    ;refresh
+                600     ;retry
+                3600000 ;expire
+                3600    ;negative caching TTL
+)
+&lt;tab&gt;	IN    NS     first.our.lan.
+1                      IN    PTR    first.our.lan.
 5                      IN    PTR    second.our.lan.
 3                      IN    PTR    reception.our.lan.
 7                      IN    PTR    comp18.our.lan.</code></pre>
-
                 </section>
                 <section>
                     <h2>named.our.rev</h2>
-                    <pre><code>first        IN    A        10.22.33.1
+                    <pre><code>$TTL 3h    ;3 hour
+@ IN    SOA     first.our.lan. admin.our.lan. (
+                1       ;serial
+                3600    ;refresh
+                600     ;retry
+                3600000 ;expire
+                3600    ;negative caching TTL
+)
+&lt;tab&gt;	IN    NS     first.our.lan.
+first        IN    A        10.22.33.1
 second        IN    A        10.22.33.5
 reception         IN    A        10.22.33.3
 comp18      IN    A        10.22.33.7</code></pre>
