@@ -45,20 +45,35 @@ zone "." IN {
 };
 zone "our.lan" IN {
     type master;
-    file "named.our.data.bak";
-    masters { 10.22.33.1; };
+    file "named.our.data";
 };</code></pre>
                 </section>
                 <section>
                     <pre><code>zone "33.22.10.in-addr.arpa" IN {
     type master;
-    file "named.our.rev.bak";
-    masters { 10.22.33.1; };
+    file "named.our.rev";
 };
+
 zone "0.0.127.in-addr.arpa" in {
     type master;
     file "named.our.local";
 };</code></pre>
+                </section>
+                <section>
+                    <h2>named.our.data</h2>
+                    <pre><code>1                      IN    PTR    first.our.lan.
+5                      IN    PTR    second.our.lan.
+3                      IN    PTR    reception.our.lan.
+7                      IN    PTR    comp18.our.lan.</code></pre>
+
+                </section>
+                <section>
+                    <h2>named.our.rev</h2>
+                    <pre><code>first        IN    A        10.22.33.1
+second        IN    A        10.22.33.5
+reception         IN    A        10.22.33.3
+comp18      IN    A        10.22.33.7</code></pre>
+
                 </section>
                 <section>
                     <h2>named.our.local</h2>
