@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../reveal.css">
+    <link rel="stylesheet" href="../black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="../monokai.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Практическая №2<br />
+                    Настройка сервера имен </h1>
+            </section>
+            <section>
+                <h2>Технические рекомендации по выполнению</h2>
+                <ol>
+                    <li>Откройте терминал</li>
+                    <li>Получите адрес учебного компьютера</li>
+                    <li>На учебном компьютере зарегистрировано 2 пользователя: tux c паролем tux и root с паролем root
+                    </li>
+                    <li>При помощи команды "ssh tux@_адрес компьютера_", войдите на учебный компьютер</li>
+                    <li>Редактировать конфигурационные файлы может только root. Для повышения полномочй используйте
+                        команду "su -"</li>
+                    <li>Для редактирования используйте редактор "nano" (или "vi")</li>
+                </ol>
+            </section>
+            <section>
+                <section>
+                    <h2>Теоретическая часть</h2>
+                </section>
+                <section>
+                    <h3>named.conf</h3>
+                    <pre><code>options {
+    directory "/etc/bind";
+};
+zone "." IN {
+    type hint;
+    file "named.ca";
+};
+zone "our.lan" IN {
+    type master;
+    file "named.our.data.bak";
+    masters { 10.22.33.1; };
+};</code></pre>
+                </section>
+                <section>
+                    <pre><code>zone "33.22.10.in-addr.arpa" IN {
+    type master;
+    file "named.our.rev.bak";
+    masters { 10.22.33.1; };
+};
+zone "0.0.127.in-addr.arpa" in {
+    type master;
+    file "named.our.local";
+};</code></pre>
+                </section>
+                <section>
+                    <h2>named.our.local</h2>
+                    <pre><code>zone "0.0.127.in-addr.arpa" in {
+    type master;
+    file "named.our.local";
+};</code></pre>
+                </section>
+                <section>
+                    <h2>named.our.local</h2>
+                    <pre><code>$TTL 3h    ;3 hour
+@ IN SOA our.lan. admin.our.lan.  (
+                   1       ;serial
+                   3600    ;refresh
+                   600     ;retry
+                   3600000 ;expire
+                   3600    ;negative caching TTL
+)
+&lt;tab&gt;	IN    NS     our.lan.
+1      IN    PTR    localhost.</code></pre>
+                </section>
+                <section>
+                    <h2>resolv.conf</h2>
+                    <pre><code>nameserver 127.0.0.1
+domain our.lan</code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h3>Задание</h3>
+                    <ul>
+                        <li>Настрить конфигурация named в соответствии с поставленной задачей</li>
+                        <li>Настроить компьютер на использование локального DNS сервера</li>
+                        <li>Определить при помощи утилиты <b>nslookup</b> адреса компьютеров uranus, mercury и
+                            www.crao.ru (скриншот приложить к отчету)</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Поставка задачи</h3>
+                    <ol>
+                        <li>Сервер конфигурируется в каталоге /etc/bind</li>
+                        <li>Сервер для домена solar.lan</li>
+                        <li>В домен входят хосты: mercury, venus, earth, mars, jupiter, saturn, uranus, neptune, pluto
+                        </li>
+                        <li>Адреса из пула 192.168.33.X/24</li>
+                        <li>DNS сервер расположен на mercury.solar.lan с адресом 192.168.33.1</li>
+                    </ol>
+                </section>
+
+            </section>
+        </div>
+    </div>
+
+    <script src="../reveal.js"></script>
+    <script src="../notes.js"></script>
+    <!-- <script src="markdown.js"></script> -->
+    <!-- <script src="../math/math.js"></script> -->
+    <script src="../highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            showSlideNumber: 'all',
+            slideNumber: "true",
+            // Learn about plugins:</b> https://revealjs.com/plugins/
+            plugins: [RevealHighlight, RevealNotes]
+            // plugins: [RevealHighlight, RevealNotes, RevealMath.KaTeX]
+        });
+    </script>
+</body>
+
+</html>
