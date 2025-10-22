@@ -138,6 +138,14 @@ comp18      IN    A        10.22.33.7</code></pre>
                     <pre><code>nameserver 127.0.0.1
 domain our.lan</code></pre>
                 </section>
+                <section>
+                    <p>После первоначального конфигурирования демон должен быть запущен</p>
+                    <pre><code>/etc/init.d/named start</code></pre>
+                    <p>После изменения конфигурации демон должен быть перезапущен</p>
+                    <pre><code>/etc/init.d/named restart</code></pre>
+                    <p>или конфигурация должны быть перечитана</p>
+                    <pre><code>/etc/init.d/named reload</code></pre>
+                </section>
             </section>
             <section>
                 <h3>Поставка задачи</h3>
