@@ -23,7 +23,7 @@
                     <h2>Структурное программирование</h2>
                 </section>
                 <section>
-                    <p>Структурным программированием &mdash; разработка программ с помощью представления их в виде
+                    <p>Структурное программирование &mdash; разработка программ с помощью представления их в виде
                         иерархической структуры блоков.</p>
                 </section>
                 <section>
@@ -212,7 +212,6 @@ people.forEach(printName);</code></pre>
                 </section>
                 <section>
                     <pre><code>class Person{
- 
     #name;   // имя
     #age;    // возраст
     constructor(name, age){
@@ -226,20 +225,7 @@ people.forEach(printName);</code></pre>
 }</code></pre>
                 </section>
                 <section>
-                    <pre><code>class Person{
- 
-    #name;   // имя
-    #age;    // возраст
-    constructor(name, age){
-        this.name = name;
-        this.age = age;
-    }
-    say(){
-        console.log("Меня зовут", this.name);
-        console.log("Мне", this.age, "лет");
-    }
-}
-// создаем объект класса Person
+                    <pre><code>// создаем объект класса Person
 const tom = new Person("Tom", 39);
 // обращаемся к методу say объекта
 tom.say();
@@ -253,26 +239,11 @@ sam.say();</code></pre>
                     <h3>Инкапсуляция</h3>
                 </section>
                 <section>
-                    <pre><code>class Person{
-
-    #name;   // имя
-    #age;    // возраст
-    constructor(name, age){
-        this.#name = name;
-        this.#age = age;
-    }
-    say(){
-        console.log("Меня зовут", this.#name);
-        console.log("Мне", this.#age, "лет");
-    }
-}
-
-const tom = new Person("Tom", 39);
+                    <pre><code>const tom = new Person("Tom", 39);
 tom.#age = 12345; // ! Ошибка  - свойство #age не доступно вне класса Person</code></pre>
                 </section>
                 <section>
                     <pre><code>class Person{
- 
     #name;   // имя
     #age;    // возраст
     constructor(name, age){
@@ -298,24 +269,8 @@ tom.#age = 12345; // ! Ошибка  - свойство #age не доступн
                     <h3>Наследование</h3>
                 </section>
                 <section>
-                    <pre><code>class Person{
- 
-    #name;   // имя
-    #age;    // возраст
-    constructor(name, age){
-        this.#name = name;
-        this.#age = age;
-    }
-    say(){
-        console.log("Меня зовут", this.#name);
-        console.log("Мне", this.#age, "лет");
-    }
-}</code></pre>
-                </section>
-                <section>
                     <pre><code>// класс Employee унаследован от Person
 class Employee extends Person{
- 
     #company; // компания работника
     constructor(name, age, company){
         super(name, age);   // вызываем конструктор базового класса Person
