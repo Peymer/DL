@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../reveal.css">
+    <link rel="stylesheet" href="../black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="../monokai.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Парадигмы программирования</h1>
+            </section>
+            <section>
+                <section>
+                    <h2>Функциональное программирование</h2>
+                </section>
+                <section>
+                    <ul>
+                        <li> Функции представляют полноценные объекты</li>
+                        <li> Функции работают с неизменяемыми структурами данных </li>
+                        <li> Функции не имеют побочных эффектов</li>
+                        <li> Функциональные программы применяют декларативный стиль программирования </li>
+                    </ul>
+                    <aside class="notes">
+                        <ul>
+                            <li> Функции представляют полноценные объекты ("first-class objects", "first-class
+                                citizens").
+                                Это означает, что переменным можно присваивать также, как и другие объекты и примитивные
+                                значения; функции можно использовать в качестве аргументов других функций или в качестве
+                                их
+                                возвращаемого значения.</li>
+
+                            <li> Функции работают с неизменяемыми структурами данных. Структуры данных в функциональном
+                                программировании обычно неизменяемы или не изменяются. Операции же, которые выполняются
+                                над
+                                структурами данных, при необходимости создают новые структуры данных и возвращают их в
+                                качестве результатов. Например, в чисто функциональных языках программирования после
+                                создания списков или других структур данных их нельзя изменить</li>
+
+                            <li> Функции не имеют побочных эффектов. В функциональном программировании функции обычно
+                                вообще
+                                не имеют побочных эффектов и ведут себя скорее как математические функции. Это означает,
+                                что
+                                функции в функциональном программировании всегда возвращают один и тот же результат для
+                                одних и тех же входных данных и не вызывают никаких побочных эффектов. В чисто
+                                функциональных языках побочные эффекты уже предотвращаются самим языком.</li>
+
+                            <li> Функциональные программы применяют декларативный стиль программирования. Императивное
+                                программирование — это парадигма программирования, в которой компьютеру даются очень
+                                точные
+                                индивидуальные инструкции о том, как решить проблему. В императивных программах
+                                используются
+                                явные операторы цикла (циклы while, for и т. д.), условные операторы (if-else) и их
+                                последовательности. Функциональные же программы исповедуют декларативный стиль, что
+                                означает, что программа больше говорит, что следует делать, а не как. В результате
+                                функциональные программы обычно более читабельны, более содержательны и более компактны,
+                                чем
+                                эквивалентный императивный код.</li>
+                        </ul>
+                    </aside>
+                </section>
+                <section>
+                    <img src="./01.png" />
+                </section>
+                <section>
+                    <pre><code>// набор объектов для перебора
+const people = [
+        {name: "Tom", age:38}, 
+        {name: "Kate", age:31},  
+        {name: "Bob", age:42},  
+        {name: "Alice", age:34},  
+        {name: "Sam", age:25} ];
+        
+// перебор объектов массива
+for(let i = 0; i &lt; people.length; i++){
+    console.log(people[i].name);
+}</code></pre>
+                    <aside class="notes">
+                        <p>Это то, <b>что</b> должно произойти. Однако на самом деле код больше ориентирован на то,
+                            <b>как</b> все это должно работать: инициализировать переменную счетчика, проверить условие
+                            завершения, обратиться к элементу массива по определенному индексу, а затем увеличить
+                            переменную счетчика.
+                        </p>
+                    </aside>
+                </section>
+                <section>
+                    <pre><code>// набор объектов для перебора
+const people = [
+        {name: "Tom", age:38}, 
+        {name: "Kate", age:31},  
+        {name: "Bob", age:42},  
+        {name: "Alice", age:34},  
+        {name: "Sam", age:25} ];
+    
+const printName = (p)=>console.log(p.name);
+people.forEach(printName);</code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Объектно-ориентированное программирование</h2>
+                </section>
+                <section>
+                    <ul>
+                        <li>Абстракция</li>
+                        <li>Инкапсуляция данных</li>
+                        <li>Наследование</li>
+                        <li>Полиморфизм </li>
+                    </ul>
+                    <aside class="notes">
+                        <ul>
+
+
+                            <li> Абстракция: абстрактное поведение объектов обобщается в классах</li>
+                            <li> Инкапсуляция данных: свойства и методы инкапсулируются в виде классов и скрыты от
+                                внешнего доступа.</li>
+                            <li> Наследование: свойства и методы могут быть унаследованы одним классом от другого класса
+                            </li>
+                            <li> Полиморфизм: множество форм - объекты могут принимать различные формы в зависимости от
+                                их использования</li>
+
+                        </ul>
+                    </aside>
+                </section>
+                <section>
+                    <p>Класс &mdash; образец объектов, шаблон, на основе которого должны быть созданы отдельные
+                        экземпляры</p>
+                    <ul>
+                        <li>Свойства &mdash; состояние экземпляров</li>
+                        <li>Методы &mdash; поведение экземпляров</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Абстракция</h3>
+                    <pre><code>class Person{
+    #name;   // имя
+    #age;    // возраст
+    say(){
+        console.log("Меня зовут", this.name);
+        console.log("Мне", this.age, "лет");
+    }
+}</code></pre>
+                </section>
+                <section>
+                    <pre><code>class Person{
+ 
+    #name;   // имя
+    #age;    // возраст
+    constructor(name, age){
+        this.name = name;
+        this.age = age;
+    }
+    say(){
+        console.log("Меня зовут", this.name);
+        console.log("Мне", this.age, "лет");
+    }
+}</code></pre>
+                </section>
+                <section>
+                    <pre><code>class Person{
+ 
+    #name;   // имя
+    #age;    // возраст
+    constructor(name, age){
+        this.name = name;
+        this.age = age;
+    }
+    say(){
+        console.log("Меня зовут", this.name);
+        console.log("Мне", this.age, "лет");
+    }
+}
+// создаем объект класса Person
+const tom = new Person("Tom", 39);
+// обращаемся к методу say объекта
+tom.say();
+ 
+// создаем второй объект класса Person
+const sam = new Person("Sam", 25);
+// обращаемся к методу say объекта
+sam.say();</code></pre>
+                </section>
+                <section>
+                    <h3>Инкапсуляция</h3>
+                </section>
+                <section>
+                    <pre><code>class Person{
+
+    #name;   // имя
+    #age;    // возраст
+    constructor(name, age){
+        this.#name = name;
+        this.#age = age;
+    }
+    say(){
+        console.log("Меня зовут", this.#name);
+        console.log("Мне", this.#age, "лет");
+    }
+}
+
+const tom = new Person("Tom", 39);
+tom.#age = 12345; // ! Ошибка  - свойство #age не доступно вне класса Person</code></pre>
+                </section>
+                <section>
+                    <pre><code>class Person{
+ 
+    #name;   // имя
+    #age;    // возраст
+    constructor(name, age){
+        this.#name = name;
+        this.#age = age;
+    }
+    get name(){     // геттер для имени
+        return this.#name;
+    }
+    set age(value){ // сеттер для возраста
+        if(value &gt; 0 && value &lt; 110) this.#age = value;
+    }
+    get age(){      // геттер для возраста
+        return this.#age;
+    }
+    say(){
+        console.log("Меня зовут", this.#name);
+        console.log("Мне", this.#age, "лет");
+    }
+}</code></pre>
+                </section>
+                <section>
+                    <h3>Наследование</h3>
+                </section>
+                <section>
+                    <pre><code>class Person{
+ 
+    #name;   // имя
+    #age;    // возраст
+    constructor(name, age){
+        this.#name = name;
+        this.#age = age;
+    }
+    say(){
+        console.log("Меня зовут", this.#name);
+        console.log("Мне", this.#age, "лет");
+    }
+}</code></pre>
+                </section>
+                <section>
+                    <pre><code>// класс Employee унаследован от Person
+class Employee extends Person{
+ 
+    #company; // компания работника
+    constructor(name, age, company){
+        super(name, age);   // вызываем конструктор базового класса Person
+        this.#company = company;
+    }
+    say(){
+        super.say();    // вызов реализации метода say из класса Person
+        console.log("Я работаю в", this.#company);
+    }
+}</code></pre>
+                </section>
+                <section>
+                    <h3>Полиморфизм</h3>
+                </section>
+                <section>
+                    <pre><code>function printPerson(person){
+    person.say();
+    console.log("\n");
+}
+const tom = new Person("Tom", 39);
+const sam = new Employee("Sam", 25, "Google");
+printPerson(tom);
+printPerson(sam);</code></pre>
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="../reveal.js"></script>
+    <script src="../notes.js"></script>
+    <!-- <script src="markdown.js"></script> -->
+    <!-- <script src="../math/math.js"></script> -->
+    <script src="../highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            showSlideNumber: 'all',
+            slideNumber: "true",
+            // Learn about plugins:</b> https://revealjs.com/plugins/
+            plugins: [RevealHighlight, RevealNotes]
+            // plugins: [RevealHighlight, RevealNotes, RevealMath.KaTeX]
+        });
+    </script>
+</body>
+
+</html>
