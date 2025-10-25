@@ -63,7 +63,7 @@ if (response.ok) { // если HTTP-статус в диапазоне 200-299
   // получаем тело ответа
   let json = await response.json();
 } else {
-  alert("Ошибка HTTP: " + response.status);
+  console.log("Ошибка HTTP: " + response.status);
 }</code></pre>
                     <aside class="notes">
                         <p>На этом этапе мы можем проверить статус HTTP-запроса и определить, выполнился ли он успешно,
