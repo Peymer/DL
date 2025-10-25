@@ -19,21 +19,162 @@
                 <h1>Fetch</h1>
             </section>
             <section>
-                <p>
-                    JavaScript может отправлять сетевые запросы на сервер и подгружать новую информацию по мере
-                    необходимости.
+                <section>
+                    <p>
+                        JavaScript может отправлять сетевые запросы на сервер и подгружать новую информацию по мере
+                        необходимости.<br />
+                        Например, мы можем использовать сетевой запрос, чтобы:
+                    <ul>
+                        <li>Отправить заказ</li>
+                        <li>Загрузить информацию о пользователе</li>
+                        <li>Запросить последние обновления с сервера</li>
+                        <li>…и т.п</li>
+                    </ul>
+                    Метод <b>fetch()</b> &mdash; современный и очень мощный.</p>
+                </section>
+                <section>
+                    <p>Базовый синтаксис:</p>
+                    <pre><code>let promise = fetch(url, [options])</code></pre>
+                    <ul style="list-style-type: none;">
+                        <li>url &mdash; URL для отправки запроса</li>
+                        <li>options &mdash; дополнительные параметры</li>
+                    </ul>
+                    <aside class="notes">
+                        Без options это простой GET-запрос, скачивающий содержимое по адресу url.<br />
+                        Браузер сразу же начинает запрос и возвращает промис, который внешний код использует для
+                        получения
+                        результата.<br />
+                        Процесс получения ответа обычно происходит в два этапа.<br />
+                        options &mdash; метод, заголовки и так далее
+                    </aside>
+                </section>
+                <section>
+                    <ol>
+                        <li>promise выполняется с объектом встроенного класса Response в качестве результата, как только
+                            сервер пришлёт заголовки ответа.</li>
+                        <li>для получения тела ответа нужно использовать дополнительный вызов метода.</li>
+                    </ol>
+                </section>
+                <section>
+                    <p>Этап 1.</p>
+                    <pre><code>let response = await fetch(url);
 
-                    Например, мы можем использовать сетевой запрос, чтобы:
-                <ul>
-                    <li>Отправить заказ</li>
-                    <li>Загрузить информацию о пользователе</li>
-                    <li>Запросить последние обновления с сервера</li>
-                    <li>…и т.п</li>
-                </ul>
-                </p>
-                <aside class="=notes">
+if (response.ok) { // если HTTP-статус в диапазоне 200-299
+  // получаем тело ответа
+  let json = await response.json();
+} else {
+  alert("Ошибка HTTP: " + response.status);
+}</code></pre>
+                    <aside class="notes">
+                        <p>На этом этапе мы можем проверить статус HTTP-запроса и определить, выполнился ли он успешно,
+                            а
+                            также посмотреть заголовки, но пока без тела ответа.<br />
+                            Промис завершается с ошибкой, если fetch не смог выполнить HTTP-запрос, например при ошибке
+                            сети
+                            или если нет такого сайта. HTTP-статусы 404 и 500 не являются ошибкой.</p>
+                    </aside>
+                </section>
+                <section>
+                    <p>Этап 2.<br />
+                        Response предоставляет несколько методов, основанных на промисах, для доступа к телу ответа в
+                        различных форматах:
+                    <ul>
+                        <li>response.text()</li>
+                        <li>response.json()</li>
+                        <li>response.formData()</li>
+                        <li>response.blob()</li>
+                        <li>response.arrayBuffer()</li>
+                    </ul>
+                    </p>
+                    <aside class="notes">
+                        <ul>
+                            <li>response.text() – читает ответ и возвращает как обычный текст</li>
+                            <li>response.json() – декодирует ответ в формате JSON</li>
+                            <li>response.formData() – возвращает ответ как объект FormData</li>
+                            <li>response.blob() – возвращает объект как Blob (бинарные данные с типом)</li>
+                            <li>response.arrayBuffer() – возвращает ответ как ArrayBuffer (низкоуровневое представление
+                                бинарных данных)</li>
+                        </ul>
+                    </aside>
+                </section>
+                <section>
+                    <p>Получим JSON-объект с последними коммитами из репозитория на GitHub:</p>
+                    <pre><code>let url = 'https://golnk.ru/ZaRVJ';
+let response = await fetch(url);
+let commits = await response.json(); // ответ в формате JSON
+console.log(commits[0].author.login);</code></pre>
+                    <p>или тоже без await</p>
+                    <pre><code>fetch('https://golnk.ru/ZaRVJ')
+.then(response => response.json())
+.then(commits => console.log(commits[0].author.login));</code></pre>
+                </section>
+                <section>
+                    <p>Для получения ответа в виде текста используется <b>await response.text()</b> вместо
+                        <b>.json()</b>:
+                    </p>
+                    <pre><code>let response = await fetch('https://golnk.ru/ZaRVJ');
+let text = await response.text(); // тело ответа как текст      
+console.log(text.slice(0, 80) + '...');</code></pre>
+                </section>
+                <section>
+                    <p style="color: red;">Важно</p>
+                    <p>Можно выбрать только один метод чтения ответа.<br />
+                        Если мы уже получили ответ с <b>response.text()</b>, тогда <b>response.json()</b> не сработает,
+                        так
+                        как данные уже были обработаны.</p>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Заголовки ответа</h2>
+                    <!-- </section>
+                <section> -->
+                    <p>Заголовки ответа хранятся в объекте <b>response.headers</b>.</p>
+                    <pre><code>let response = await fetch('https://golnk.ru/ZaRVJ');
+// получить один заголовок
+console.log(response.headers.get('Content-Type')); 
+// application/json; charset=utf-8
 
-                </aside>
+// перебрать все заголовки
+for (let [key, value] of response.headers) {
+    console.log(`${key} = ${value}`);
+}</code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Post-запросы</h2>
+                    <!-- </section>
+                <section> -->
+                    <p>Для отправки POST-запроса или запроса с другим методом, необходимо использовать fetch с
+                        <b>options</b>:
+                    </p>
+                    <ul>
+                        <li> method – HTTP метод, например POST</li>
+                        <li> body – тело запроса, одно из списка:</li>
+                        <ul>
+                            <li>строка (например, в формате JSON)</li>
+                            <li>объект FormData для отправки данных как form/multipart</li>
+                            <li>Blob/BufferSource для отправки бинарны данных</li>
+                        </ul>
+                    </ul>
+                </section>
+                <section>
+                    <p>Чаще всего используется JSON.</p>
+                    <pre><code>  let user = {
+    name: 'John',
+    surname: 'Smith'
+  };
+  let response = await fetch('/article/fetch/post/user', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+    },
+    body: JSON.stringify(user)
+  });
+  let result = await response.json();
+  console.log(result.message);</code></pre>
+                </section>
             </section>
         </div>
     </div>
