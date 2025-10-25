@@ -109,7 +109,7 @@ console.log(commits[0].author.login);</code></pre>
                 </section>
                 <section>
                     <p>Для получения ответа в виде текста используется <b>await response.text()</b> вместо
-                        <b>.json()</b>:
+                        <b>await response.json()</b>:
                     </p>
                     <pre><code>let response = await fetch('https://golnk.ru/ZaRVJ');
 let text = await response.text(); // тело ответа как текст      
@@ -119,8 +119,7 @@ console.log(text.slice(0, 80) + '...');</code></pre>
                     <p style="color: red;">Важно</p>
                     <p>Можно выбрать только один метод чтения ответа.<br />
                         Если мы уже получили ответ с <b>response.text()</b>, тогда <b>response.json()</b> не сработает,
-                        так
-                        как данные уже были обработаны.</p>
+                        так как данные уже были обработаны.</p>
                 </section>
             </section>
             <section>
