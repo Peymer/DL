@@ -208,10 +208,10 @@
                 <section>
                     <p>Ошибка из промиса проходит через finally к catch:</p>
                     <pre><code>new Promise((resolve, reject) => {
-                        throw new Error("error");
-                      })
-                        .finally(() => alert("Промис завершён")) // срабатывает первым
-                        .catch(err => alert(err));  // .catch показывает ошибку</code></pre>
+throw new Error("error");
+})
+.finally(() => alert("Промис завершён")) // срабатывает первым
+.catch(err => alert(err));  // .catch показывает ошибку</code></pre>
                 </section>
                 <section>
                     <h4>Итоги:</h4>
